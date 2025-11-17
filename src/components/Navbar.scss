@@ -1,0 +1,81 @@
+@use "../styles/variables" as *;
+
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.9rem 2.4rem;
+  background: linear-gradient(90deg, $ib-dark-green, $ib-green);
+  color: $ib-white;
+  font-family: $font-main;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+
+  &__logo {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.1;
+
+    &-main {
+      font-weight: 700;
+      letter-spacing: 0.5px;
+    }
+
+    &-sub {
+      font-size: 0.75rem;
+      opacity: 0.9;
+    }
+  }
+
+  &__links {
+    display: flex;
+    align-items: center;
+    gap: 1.4rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    font-size: 0.95rem;
+  }
+
+  &__item {
+    cursor: pointer;
+    position: relative;
+    transition: color 0.2s ease;
+
+    &::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -0.25rem;
+      width: 0;
+      height: 2px;
+      background: $ib-orange;
+      transition: width 0.2s ease;
+    }
+
+    &:hover {
+      color: $ib-light-green;
+
+      &::after {
+        width: 100%;
+      }
+    }
+  }
+}
+
+/* Responsive simple para móvil */
+@media (max-width: 900px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.7rem;
+
+    &__links {
+      flex-wrap: wrap;
+      row-gap: 0.4rem;
+      font-size: 0.85rem;
+    }
+  }
+}
