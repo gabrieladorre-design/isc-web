@@ -54,7 +54,7 @@ const timelineData = [
   }
 ];
 
-function TimelineItem({ data, index }) {
+function TimelineItem({ data, index, onImageClick }) {
   const [isVisible, setIsVisible] = useState(false);
   const ref = useRef(null);
 
@@ -82,12 +82,12 @@ function TimelineItem({ data, index }) {
         <span className="stat-badge">{data.stats}</span>
       </div>
       <div className="timeline-images">
-        <div className="img-wrapper car">
+        {/* 🛠️ Añadimos el evento onClick a las imágenes de la moto */}
+        <div className="img-wrapper car" onClick={() => onImageClick(data.imgCar)}>
           <img src={data.imgCar} alt={`Moto ${data.model}`} />
-          {/* CAMBIO: De Monoplaza a Prototipo */}
           <div className="img-label">Prototipo</div>
         </div>
-        <div className="img-wrapper team">
+        <div className="img-wrapper team" onClick={() => onImageClick(data.imgTeam)}>
           <img src={data.imgTeam} alt={`Equipo ${data.year}`} />
           <div className="img-label">Equipo</div>
         </div>
@@ -98,6 +98,9 @@ function TimelineItem({ data, index }) {
 }
 
 export default function History() {
+  // 🛠️ Estado para controlar la imagen ampliada
+  const [zoomedImage, setZoomedImage] = useState(null);
+
   return (
     <div className="history-page">
       <header className="history-header">
@@ -131,9 +134,22 @@ export default function History() {
 
         {/* RESTO DE LA HISTORIA */}
         {timelineData.map((item, index) => (
-          <TimelineItem key={index} data={item} index={index} />
+          <TimelineItem 
+            key={index} 
+            data={item} 
+            index={index} 
+            onImageClick={setZoomedImage} /* 🛠️ Pasamos la función */
+          />
         ))}
       </div>
+
+      {/* 🛠️ MODAL LIGHTBOX: Se muestra solo si hay una imagen seleccionada */}
+      {zoomedImage && (
+        <div className="lightbox-overlay" onClick={() => setZoomedImage(null)}>
+          <span className="close-btn">&times;</span>
+          <img src={zoomedImage} alt="Ampliación" className="lightbox-img" />
+        </div>
+      )}
     </div>
   );
 }

@@ -38,6 +38,21 @@
     height: 100%;
     display: flex;
     align-items: center;
+
+    /* 🛠️ SOLUCIÓN 1: Si es el ÚLTIMO elemento del menú (ej: "Únete") */
+    &:last-child {
+      .dropdown-menu {
+        left: auto;        
+        right: 0;          
+        transform: none;   
+        
+        &::before {
+          left: auto;
+          right: 20px;     
+          transform: none;
+        }
+      }
+    }
   }
 
   .nav-link {
@@ -88,12 +103,17 @@
   background-color: $ib-main-green;
   border: 2px solid $isc-yellow; 
   list-style: none;
-  padding: 0.5rem 0;
+  
+  /* 🛠️ FORZAMOS RELLENO CERO PARA EVITAR HUECOS VERDES */
+  padding: 0 !important; 
+  margin: 0 !important;
+  
   min-width: 220px;
-  border-radius: 4px;
+  border-radius: 6px;
   box-shadow: 0 10px 30px rgba(0,0,0,0.25);
   animation: fadeIn 0.2s ease-out forwards;
   
+  /* Flechita decorativa arriba (triángulo) */
   &::before {
     content: '';
     position: absolute;
@@ -107,14 +127,18 @@
 
   li {
     width: 100%;
+    margin: 0;
+    padding: 0;
   }
 
   .dropdown-link {
     display: block;
-    padding: 0.9rem 1.5rem;
+    width: 100%; 
+    box-sizing: border-box; 
+    padding: 1rem 1.5rem; /* Botón más espacioso */
     color: white;
     text-decoration: none;
-    font-size: 0.9rem;
+    font-size: 0.95rem;
     font-weight: 600;
     text-transform: none;
     transition: all 0.2s ease;
@@ -122,20 +146,28 @@
     border-bottom: 1px solid rgba(255,255,255,0.1);
 
     &:hover {
-      background-color: rgba(255, 209, 0, 0.1); 
+      background-color: rgba(255, 209, 0, 0.15); /* Color de fondo completo */
       color: $isc-yellow;
-      padding-left: 2rem;
     }
-    
-    &:last-child { border-bottom: none; }
+  }
+
+  /* 🛠️ Redondeamos las esquinas del fondo al hacer hover */
+  li:first-child .dropdown-link {
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+  }
+  
+  li:last-child .dropdown-link { 
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+    border-bottom: none; 
   }
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; transform: translate(-50%, 15px); }
-  to { opacity: 1; transform: translate(-50%, 0); }
+  from { opacity: 0; transform: translateY(15px); }
+  to { opacity: 1; transform: translateY(0); }
 }
-
 
 /* RESPONSIVE (Móvil) */
 @media (max-width: 900px) {
@@ -152,7 +184,7 @@
     
     .dropdown-menu {
       position: static;
-      transform: none;
+      transform: none !important; 
       box-shadow: none;
       background: rgba(0,0,0,0.05);
       border: none; 
@@ -165,7 +197,10 @@
       .dropdown-link {
          color: $ib-main-green;
          border-bottom-color: rgba(0,0,0,0.1);
-         &:hover { color: darken($ib-main-green, 10%); background: none; padding-left: 1.5rem;}
+         &:hover { 
+           color: darken($ib-main-green, 10%); 
+           background: rgba(0,0,0,0.05);
+         }
       }
     }
   }

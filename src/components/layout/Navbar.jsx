@@ -7,20 +7,16 @@ export default function Navbar() {
   const [dropdownOpen, setDropdownOpen] = useState(null);
   const location = useLocation();
 
-  /* --- ESTRUCTURA DEL MENÚ ACTUALIZADA --- */
+  /* --- ESTRUCTURA DEL MENÚ --- */
   const menuItems = [
-    {
-      label: "Inicio",
-      path: "/formula",
-      subItems: null 
-    },
+    { label: "Inicio", path: "/formula", subItems: null },
     {
       label: "Equipo",
       path: null, 
       subItems: [
-        { label: "Historia", path: "/history" }, // Antes: Nuestra Historia
-        { label: "Garaje", path: "/garaje" },   // Antes: El Garaje
-        { label: "Equipo", path: "/team" },    // Antes: Quiénes Somos
+        { label: "Historia", path: "/history" },
+        { label: "Garaje", path: "/garaje" },
+        { label: "Equipo", path: "/team" },
       ]
     },
     {
@@ -51,6 +47,20 @@ export default function Navbar() {
     }
   ];
 
+  /* 🛠️ Función para detectar enlaces normales activos */
+  const isLinkActive = (item) => {
+    if (location.pathname === item.path) return true;
+    if (item.path === "/sponsors" && location.pathname === "/sponsor-us") return true;
+    return false;
+  };
+
+  /* 🛠️ NUEVA FUNCIÓN: Detecta si un menú desplegable debe estar activo */
+  const isDropdownActive = (item) => {
+    if (!item.subItems) return false;
+    // Devuelve 'true' si la URL actual coincide con la ruta de ALGÚN sub-elemento
+    return item.subItems.some((sub) => location.pathname === sub.path);
+  };
+
   return (
     <nav className="navbar">
       <div className="navbar__logo">
@@ -70,7 +80,8 @@ export default function Navbar() {
             {item.subItems ? (
               /* --- SI TIENE SUBMENÚ (DROPDOWN) --- */
               <div className="dropdown-wrapper">
-                <span className={`nav-link dropdown-trigger ${dropdownOpen === index ? "active" : ""}`}>
+                {/* 🛠️ Aplicamos la nueva función para encender la línea amarilla del padre */}
+                <span className={`nav-link dropdown-trigger ${dropdownOpen === index ? "active" : ""} ${isDropdownActive(item) ? "active-link" : ""}`}>
                   {item.label} <small>▾</small>
                 </span>
                 
@@ -78,7 +89,11 @@ export default function Navbar() {
                   <ul className="dropdown-menu">
                     {item.subItems.map((sub, subIndex) => (
                       <li key={subIndex}>
-                        <Link to={sub.path} className="dropdown-link">
+                        <Link 
+                          to={sub.path} 
+                          className="dropdown-link"
+                          onClick={() => setDropdownOpen(null)}
+                        >
                           {sub.label}
                         </Link>
                       </li>
@@ -90,7 +105,7 @@ export default function Navbar() {
               /* --- SI ES UN ENLACE NORMAL --- */
               <Link 
                 to={item.path} 
-                className={`nav-link ${location.pathname === item.path ? "active-link" : ""}`}
+                className={`nav-link ${isLinkActive(item) ? "active-link" : ""}`}
               >
                 {item.label}
               </Link>

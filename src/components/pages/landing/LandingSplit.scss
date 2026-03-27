@@ -76,7 +76,7 @@
   .circle-logo {
     width: 280px;
     height: 280px;
-    background: $ib-main-green;
+    background-color: rgba($ib-main-green, 0.6);
     border: 3px solid $isc-yellow;
     border-radius: 50%;
     display: flex;

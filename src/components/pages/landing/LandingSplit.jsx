@@ -1,12 +1,11 @@
 import { Link } from "react-router-dom";
 import "./LandingSplit.scss";
 
-// --- LOGO TEMPORAL ---
+// --- LOGO E IMÁGENES LOCALES ---
 import iscLogo from "../../../assets/logos/ISC.png";  
+import motoBg from "../../../assets/Fotos y videos/Landing/moto.jpg";
+import formulaBg from "../../../assets/Fotos y videos/Landing/coche.jpg";
 
-// --- FOTOS DE FONDO TEMPORALES (De internet para que funcione a la primera) ---
-const motoBg = "https://images.unsplash.com/photo-1558981403-c5f9899a28bc?auto=format&fit=crop&q=80&w=1200";
-const formulaBg = "https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?auto=format&fit=crop&q=80&w=1200";
 
 export default function LandingSplit() {
   return (
@@ -26,7 +25,7 @@ export default function LandingSplit() {
         <Link 
           to="/moto" 
           className="split-side moto-side"
-          style={{ backgroundImage: `url(${motoBg})` }} /* <--- AQUÍ SE PONE LA FOTO */
+          style={{ backgroundImage: `url(${motoBg})` }} /* <--- FOTO DE LA MOTO */
         >
           <div className="overlay"></div>
           <div className="content">
@@ -41,7 +40,7 @@ export default function LandingSplit() {
         <Link 
           to="/formula" 
           className="split-side formula-side"
-          style={{ backgroundImage: `url(${formulaBg})` }} /* <--- AQUÍ SE PONE LA FOTO */
+          style={{ backgroundImage: `url(${formulaBg})` }} /* <--- FOTO DEL COCHE */
         >
           <div className="overlay"></div>
           <div className="content">

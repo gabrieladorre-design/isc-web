@@ -218,7 +218,7 @@
   }
 }
 
-/* --- IMÁGENES CON EFECTO ZOOM --- */
+/* --- IMÁGENES CON EFECTO ZOOM AL PASAR EL RATÓN --- */
 .timeline-images {
   width: 45%;
   position: relative;
@@ -230,8 +230,6 @@
     border-radius: 8px;
     box-shadow: 0 10px 20px rgba(0,0,0,0.2);
     border: 4px solid white;
-    
-    /* Transición suave para el zoom y la sombra */
     transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), box-shadow 0.4s ease, z-index 0s;
     
     img { 
@@ -251,11 +249,10 @@
       text-transform: uppercase;
     }
 
-    /* EFECTO AL PASAR EL RATÓN */
     &:hover { 
-      z-index: 10 !important; /* Salta al frente */
-      transform: scale(1.2); /* Aumenta un 20% su tamaño */
-      box-shadow: 0 25px 50px rgba(0,0,0,0.4); /* Sombra espectacular */
+      z-index: 10 !important; 
+      transform: scale(1.1); /* Lo bajamos un poco para que invite a hacer clic */
+      box-shadow: 0 25px 50px rgba(0,0,0,0.4); 
       cursor: pointer;
     }
   }
@@ -264,6 +261,59 @@
   .team { width: 65%; height: 75%; bottom: 0; right: 0; z-index: 1; filter: grayscale(30%); }
 }
 
+/* 🛠️ MODAL LIGHTBOX (PANTALLA COMPLETA) */
+.lightbox-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.85); /* Fondo negro semitransparente */
+  backdrop-filter: blur(5px); /* Desenfoca lo que hay detrás */
+  z-index: 9999; /* Asegura que esté por encima de TODO el menú de navegación */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: zoom-out; /* Cambia el ratón para indicar que si haces clic se cierra */
+  animation: fadeInLightbox 0.3s ease-out forwards;
+
+  .lightbox-img {
+    max-width: 90vw;
+    max-height: 90vh;
+    object-fit: contain;
+    border-radius: 8px;
+    box-shadow: 0 15px 50px rgba(0,0,0,0.5);
+    border: 4px solid white;
+    animation: scaleUp 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+  }
+
+  .close-btn {
+    position: absolute;
+    top: 30px;
+    right: 40px;
+    font-size: 3rem;
+    color: white;
+    cursor: pointer;
+    transition: color 0.2s ease;
+    
+    &:hover {
+      color: $isc-yellow; /* Brilla en amarillo al pasar el ratón */
+    }
+  }
+}
+
+/* Animaciones suaves para la apertura del Lightbox */
+@keyframes fadeInLightbox {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes scaleUp {
+  from { transform: scale(0.8); }
+  to { transform: scale(1); }
+}
+
+/* RESPONSIVE MÓVIL */
 @media (max-width: 900px) {
   .timeline-line { left: 20px; top: 380px; } 
   
@@ -277,5 +327,16 @@
   }
 
   .timeline-content { width: 100%; margin: 2rem 0; text-align: left !important; }
-  .timeline-images { width: 100%; height: 250px; margin: 0 !important; .car { width: 60%; height: 80%; } .team { width: 60%; height: 80%; } }
+  .timeline-images { 
+    width: 100%; 
+    height: 250px; 
+    margin: 0 !important; 
+    .car { width: 60%; height: 80%; } 
+    .team { width: 60%; height: 80%; } 
+  }
+  
+  .lightbox-overlay .close-btn {
+    top: 15px;
+    right: 20px;
+  }
 }

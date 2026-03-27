@@ -37,6 +37,21 @@
     height: 100%;
     display: flex;
     align-items: center;
+
+    /* 🛠️ SOLUCIÓN 1: Si es el ÚLTIMO elemento del menú (ej: "Únete") */
+    &:last-child {
+      .dropdown-menu {
+        left: auto;        
+        right: 0;          
+        transform: none;   
+        
+        &::before {
+          left: auto;
+          right: 20px;     
+          transform: none;
+        }
+      }
+    }
   }
 
   .nav-link {
@@ -85,15 +100,15 @@
   left: 50%;
   transform: translateX(-50%);
   background-color: $ib-main-green;
-  
-  /* --- CAMBIO AQUÍ: BORDE COMPLETO AMARILLO --- */
   border: 2px solid $isc-yellow; 
-  /* ------------------------------------------ */
-  
   list-style: none;
-  padding: 0.5rem 0;
+  
+  /* 🛠️ AHORA SÍ: Forzamos a que el relleno sea CERO absoluto */
+  padding: 0 !important; 
+  margin: 0 !important;
+  
   min-width: 220px;
-  border-radius: 4px;
+  border-radius: 6px;
   box-shadow: 0 10px 30px rgba(0,0,0,0.25);
   animation: fadeIn 0.2s ease-out forwards;
   
@@ -101,7 +116,7 @@
   &::before {
     content: '';
     position: absolute;
-    top: -8px; /* Ajustado para coincidir con el borde */
+    top: -8px; 
     left: 50%;
     transform: translateX(-50%);
     border-left: 8px solid transparent;
@@ -111,14 +126,18 @@
 
   li {
     width: 100%;
+    margin: 0;
+    padding: 0;
   }
 
   .dropdown-link {
     display: block;
-    padding: 0.9rem 1.5rem;
+    width: 100%; 
+    box-sizing: border-box; 
+    padding: 1rem 1.5rem; /* Un pelín más alto para que el botón respire bien */
     color: white;
     text-decoration: none;
-    font-size: 0.9rem;
+    font-size: 0.95rem;
     font-weight: 600;
     text-transform: none;
     transition: all 0.2s ease;
@@ -126,18 +145,23 @@
     border-bottom: 1px solid rgba(255,255,255,0.1);
 
     &:hover {
-      background-color: rgba(255, 209, 0, 0.1); /* Brillo amarillo suave */
+      background-color: rgba(255, 209, 0, 0.15); /* Color un poco más visible */
       color: $isc-yellow;
-      padding-left: 2rem;
     }
-    
-    &:last-child { border-bottom: none; }
   }
-}
 
-@keyframes fadeIn {
-  from { opacity: 0; transform: translate(-50%, 15px); }
-  to { opacity: 1; transform: translate(-50%, 0); }
+  /* 🛠️ TRUCO DE DISEÑO: Redondeamos las esquinas del fondo al hacer hover 
+     para que encajen perfectas con la caja amarilla */
+  li:first-child .dropdown-link {
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+  }
+  
+  li:last-child .dropdown-link { 
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+    border-bottom: none; 
+  }
 }
 
 /* RESPONSIVE (Móvil) */
@@ -155,10 +179,10 @@
     
     .dropdown-menu {
       position: static;
-      transform: none;
+      transform: none !important; 
       box-shadow: none;
       background: rgba(0,0,0,0.05);
-      border: none; /* En móvil quitamos el borde para que no sature */
+      border: none; 
       min-width: 100%;
       text-align: center;
       display: block;
@@ -168,7 +192,10 @@
       .dropdown-link {
          color: $ib-main-green;
          border-bottom-color: rgba(0,0,0,0.1);
-         &:hover { color: darken($ib-main-green, 10%); background: none; padding-left: 1.5rem;}
+         &:hover { 
+           color: darken($ib-main-green, 10%); 
+           background: rgba(0,0,0,0.05);
+         }
       }
     }
   }

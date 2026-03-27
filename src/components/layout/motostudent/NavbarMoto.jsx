@@ -39,6 +39,23 @@ export default function NavbarMoto() {
     }
   ];
 
+  /* 🛠️ Función para detectar enlaces normales activos en Moto */
+  const isLinkActive = (item) => {
+    // 1. Si la ruta es exactamente igual (comportamiento normal)
+    if (location.pathname === item.path) return true;
+    
+    // 2. EXCEPCIÓN: Si entramos en "Patrocínanos" de la moto, mantenemos la pestaña encendida
+    if (item.path === "/moto/sponsors" && location.pathname === "/moto/sponsor-us") return true;
+    
+    return false;
+  };
+
+  /* 🛠️ NUEVA FUNCIÓN: Detecta si un menú desplegable debe estar activo */
+  const isDropdownActive = (item) => {
+    if (!item.subItems) return false;
+    return item.subItems.some((sub) => location.pathname === sub.path);
+  };
+
   return (
     <nav className="navbar-moto">
       <div className="navbar-moto__logo">
@@ -57,7 +74,8 @@ export default function NavbarMoto() {
           >
             {item.subItems ? (
               <div className="dropdown-wrapper">
-                <span className={`nav-link dropdown-trigger ${dropdownOpen === index ? "active" : ""}`}>
+                {/* 🛠️ Aplicamos la nueva función para encender la línea amarilla del padre */}
+                <span className={`nav-link dropdown-trigger ${dropdownOpen === index ? "active" : ""} ${isDropdownActive(item) ? "active-link" : ""}`}>
                   {item.label} <small>▾</small>
                 </span>
                 
@@ -65,7 +83,6 @@ export default function NavbarMoto() {
                   <ul className="dropdown-menu">
                     {item.subItems.map((sub, subIndex) => (
                       <li key={subIndex}>
-                        {/* MEJORA: Añadimos onClick para que se cierre el menú al pulsar */}
                         <Link 
                           to={sub.path} 
                           className="dropdown-link"
@@ -81,7 +98,7 @@ export default function NavbarMoto() {
             ) : (
               <Link 
                 to={item.path} 
-                className={`nav-link ${location.pathname === item.path ? "active-link" : ""}`}
+                className={`nav-link ${isLinkActive(item) ? "active-link" : ""}`}
               >
                 {item.label}
               </Link>

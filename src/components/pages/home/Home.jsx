@@ -2,13 +2,24 @@ import { useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import "./Home.scss";
 
-// --- IMPORTACIÓN DE ASSETS TEMPORALES ---
-// Fondo para la portada (Hero)
-const heroBg = "https://videos.pexels.com/video-files/3045237/3045237-uhd_2560_1440_25fps.mp4"; 
-// Vídeo de presentación (Con controles)
-const presentationVideo = "https://videos.pexels.com/video-files/5192083/5192083-uhd_2560_1440_25fps.mp4";
-// Imagen del CAD
-const carCad = "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=1000"; 
+// --- IMPORTACIÓN DE ASSETS LOCALES ---
+// Imagen principal de portada (sustituye al vídeo de stock)
+import heroBg from "../../../assets/Fotos y videos/HomeCoche/HomeCoche.JPG";
+
+// Vídeo de presentación
+import presentationVideo from "../../../assets/Fotos y videos/HomeCoche/HomeVideoCoche.mp4";
+
+// Imagen estática temporal para la sección de "Quiénes Somos" 
+// (Usaremos una de las deslizantes de momento hasta que pongas un CAD real)
+import carCad from "../../../assets/Fotos y videos/HomeCoche/Imagenes Deslizantes Home/C01.JPG";
+
+// Imágenes de la galería deslizante
+import slide1 from "../../../assets/Fotos y videos/HomeCoche/Imagenes Deslizantes Home/C01.JPG";
+import slide2 from "../../../assets/Fotos y videos/HomeCoche/Imagenes Deslizantes Home/C03b.JPG";
+import slide3 from "../../../assets/Fotos y videos/HomeCoche/Imagenes Deslizantes Home/C03c.JPG";
+import slide4 from "../../../assets/Fotos y videos/HomeCoche/Imagenes Deslizantes Home/C04.jpg";
+import slide5 from "../../../assets/Fotos y videos/HomeCoche/Imagenes Deslizantes Home/C04b.jpg";
+
 
 export default function Home() {
   const revealRefs = useRef([]);
@@ -32,13 +43,24 @@ export default function Home() {
     }
   };
 
+  // Array con las imágenes para el carrusel infinito
+  const galleryImages = [slide1, slide2, slide3, slide4, slide5];
+
   return (
     <div className="home-page">
       
-      {/* 1. HERO SECTION (PORTADA) */}
-      <section className="hero-section">
-        <div className="video-overlay"></div>
-        <video className="hero-video" src={heroBg} autoPlay loop muted playsInline />
+      {/* 1. HERO SECTION (PORTADA CON IMAGEN) */}
+      <section 
+        className="hero-section" 
+        style={{ 
+          backgroundImage: `url(${heroBg})`, 
+          backgroundSize: 'cover', 
+          backgroundPosition: 'center', 
+          backgroundAttachment: 'fixed' 
+        }}
+      >
+        <div className="video-overlay" style={{ backgroundColor: 'rgba(0, 0, 0, 0.4)' }}></div>
+        {/* Eliminamos la etiqueta <video> y usamos el fondo que hemos puesto arriba */}
 
         <div className="hero-content">
           <h1 className="slide-up">ISC RACING TEAM</h1>
@@ -50,16 +72,23 @@ export default function Home() {
         </div>
       </section>
 
-    {/* 2. VÍDEO DE PRESENTACIÓN (SIN TÍTULO) */}
+     {/* 2. VÍDEO DE PRESENTACIÓN */}
       <section className="presentation-section" ref={addToRefs}>
         <div className="presentation-container">
           <div className="video-wrapper">
-            <video src={presentationVideo} controls poster="https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?auto=format&fit=crop&w=1200&q=80"></video>
+            <video 
+              src={presentationVideo} 
+              autoPlay    /* Arranca automáticamente */
+              muted       /* Obligatorio para que funcione el autoPlay en navegadores */
+              loop        /* Hace que vuelva a empezar cuando termine (opcional) */
+              playsInline /* Ayuda a que arranque bien en móviles (iPhone) */
+              controls    /* Mantiene la barra de progreso por si el usuario quiere pausarlo o activarle el sonido manual */
+            ></video>
           </div>
         </div>
       </section>
 
-      {/* 3. QUIÉNES SOMOS + CAD (COCHE ELÉCTRICO) */}
+      {/* 3. QUIÉNES SOMOS + IMAGEN (COCHE ELÉCTRICO) */}
       <section className="who-we-are-section" ref={addToRefs}>
         <div className="who-container">
           
@@ -92,7 +121,7 @@ export default function Home() {
 
           <div className="who-visual">
             <div className="cad-frame">
-              <img src={carCad} alt="Modelo CAD del coche" />
+              <img src={carCad} alt="Monoplaza ISC" />
               <div className="tech-overlay">
                 <span>IFS-07 // EV POWERTRAIN</span>
               </div>
@@ -130,9 +159,10 @@ export default function Home() {
         <h2>NUESTRA PASIÓN EN IMÁGENES</h2>
         <div className="gallery-slider">
           <div className="slider-track">
-            {[1,2,3,4,5,6,1,2,3,4,5,6].map((num, i) => (
+            {/* Duplicamos el array para crear el efecto infinito sin saltos */}
+            {[...galleryImages, ...galleryImages, ...galleryImages].map((imgSrc, i) => (
               <div key={i} className="slide">
-                <img src={`https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?auto=format&fit=crop&w=600&q=80&ixid=${num}`} alt="Gallery" />
+                <img src={imgSrc} alt={`Gallery slide ${i}`} />
               </div>
             ))}
           </div>
