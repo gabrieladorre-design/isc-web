@@ -1,9 +1,10 @@
+// src/App.scss
 @use "./styles/variables" as *;
 
 .app {
   min-height: 100vh;
   background: $ib-bg;
-  color: $ib-text-dark;
+  color: $text-dark; /* <--- CORREGIDO: antes era $ib-text-dark */
   font-family: $font-main;
 
   &__content {

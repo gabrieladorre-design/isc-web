@@ -1,0 +1,126 @@
+/* Subimos 2 niveles para encontrar la carpeta styles */
+@use "../../styles/variables" as *;
+
+.footer {
+  /* CAMBIO: Usamos la variable gris oscuro específica para el footer */
+  background-color: $footer-bg; 
+  
+  color: white;
+  padding: 3rem 2rem;
+  font-family: $font-main;
+
+  &__container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+    gap: 2rem;
+  }
+
+  /* --- IZQUIERDA --- */
+  &__left {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+    flex: 1;
+  }
+
+  &__brand {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin: 0;
+    color: $isc-yellow; /* Detalle: Nombre del equipo en Amarillo ISC */
+  }
+
+  &__tagline {
+    font-size: 0.9rem;
+    opacity: 0.9;
+    margin: 0 0 1rem 0;
+  }
+
+  &__socials {
+    display: flex;
+    gap: 1rem;
+
+    img {
+      width: 32px;
+      height: 32px;
+      transition: transform 0.2s ease;
+
+      &:hover {
+        transform: translateY(-3px);
+        opacity: 0.8;
+      }
+    }
+  }
+
+  /* --- CENTRO --- */
+  &__center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 3rem;
+    flex: 1;
+
+    .logo-partner {
+      height: 50px;
+      width: auto;
+      object-fit: contain;
+      transition: opacity 0.2s;
+
+      &:hover {
+        opacity: 0.8;
+      }
+    }
+  }
+
+  /* --- DERECHA --- */
+  &__right {
+    text-align: right;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0.5rem;
+    flex: 1;
+  }
+
+  &__uni {
+    font-weight: 600;
+    margin-bottom: 0.2rem;
+  }
+
+  &__address-lines {
+    font-size: 0.9rem;
+    opacity: 0.7; 
+    
+    p { margin: 0; line-height: 1.4; }
+  }
+
+  &__contact-link {
+    margin-top: 0.5rem;
+    color: white;
+    text-decoration: underline;
+    font-weight: 500;
+    
+    &:hover {
+      color: $isc-yellow; 
+    }
+  }
+}
+
+@media (max-width: 900px) {
+  .footer__container {
+    flex-direction: column;
+    text-align: center;
+    gap: 3rem;
+  }
+
+  .footer__left, 
+  .footer__right {
+    align-items: center;
+    text-align: center;
+  }
+}

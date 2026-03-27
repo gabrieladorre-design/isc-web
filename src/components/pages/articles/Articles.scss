@@ -1,0 +1,191 @@
+@use "../../../styles/variables" as *;
+
+.articles-page {
+  /* Fondo general de la página en blanco */
+  background-color: white; 
+  /* Color de texto por defecto oscuro para el fondo blanco */
+  color: $text-dark;
+  min-height: 100vh;
+  padding-bottom: 6rem;
+  font-family: $font-main;
+}
+
+/* --- CABECERA (Esta se queda en VERDE) --- */
+.articles-header {
+  background-color: $ib-main-green;
+  color: white;
+  padding: 8rem 2rem 4rem;
+  text-align: center;
+  
+  h1 {
+    font-size: 4.5rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+    letter-spacing: 2px;
+    color: white; /* Texto blanco sobre fondo verde */
+  }
+  p { 
+    font-size: 1.2rem; 
+    color: rgba(255, 255, 255, 0.9); 
+    font-weight: 300;
+  }
+}
+
+/* --- CONTENEDOR PRINCIPAL (En fondo blanco) --- */
+.newsletters-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 4rem 2rem;
+}
+
+/* --- SECCIÓN POR AÑO (Ej: 2025-2026) --- */
+.year-section {
+  margin-bottom: 5rem;
+
+  .year-title {
+    font-size: 2.8rem;
+    font-weight: 900;
+    /* CAMBIO: Color oscuro (verde o negro) sobre fondo blanco */
+    color: #111; 
+    margin-bottom: 2.5rem;
+    letter-spacing: 1px;
+    
+    // Opcional: una línea sutil debajo del año como en eRacing
+    display: inline-block;
+    position: relative;
+    &::after {
+        content: ''; position: absolute; bottom: -10px; left: 0; width: 60px; height: 4px;
+        background-color: $isc-yellow;
+    }
+  }
+}
+
+/* --- GRID DE NEWSLETTERS --- */
+.newsletters-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 3rem;
+}
+
+/* --- TARJETA DE NEWSLETTER --- */
+.newsletter-card {
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  
+  &:hover {
+    transform: translateY(-8px);
+    .card-image .overlay { opacity: 1; }
+    .card-image img { transform: scale(1.03); }
+  }
+
+  /* Título del mes en amarillo, resalta bien en blanco */
+  .month-title {
+    font-size: 1.6rem;
+    font-weight: 900;
+    color: $isc-yellow;
+    text-transform: uppercase;
+    margin-bottom: 1.2rem;
+    letter-spacing: 1px;
+  }
+
+  /* Contenedor de la portada */
+  .card-image {
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    background-color: #f5f5f5; /* Fondo gris muy suave por si tarda la imagen */
+    border-radius: 4px; 
+    /* Sombra más suave y difuminada para fondo blanco */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    border: 1px solid #eee; /* Borde sutil para definir la portada */
+    
+    /* Ratio A4 */
+    aspect-ratio: 210 / 297; 
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top center;
+      transition: transform 0.5s ease;
+    }
+
+    .overlay {
+      position: absolute;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background: rgba(0, 54, 34, 0.85); /* Verde semitransparente al hacer hover */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+
+      span {
+        color: white;
+        font-weight: 800;
+        font-size: 1.1rem;
+        letter-spacing: 2px;
+        border: 2px solid $isc-yellow;
+        background-color: rgba(0,0,0,0.3);
+        padding: 0.8rem 1.8rem;
+        text-transform: uppercase;
+        border-radius: 50px;
+      }
+    }
+  }
+}
+
+/* --- VISOR MODAL PDF (Nativo) --- */
+.pdf-modal-overlay {
+  position: fixed;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background: rgba(0, 0, 0, 0.9);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  animation: fadeIn 0.3s ease;
+}
+
+.pdf-modal-content {
+  width: 100%;
+  max-width: 1200px; 
+  height: 90vh; 
+  background: #222;
+  position: relative;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.8);
+  border-radius: 8px;
+  overflow: hidden;
+
+  iframe { border: none; background: white; }
+
+  .close-btn {
+    position: absolute;
+    top: -45px;
+    right: 0;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 3rem;
+    cursor: pointer;
+    line-height: 1;
+    transition: color 0.2s ease;
+    &:hover { color: $isc-yellow; }
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@media (max-width: 768px) {
+  .articles-header { padding: 6rem 1.5rem 3rem; h1 { font-size: 2.8rem; } }
+  .newsletters-container { padding: 2rem 1.5rem; }
+  .year-section .year-title { font-size: 2.2rem; }
+  .pdf-modal-overlay { padding: 0.5rem; }
+  .pdf-modal-content { height: 80vh; } 
+  .pdf-modal-content .close-btn { top: 5px; right: 10px; color: black; text-shadow: 0 0 5px white;} 
+}
