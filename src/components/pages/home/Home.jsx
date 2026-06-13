@@ -3,14 +3,13 @@ import { Link } from "react-router-dom";
 import "./Home.scss";
 
 // --- IMPORTACIÓN DE ASSETS LOCALES ---
-// Imagen principal de portada (sustituye al vídeo de stock)
+// Imagen principal de portada 
 import heroBg from "../../../assets/Fotos y videos/HomeCoche/HomeCoche.JPG";
 
 // Vídeo de presentación
 import presentationVideo from "../../../assets/Fotos y videos/HomeCoche/HomeVideoCoche.mp4";
 
 // Imagen estática temporal para la sección de "Quiénes Somos" 
-// (Usaremos una de las deslizantes de momento hasta que pongas un CAD real)
 import carCad from "../../../assets/Fotos y videos/HomeCoche/Imagenes Deslizantes Home/C01.JPG";
 
 // Imágenes de la galería deslizante
@@ -60,7 +59,7 @@ export default function Home() {
         }}
       >
         <div className="video-overlay" style={{ backgroundColor: 'rgba(0, 0, 0, 0.4)' }}></div>
-        {/* Eliminamos la etiqueta <video> y usamos el fondo que hemos puesto arriba */}
+        {}
 
         <div className="hero-content">
           <h1 className="slide-up">ISC RACING TEAM</h1>
@@ -159,7 +158,7 @@ export default function Home() {
         <h2>NUESTRA PASIÓN EN IMÁGENES</h2>
         <div className="gallery-slider">
           <div className="slider-track">
-            {/* Duplicamos el array para crear el efecto infinito sin saltos */}
+            {}
             {[...galleryImages, ...galleryImages, ...galleryImages].map((imgSrc, i) => (
               <div key={i} className="slide">
                 <img src={imgSrc} alt={`Gallery slide ${i}`} />

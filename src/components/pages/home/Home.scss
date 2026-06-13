@@ -15,7 +15,6 @@ $text-light: #f4f4f4;
 
 /* Animaciones Generales */
 .presentation-section, .who-we-are-section, .mission-vision-section, .cta-section {
-  /* Forzamos a que estén siempre visibles para que no haya fallos */
   opacity: 1 !important;
   transform: translateY(0) !important;
   transition: opacity 0.8s ease-out, transform 0.8s ease-out;
@@ -100,16 +99,16 @@ $text-light: #f4f4f4;
 
 /* --- 2. PRESENTATION VIDEO --- */
 .presentation-section {
-  padding: 4rem 2rem 6rem; /* Reducimos el espacio superior para que el vídeo esté más cerca de la portada */
+  padding: 4rem 2rem 6rem; 
   background-color: white;
   text-align: center;
 
   .video-wrapper {
-    max-width: 1200px; /* Hacemos el vídeo más grande (antes 1000px) */
+    max-width: 1200px; 
     margin: 0 auto;
-    border-radius: 16px; /* Bordes un poco más redondeados */
+    border-radius: 16px; 
     overflow: hidden;
-    box-shadow: 0 25px 50px rgba(0,0,0,0.2); /* Sombra más profunda y cinematográfica */
+    box-shadow: 0 25px 50px rgba(0,0,0,0.2); 
     background: #000;
     
     video {

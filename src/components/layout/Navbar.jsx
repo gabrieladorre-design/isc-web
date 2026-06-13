@@ -47,14 +47,14 @@ export default function Navbar() {
     }
   ];
 
-  /* 🛠️ Función para detectar enlaces normales activos */
+  /* Función para detectar enlaces normales activos */
   const isLinkActive = (item) => {
     if (location.pathname === item.path) return true;
     if (item.path === "/sponsors" && location.pathname === "/sponsor-us") return true;
     return false;
   };
 
-  /* 🛠️ NUEVA FUNCIÓN: Detecta si un menú desplegable debe estar activo */
+  /* NUEVA FUNCIÓN: Detecta si un menú desplegable debe estar activo */
   const isDropdownActive = (item) => {
     if (!item.subItems) return false;
     // Devuelve 'true' si la URL actual coincide con la ruta de ALGÚN sub-elemento
@@ -80,7 +80,7 @@ export default function Navbar() {
             {item.subItems ? (
               /* --- SI TIENE SUBMENÚ (DROPDOWN) --- */
               <div className="dropdown-wrapper">
-                {/* 🛠️ Aplicamos la nueva función para encender la línea amarilla del padre */}
+                {/* Aplicamos la nueva función para encender la línea amarilla del padre */}
                 <span className={`nav-link dropdown-trigger ${dropdownOpen === index ? "active" : ""} ${isDropdownActive(item) ? "active-link" : ""}`}>
                   {item.label} <small>▾</small>
                 </span>

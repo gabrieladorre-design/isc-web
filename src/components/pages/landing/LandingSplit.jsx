@@ -3,6 +3,8 @@ import "./LandingSplit.scss";
 
 // --- LOGO E IMÁGENES LOCALES ---
 import iscLogo from "../../../assets/logos/ISC.png";  
+import MotoLogo from "../../../assets/logos/ISC_color_ms.PNG"
+import CocheLogo from "../../../assets/logos/ISC_color_fs.PNG"
 import motoBg from "../../../assets/Fotos y videos/Landing/moto.jpg";
 import formulaBg from "../../../assets/Fotos y videos/Landing/coche.jpg";
 
@@ -30,8 +32,8 @@ export default function LandingSplit() {
           <div className="overlay"></div>
           <div className="content">
             <div className="circle-logo">
-              <img src={iscLogo} alt="Moto Icon" />
-              <span>MOTO STUDENT<br/>RACING TEAM</span>
+              <img src={MotoLogo} alt="Moto Icon" />
+              /* <span>MOTO STUDENT<br/>RACING TEAM</span> */
             </div>
           </div>
         </Link>
@@ -45,8 +47,8 @@ export default function LandingSplit() {
           <div className="overlay"></div>
           <div className="content">
             <div className="circle-logo">
-              <img src={iscLogo} alt="Formula Icon" />
-              <span>FORMULA STUDENT<br/>RACING TEAM</span>
+              <img src={CocheLogo} alt="Formula Icon" />
+              /*<span>FORMULA STUDENT<br/>RACING TEAM</span>*/
             </div>
           </div>
         </Link>
