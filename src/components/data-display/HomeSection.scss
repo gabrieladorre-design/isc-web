@@ -1,10 +1,7 @@
 @use "../../styles/variables" as *;
 
-/* Variables por si fallan las globales */
-$isc-yellow: #FFC107;
-$ib-main-green: #004d40;
+/* Variable local que no existe en la paleta global */
 $dark-bg: #111;
-$text-light: #f4f4f4;
 
 .home-page {
   width: 100%;
