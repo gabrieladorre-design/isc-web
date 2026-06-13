@@ -5,9 +5,9 @@ export default function ScrollToTop() {
   const { pathname } = useLocation();
 
   useEffect(() => {
-    // Cada vez que cambia la ruta (pathname), sube arriba
+    // Vuelve al inicio en cada cambio de ruta
     window.scrollTo(0, 0);
   }, [pathname]);
 
-  return null; // Este componente no renderiza nada visual
+  return null;
 }

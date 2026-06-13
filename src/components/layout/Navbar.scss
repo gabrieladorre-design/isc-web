@@ -38,7 +38,7 @@
     display: flex;
     align-items: center;
 
-    /* 🛠️ SOLUCIÓN 1: Si es el ÚLTIMO elemento del menú (ej: "Únete") */
+    /* Último elemento del menú */
     &:last-child {
       .dropdown-menu {
         left: auto;        
@@ -103,7 +103,7 @@
   border: 2px solid $isc-yellow; 
   list-style: none;
   
-  /* 🛠️ AHORA SÍ: Forzamos a que el relleno sea CERO absoluto */
+  /* Sin relleno */
   padding: 0 !important; 
   margin: 0 !important;
   
@@ -150,8 +150,7 @@
     }
   }
 
-  /* 🛠️ TRUCO DE DISEÑO: Redondeamos las esquinas del fondo al hacer hover 
-     para que encajen perfectas con la caja amarilla */
+  /* Redondea las esquinas del dropdown para que encajen con el fondo */
   li:first-child .dropdown-link {
     border-top-left-radius: 4px;
     border-top-right-radius: 4px;
@@ -162,6 +161,11 @@
     border-bottom-right-radius: 4px;
     border-bottom: none; 
   }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(15px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 /* RESPONSIVE (Móvil) */

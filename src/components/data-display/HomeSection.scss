@@ -1,0 +1,365 @@
+@use "../../styles/variables" as *;
+
+/* Variables por si fallan las globales */
+$isc-yellow: #FFC107;
+$ib-main-green: #004d40;
+$dark-bg: #111;
+$text-light: #f4f4f4;
+
+.home-page {
+  width: 100%;
+  overflow-x: hidden;
+  font-family: $font-main;
+  background-color: #fafafa;
+}
+
+/* Animaciones Generales */
+.presentation-section, .who-we-are-section, .mission-vision-section, .cta-section {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+/* --- 1. HERO SECTION --- */
+.hero-section {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+  overflow: hidden;
+
+  .hero-video {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    min-width: 100%; min-height: 100%;
+    z-index: -1;
+    object-fit: cover;
+  }
+
+  .video-overlay {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 0;
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 1;
+    max-width: 900px;
+    padding: 0 20px;
+
+    h1 {
+      font-size: 4rem;
+      font-weight: 900;
+      letter-spacing: 3px;
+      margin-bottom: 0.5rem;
+      text-transform: uppercase;
+      text-shadow: 0 4px 10px rgba(0,0,0,0.5);
+      white-space: nowrap;
+    }
+
+    p {
+      font-size: 1.5rem;
+      font-weight: 300;
+      margin-bottom: 2.5rem;
+      color: $isc-yellow;
+      letter-spacing: 1px;
+    }
+  }
+
+  .hero-buttons {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+
+    a {
+      text-decoration: none;
+      padding: 1rem 2.5rem;
+      font-weight: 800;
+      border-radius: 50px;
+      transition: all 0.3s ease;
+      text-transform: uppercase;
+      font-size: 0.95rem;
+      background: $isc-yellow;
+      color: $dark-bg;
+
+      &:hover {
+        background: white;
+        transform: translateY(-3px);
+        box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+      }
+    }
+  }
+}
+
+/* --- 2. PRESENTATION VIDEO --- */
+.presentation-section {
+  padding: 4rem 2rem 6rem; 
+  background-color: white;
+  text-align: center;
+
+  .video-wrapper {
+    max-width: 1200px; 
+    margin: 0 auto;
+    border-radius: 16px; 
+    overflow: hidden;
+    box-shadow: 0 25px 50px rgba(0,0,0,0.2); 
+    background: #000;
+    
+    video {
+      width: 100%;
+      display: block;
+      aspect-ratio: 16/9;
+      object-fit: cover;
+    }
+  }
+}
+
+/* --- 3. QUIÉNES SOMOS & CAD --- */
+.who-we-are-section {
+  padding: 6rem 2rem;
+  background-color: $dark-bg;
+  color: white;
+
+  .who-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 5rem;
+  }
+
+  .who-text {
+    flex: 1;
+
+    h2 { font-size: 2.5rem; font-weight: 900; margin-bottom: 0.5rem; }
+    
+    .divider-left {
+      width: 60px; height: 4px; background: $isc-yellow;
+      margin-bottom: 2rem;
+    }
+
+    .intro-text {
+      font-size: 1.2rem;
+      color: #fff;
+      font-weight: 600;
+      margin-bottom: 1.5rem;
+    }
+
+    p {
+      color: #ccc;
+      line-height: 1.7;
+      margin-bottom: 2rem;
+    }
+
+    .specs-highlights {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+
+      .highlight {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        font-size: 1.1rem;
+        font-weight: 700;
+        color: $isc-yellow;
+        
+        .icon { font-size: 1.5rem; }
+      }
+    }
+  }
+
+  .who-visual {
+    flex: 1;
+
+    .cad-frame {
+      position: relative;
+      border-radius: 10px;
+      padding: 10px;
+      background: radial-gradient(circle, #222 0%, #000 100%);
+      border: 1px solid #333;
+      box-shadow: 0 0 30px rgba(255, 193, 7, 0.1);
+
+      img {
+        width: 100%;
+        display: block;
+        border-radius: 6px;
+        opacity: 0.9;
+        transition: opacity 0.3s;
+        &:hover { opacity: 1; }
+      }
+
+      .tech-overlay {
+        position: absolute;
+        bottom: 20px; right: 20px;
+        background: rgba(0,0,0,0.8);
+        border-left: 3px solid $isc-yellow;
+        padding: 5px 15px;
+        font-family: monospace;
+        color: $isc-yellow;
+        font-size: 0.9rem;
+        letter-spacing: 1px;
+      }
+    }
+  }
+}
+
+/* --- 4. MISIÓN Y VISIÓN --- */
+.mission-vision-section {
+  padding: 6rem 2rem;
+  background: #f4f4f4;
+
+  .mv-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+  }
+
+  .mv-card {
+    background: white;
+    padding: 3rem;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    border-top: 5px solid $ib-main-green;
+    transition: transform 0.3s ease;
+
+    &:hover { transform: translateY(-10px); }
+
+    .icon-wrapper {
+      font-size: 3.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    h3 {
+      color: $ib-main-green;
+      font-size: 1.8rem;
+      margin-bottom: 1.5rem;
+      font-weight: 800;
+    }
+
+    p { color: #555; line-height: 1.7; font-size: 1.1rem; }
+  }
+}
+
+/* --- 5. GALLERY SLIDER (INFINITE) --- */
+.gallery-section {
+  background: white;
+  padding: 4rem 0;
+  overflow: hidden;
+
+  h2 {
+    text-align: center;
+    color: $ib-main-green;
+    margin-bottom: 2rem;
+    font-size: 2rem;
+    font-weight: 900;
+  }
+
+  .gallery-slider {
+    width: 100%;
+    display: flex;
+    overflow: hidden;
+  }
+
+  .slider-track {
+    display: flex;
+    animation: scroll 40s linear infinite;
+    gap: 1rem;
+    
+    &:hover { animation-play-state: paused; }
+  }
+
+  .slide {
+    min-width: 350px;
+    height: 250px;
+    border-radius: 8px;
+    overflow: hidden;
+    
+    img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s;
+      &:hover { transform: scale(1.1); }
+    }
+  }
+}
+
+/* --- 6. CTA FINAL --- */
+.cta-section {
+  padding: 6rem 2rem;
+  background: $ib-main-green;
+  text-align: center;
+  color: white;
+
+  h2 { font-size: 2.5rem; margin-bottom: 1rem; font-weight: 900; }
+  p { font-size: 1.2rem; margin-bottom: 2.5rem; opacity: 0.9; }
+
+  .cta-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+
+    a {
+      padding: 1rem 2.5rem;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 800;
+      text-transform: uppercase;
+      font-size: 0.95rem;
+    }
+
+    .btn-primary {
+      background: $isc-yellow;
+      color: $dark-bg;
+      &:hover { background: white; transform: translateY(-3px); }
+    }
+
+    .btn-white {
+      background: transparent;
+      border: 2px solid white;
+      color: white;
+      &:hover { background: white; color: $ib-main-green; transform: translateY(-3px); }
+    }
+  }
+}
+
+/* ANIMACIONES BÁSICAS */
+@keyframes scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(calc(-350px * 6 - 6rem)); }
+}
+
+.slide-up {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeUp 1s ease forwards;
+}
+
+.delay-1 { animation-delay: 0.3s; }
+.delay-2 { animation-delay: 0.6s; }
+
+@keyframes fadeUp {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .hero-content h1 { font-size: 2.8rem; white-space: normal; }
+  .who-container { flex-direction: column; }
+  .who-text { text-align: center; }
+  .who-text .divider-left { margin: 0 auto 2rem; }
+  .specs-highlights { align-items: center; }
+  .mv-container { grid-template-columns: 1fr; }
+  .hero-buttons { flex-direction: column; width: 100%; max-width: 300px; margin: 0 auto; }
+}

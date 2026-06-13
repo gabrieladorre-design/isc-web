@@ -1,0 +1,235 @@
+@use "../../styles/variables" as *;
+
+.join-us-page {
+  background-color: #f8f9fa; 
+  min-height: 100vh;
+  font-family: $font-main;
+  padding-bottom: 5rem;
+}
+
+/* --- CABECERA --- */
+.join-header {
+  background-color: $ib-main-green;
+  color: white;
+  /* Reducimos el padding inferior porque ya no hay solapamiento */
+  padding: 8rem 2rem 5rem; 
+  text-align: center;
+
+  .header-content {
+    max-width: 800px;
+    margin: 0 auto;
+
+    h1 {
+      font-size: 3.5rem;
+      font-weight: 900;
+      text-transform: uppercase;
+      margin-bottom: 1.5rem;
+      letter-spacing: 2px;
+    }
+    
+    p {
+      font-size: 1.25rem;
+      line-height: 1.6;
+      opacity: 0.95;
+      font-weight: 400;
+    }
+  }
+}
+
+/* --- CONTENIDO PRINCIPAL --- */
+.join-main {
+  position: relative;
+  z-index: 10;
+  /* Añadimos espacio por arriba para separar el contenido de la cabecera verde */
+  padding: 4rem 2rem; 
+}
+
+.join-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  gap: 4rem;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+/* --- COLUMNA IZQUIERDA (Info) --- */
+.join-info {
+  flex: 1;
+  /* Quitamos el padding extra para que quede alineado con la tarjeta */
+  padding-top: 0; 
+  color: #333;
+
+  h2 {
+    font-size: 2.5rem;
+    color: $ib-main-green;
+    margin-bottom: 1.5rem;
+    font-weight: 900;
+  }
+
+  p {
+    font-size: 1.15rem;
+    line-height: 1.7;
+    color: #555;
+    margin-bottom: 2rem;
+
+    strong { color: $ib-main-green; }
+  }
+
+  h3 {
+    font-size: 1.5rem;
+    color: $ib-main-green;
+    margin-bottom: 1.5rem;
+    font-weight: 800;
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+    
+    li {
+      position: relative;
+      padding-left: 1.5rem;
+      margin-bottom: 1rem;
+      font-size: 1.05rem;
+      color: #555;
+      line-height: 1.6;
+
+      &::before {
+        content: "•";
+        color: $isc-yellow;
+        font-weight: bold;
+        font-size: 1.5rem;
+        position: absolute;
+        left: 0;
+        top: -6px;
+      }
+
+      strong {
+        color: #222;
+      }
+    }
+  }
+}
+
+/* --- COLUMNA DERECHA (Tarjeta Formulario) --- */
+.join-form-wrapper {
+  flex: 1;
+  max-width: 550px;
+  /* AQUI ESTÁ EL CAMBIO: Quitamos el margen negativo para que no pise lo verde */
+  margin-top: 0; 
+  z-index: 10;
+}
+
+.form-card {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.08); /* Sombra más sutil al no estar flotando */
+  border-top: 6px solid $isc-yellow; 
+  overflow: hidden;
+
+  .form-card-header {
+    padding: 2.5rem 2rem 1rem;
+    text-align: center;
+    
+    h3 {
+      font-size: 1.8rem;
+      color: $ib-main-green;
+      margin-bottom: 0.8rem;
+      font-weight: 900;
+    }
+    
+    p {
+      color: #666;
+      font-size: 1rem;
+      line-height: 1.5;
+    }
+  }
+
+  /* Iframe Microsoft Forms */
+  .iframe-container {
+    width: 100%;
+    height: 650px; 
+    background: #fff;
+    position: relative;
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: 0; left: 0; width: 100%; height: 30px;
+      background: linear-gradient(transparent, white);
+      pointer-events: none;
+    }
+  }
+
+  .form-fallback {
+    padding: 1.5rem 2rem 2.5rem;
+    text-align: center;
+    background: white;
+
+    p {
+      font-size: 0.9rem;
+      color: #999;
+      margin-bottom: 1rem;
+      font-style: italic;
+    }
+  }
+
+  .btn-external {
+    display: inline-block;
+    background: $isc-yellow;
+    color: $ib-main-green;
+    padding: 1rem 2rem;
+    border-radius: 50px;
+    font-weight: 900;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+
+    &:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 25px rgba(255, 209, 0, 0.4);
+      color: #000;
+    }
+  }
+
+  /* MODELO CERRADO */
+  .closed-state {
+    padding: 6rem 3rem;
+    text-align: center;
+    background: white;
+
+    .icon-closed { font-size: 4rem; margin-bottom: 1.5rem; }
+    h3 { font-size: 2.2rem; color: $ib-main-green; margin-bottom: 1rem; font-weight: 900; }
+    p { color: #555; font-size: 1.15rem; line-height: 1.6; margin-bottom: 1.5rem; }
+    .closed-sub { font-size: 1rem; color: #888; margin-bottom: 3rem; }
+  }
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 960px) {
+  .join-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 3rem;
+  }
+  
+  .join-info { 
+    text-align: center; 
+    order: 2; 
+  }
+  
+  .join-info ul li { 
+    text-align: left; 
+    display: inline-block; 
+  }
+  
+  .join-form-wrapper { 
+    width: 100%; 
+    max-width: 100%; 
+    /* Quitamos también el solapamiento en móviles */
+    margin-top: 0; 
+    order: 1; 
+  }
+}

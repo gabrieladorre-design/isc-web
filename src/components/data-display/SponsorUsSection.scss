@@ -1,0 +1,204 @@
+@use "../../styles/variables" as *;
+
+.sponsor-us-page {
+  background-color: #f8f9fa;
+  min-height: 100vh;
+  font-family: $font-main;
+}
+
+/* --- CABECERA --- */
+.su-header {
+  background-color: $ib-main-green;
+  color: white;
+  padding: 8rem 2rem 5rem;
+  text-align: center;
+
+  .header-content {
+    max-width: 800px;
+    margin: 0 auto;
+
+    h1 {
+      font-size: 3.5rem;
+      font-weight: 900;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+      letter-spacing: 1px;
+    }
+    
+    p {
+      font-size: 1.25rem;
+      opacity: 0.9;
+    }
+  }
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* --- INTRO Y BENEFICIOS --- */
+.su-intro {
+  padding: 5rem 0;
+  background: white;
+
+  .intro-text {
+    text-align: center;
+    max-width: 900px;
+    margin: 0 auto 4rem;
+
+    h2 {
+      color: $ib-main-green;
+      font-size: 2.5rem;
+      font-weight: 900;
+      margin-bottom: 2rem;
+    }
+
+    p {
+      font-size: 1.15rem;
+      color: #555;
+      line-height: 1.7;
+      margin-bottom: 1.5rem;
+    }
+  }
+
+  .benefits-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+
+    .benefit-item {
+      background: #fdfdfd;
+      border: 1px solid #eee;
+      border-top: 3px solid $ib-main-green;
+      border-radius: 12px;
+      padding: 2rem;
+      text-align: left;
+      width: 240px;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.03);
+      transition: transform 0.3s ease;
+
+      &:hover { transform: translateY(-5px); border-color: $isc-yellow; border-top-color: $isc-yellow; }
+
+      h3 {
+        color: $ib-main-green;
+        font-size: 1.15rem;
+        font-weight: 800;
+        margin: 0 0 0.6rem;
+      }
+
+      .benefit-text {
+        color: $isc-grey;
+        font-size: 0.95rem;
+        line-height: 1.5;
+        margin: 0;
+      }
+    }
+  }
+}
+
+/* --- CATEGORÍAS (TIERS) --- */
+  .su-tiers {
+    padding: 5rem 0 6rem;
+
+    .section-title { text-align: center; color: $ib-main-green; font-size: 2.8rem; font-weight: 900; margin-bottom: 4rem; text-transform: uppercase; }
+
+    .tiers-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)); gap: 2rem; align-items: stretch; }
+
+    .tier-card {
+      background: white; /* Fondo base en blanco */
+      border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.08); display: flex; flex-direction: column; overflow: hidden; transition: transform 0.3s ease;
+      border: 1px solid #eaeaea;
+
+      &:hover { transform: translateY(-5px); box-shadow: 0 15px 40px rgba(0,0,0,0.12); }
+
+      /* Efecto extra para la tarjeta Premium si quieres destacarla */
+      &.premium {
+        border: 2px solid $isc-yellow; transform: scale(1.03); box-shadow: 0 15px 40px rgba(255, 209, 0, 0.15);
+        &:hover { transform: scale(1.03) translateY(-5px); }
+      }
+
+      .tier-header {
+        background: $ib-main-green; /* Título con el fondo verde corporativo */
+        padding: 2.5rem 1.5rem; text-align: center; 
+        border-bottom: 4px solid $isc-yellow; /* Línea amarilla para separar con estilo */
+        
+        h3 { 
+          font-size: 1.5rem; font-weight: 900; 
+          color: $isc-yellow; /* Mantenemos las letras amarillas que querías */
+          margin: 0; letter-spacing: 1px; 
+        }
+      }
+
+      .tier-body {
+        padding: 2rem 1.5rem; flex-grow: 1;
+        background: white; /* Lo de debajo en blanco */
+
+        ul {
+          list-style: none; padding: 0; margin: 0;
+          li {
+            position: relative; padding-left: 1.5rem; margin-bottom: 1rem; font-size: 1rem; 
+            color: #555; /* Texto en gris oscuro para que lea bien sobre el blanco */
+            line-height: 1.5;
+            
+            &::before { content: "✓"; color: $ib-main-green; position: absolute; left: 0; top: 0; font-size: 0.9rem; }
+            strong { color: #222; }
+          }
+        }
+
+        .tier-note { margin-top: 1.5rem; font-size: 0.85rem; color: #999; font-style: italic; border-top: 1px solid #eee; padding-top: 1rem; }
+      }
+    }
+  }
+
+/* --- CTA FINAL --- */
+.su-cta {
+  background-color: $ib-main-green;
+  color: white;
+  padding: 6rem 0;
+  text-align: center;
+
+  h2 {
+    font-size: 2.5rem;
+    font-weight: 900;
+    margin-bottom: 1rem;
+  }
+
+  p {
+    font-size: 1.2rem;
+    opacity: 0.9;
+    margin-bottom: 3rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .btn-email {
+    display: inline-block;
+    background: $isc-yellow;
+    color: $ib-main-green;
+    padding: 1.2rem 3rem;
+    border-radius: 50px;
+    font-weight: 900;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+
+    &:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 25px rgba(255, 209, 0, 0.4);
+      color: black;
+    }
+  }
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .su-header { padding: 6rem 1rem 4rem; h1 { font-size: 2.5rem; } }
+  .benefits-grid { gap: 1rem; .benefit-item { width: 100%; max-width: 320px; padding: 1.5rem; } }
+}
