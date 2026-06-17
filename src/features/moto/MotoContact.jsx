@@ -1,8 +1,8 @@
 import ContactSection from "@/components/data-display/ContactSection";
 
-// Dossier: se reutiliza el de Formula Student hasta disponer del específico de MotoStudent.
-import dossierPdfES from "@/assets/Dossier_ISC/Dossier_ISC_Formula_Student_ES.pdf";
-import dossierPdfEN from "@/assets/Dossier_ISC/Dossier_ISC_Formula_Student_EN.pdf";
+// Dossier oficial específico de MotoStudent.
+import dossierPdfES from "@/assets/Dossier_ISC/Dossier_ISC_MotoStudent_ES.pdf";
+import dossierPdfEN from "@/assets/Dossier_ISC/Dossier_ISC_MotoStudent_EN.pdf";
 
 export default function MotoContact() {
   return (

@@ -114,11 +114,12 @@ export default function CompetitionsSection({
         <h2>Nuestro Palmarés Histórico</h2>
         <div className="timeline-grid">
           {results.map((result, index) => (
-            <div className="result-card" key={index}>
+            <div className="result-card" key={index} tabIndex={0}>
               <span className="year">{result.year}</span>
               <h3>{result.title}</h3>
               <p className="highlight">{result.highlight}</p>
-              <p className="details">{result.details}</p>
+              <div className="details"><p>{result.details}</p></div>
+              <span className="reveal-hint">Ver detalle ▾</span>
             </div>
           ))}
         </div>

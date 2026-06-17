@@ -207,41 +207,89 @@
       border-radius: 12px;
       border: 1px solid #eaeaea;
       position: relative;
-      transition: all 0.3s ease;
-      
-      /* Flexbox interno: estira el contenido */
+      overflow: hidden;
+      cursor: pointer;
+      /* Curva suave tipo "ease-out" para un despliegue moderno */
+      transition: transform 0.35s cubic-bezier(0.25, 0.8, 0.25, 1),
+                  box-shadow 0.35s cubic-bezier(0.25, 0.8, 0.25, 1),
+                  border-color 0.35s ease;
+
       display: flex;
       flex-direction: column;
-      height: 100%;
 
+      /* Barra superior que crece de un lado a otro al hacer hover */
       &::before {
         content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 5px;
         background: $isc-yellow; border-radius: 12px 12px 0 0;
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
       }
 
-      &:hover { transform: translateY(-5px); box-shadow: 0 15px 35px rgba(0,0,0,0.08); }
+      &:hover,
+      &:focus-within {
+        transform: translateY(-8px);
+        box-shadow: 0 22px 45px rgba($ib-main-green, 0.18);
+        border-color: $ib-main-green;
 
-      .year { 
+        &::before { transform: scaleX(1); }
+
+        .year { background: $isc-yellow; color: $ib-main-green; }
+
+        /* El despliegue: los detalles aparecen de forma fluida */
+        .details {
+          grid-template-rows: 1fr;
+          opacity: 1;
+          margin-top: 1.25rem;
+        }
+        .reveal-hint { opacity: 0; transform: translateY(6px); }
+      }
+
+      .year {
         align-self: flex-start;
-        background: $ib-main-green; 
-        color: white; 
-        padding: 0.4rem 1rem; 
-        border-radius: 4px; 
-        font-weight: 700; 
-        font-size: 0.85rem; 
-        margin-bottom: 1.5rem; 
+        background: $ib-main-green;
+        color: white;
+        padding: 0.4rem 1rem;
+        border-radius: 4px;
+        font-weight: 700;
+        font-size: 0.85rem;
+        margin-bottom: 1.5rem;
+        transition: background 0.3s ease, color 0.3s ease;
       }
-      
+
       h3 { font-size: 1.8rem; color: #222; margin: 0 0 0.5rem; font-weight: 900; }
-      .highlight { font-size: 1.1rem; color: $ib-main-green; font-weight: 800; margin-bottom: 1.5rem; }
-      
-      .details { 
-        color: #555; 
-        line-height: 1.6; 
-        margin: 0; 
-        font-size: 1.05rem;
-        /* Rellena el hueco disponible para que queden alineadas abajo */
-        flex-grow: 1; 
+      .highlight { font-size: 1.1rem; color: $ib-main-green; font-weight: 800; margin: 0; }
+
+      /* Detalles colapsados por defecto; se despliegan en hover/focus.
+         Usamos grid-template-rows 0fr → 1fr para una transición de altura fluida
+         sin necesidad de fijar un max-height arbitrario. */
+      .details {
+        display: grid;
+        grid-template-rows: 0fr;
+        opacity: 0;
+        margin-top: 0;
+        transition: grid-template-rows 0.4s cubic-bezier(0.25, 0.8, 0.25, 1),
+                    opacity 0.35s ease,
+                    margin-top 0.4s ease;
+
+        p {
+          overflow: hidden;
+          margin: 0;
+          color: #555;
+          line-height: 1.6;
+          font-size: 1.05rem;
+        }
+      }
+
+      /* Pista visual de que la tarjeta es interactiva */
+      .reveal-hint {
+        margin-top: 1.1rem;
+        font-size: 0.8rem;
+        font-weight: 700;
+        letter-spacing: 0.5px;
+        text-transform: uppercase;
+        color: #999;
+        transition: opacity 0.3s ease, transform 0.3s ease;
       }
     }
   }
@@ -252,4 +300,10 @@
   .comp-header { padding: 6rem 1rem 4rem; h1 { font-size: 2.5rem; } }
   .map-section .map-info { flex-direction: column; align-items: flex-start; gap: 1rem; }
   .map-section .map-wrapper { height: 400px; }
+
+  /* En táctil no hay hover: los detalles se muestran siempre y ocultamos la pista */
+  .results-section .timeline-grid .result-card {
+    .details { grid-template-rows: 1fr; opacity: 1; margin-top: 1.25rem; }
+    .reveal-hint { display: none; }
+  }
 }

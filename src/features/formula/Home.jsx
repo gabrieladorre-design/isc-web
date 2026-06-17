@@ -3,16 +3,18 @@ import HomeSection from "@/components/data-display/HomeSection";
 // Assets locales
 import heroBg from "@/assets/fotos-y-videos/HomeCoche/HomeCoche.JPG";
 import presentationVideo from "@/assets/fotos-y-videos/HomeCoche/HomeVideoCoche.mp4";
-import carCad from "@/assets/fotos-y-videos/HomeCoche/imagenes-deslizantes-home/C01.JPG";
+import carCad from "@/assets/fotos-y-videos/HomeCoche/ModeloCoche.JPG";
 
-// Imágenes de la galería deslizante
-import slide1 from "@/assets/fotos-y-videos/HomeCoche/imagenes-deslizantes-home/C01.JPG";
-import slide2 from "@/assets/fotos-y-videos/HomeCoche/imagenes-deslizantes-home/C03b.JPG";
-import slide3 from "@/assets/fotos-y-videos/HomeCoche/imagenes-deslizantes-home/C03c.JPG";
-import slide4 from "@/assets/fotos-y-videos/HomeCoche/imagenes-deslizantes-home/C04.jpg";
-import slide5 from "@/assets/fotos-y-videos/HomeCoche/imagenes-deslizantes-home/C04b.jpg";
+// Imágenes de la galería deslizante (fotos reales — Jarama 2024)
+import slide1 from "@/assets/fotos-y-videos/HomeCoche/imagenes-deslizantes-home/Coche-01.jpg";
+import slide2 from "@/assets/fotos-y-videos/HomeCoche/imagenes-deslizantes-home/Coche-02.jpg";
+import slide3 from "@/assets/fotos-y-videos/HomeCoche/imagenes-deslizantes-home/Coche-03.jpg";
+import slide4 from "@/assets/fotos-y-videos/HomeCoche/imagenes-deslizantes-home/Coche-04.jpg";
+import slide5 from "@/assets/fotos-y-videos/HomeCoche/imagenes-deslizantes-home/Coche-05.jpg";
+import slide6 from "@/assets/fotos-y-videos/HomeCoche/imagenes-deslizantes-home/Coche-06.jpg";
+import slide7 from "@/assets/fotos-y-videos/HomeCoche/imagenes-deslizantes-home/Coche-07.jpg";
 
-const galleryImages = [slide1, slide2, slide3, slide4, slide5];
+const galleryImages = [slide1, slide2, slide3, slide4, slide5, slide6, slide7];
 
 export default function Home() {
   return (

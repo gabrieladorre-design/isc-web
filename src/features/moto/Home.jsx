@@ -1,19 +1,36 @@
 import HomeSection from "@/components/data-display/HomeSection";
 
-// Material provisional (sustituir por fotos/vídeos reales del prototipo)
-const heroBg = "https://videos.pexels.com/video-files/4384110/4384110-uhd_2560_1440_30fps.mp4";
-const presentationVideo = "https://videos.pexels.com/video-files/5001713/5001713-uhd_2560_1440_30fps.mp4";
-const motoCad = "https://images.unsplash.com/photo-1558981403-c5f9899a28bc?auto=format&fit=crop&q=80&w=1000";
+// Assets locales (fotos/vídeos reales del prototipo — MotorLand/Jarama 2024)
+import heroBg from "@/assets/fotos-y-videos/HomeMoto/HomeMoto.JPG";
+import presentationVideo from "@/assets/fotos-y-videos/HomeMoto/HomeVideoMoto.mp4";
+import motoCad from "@/assets/fotos-y-videos/HomeMoto/ModeloMoto.JPG";
 
-const galleryImages = [1, 2, 3, 4, 5, 6, 1, 2, 3, 4, 5, 6].map(
-  (num) => `https://images.unsplash.com/photo-1568772585407-9361f9bf3a87?auto=format&fit=crop&w=600&q=80&ixid=${num}`
-);
+// Imágenes de la galería deslizante
+import mSlide1 from "@/assets/fotos-y-videos/HomeMoto/imagenes-deslizantes-home/Moto-01.jpg";
+import mSlide2 from "@/assets/fotos-y-videos/HomeMoto/imagenes-deslizantes-home/Moto-02.jpg";
+import mSlide3 from "@/assets/fotos-y-videos/HomeMoto/imagenes-deslizantes-home/Moto-03.jpg";
+import mSlide4 from "@/assets/fotos-y-videos/HomeMoto/imagenes-deslizantes-home/Moto-04.jpg";
+import mSlide5 from "@/assets/fotos-y-videos/HomeMoto/imagenes-deslizantes-home/Moto-05.jpg";
+import mSlide6 from "@/assets/fotos-y-videos/HomeMoto/imagenes-deslizantes-home/Moto-06.jpg";
+import mSlide7 from "@/assets/fotos-y-videos/HomeMoto/imagenes-deslizantes-home/Moto-07.jpg";
+import mSlide8 from "@/assets/fotos-y-videos/HomeMoto/imagenes-deslizantes-home/Moto-08.jpg";
+import mSlide9 from "@/assets/fotos-y-videos/HomeMoto/imagenes-deslizantes-home/Moto-09.jpg";
+import mSlide10 from "@/assets/fotos-y-videos/HomeMoto/imagenes-deslizantes-home/Moto-10.jpg";
+import mSlide11 from "@/assets/fotos-y-videos/HomeMoto/imagenes-deslizantes-home/Moto-11.jpg";
+import mSlide12 from "@/assets/fotos-y-videos/HomeMoto/imagenes-deslizantes-home/Moto-12.jpg";
+import mSlide13 from "@/assets/fotos-y-videos/HomeMoto/imagenes-deslizantes-home/Moto-13.jpg";
+
+const galleryImages = [
+  mSlide1, mSlide2, mSlide3, mSlide4, mSlide5, mSlide6, mSlide7,
+  mSlide8, mSlide9, mSlide10, mSlide11, mSlide12, mSlide13,
+];
 
 export default function MotoHome() {
   return (
     <HomeSection
       heroTitle="ISC MS RACING TEAM"
-      heroVideo={heroBg}
+      heroImage={heroBg}
+      heroOverlayColor="rgba(0, 0, 0, 0.4)"
       heroSubtitle="COMPROMISO. TALENTO. PASIÓN."
       heroButtons={[
         { to: "/moto/team", label: "NUESTRO EQUIPO" },
@@ -21,7 +38,11 @@ export default function MotoHome() {
       ]}
       presentation={{
         src: presentationVideo,
-        poster: "https://images.unsplash.com/photo-1568772585407-9361f9bf3a87?auto=format&fit=crop&w=1200&q=80",
+        poster: heroBg,
+        autoPlay: true,
+        muted: true,
+        loop: true,
+        playsInline: true,
         controls: true,
       }}
       whoParagraphs={
@@ -41,7 +62,7 @@ export default function MotoHome() {
       ]}
       cadImg={motoCad}
       cadAlt="Modelo CAD de la motocicleta"
-      cadOverlay="IM-01 // EV POWERTRAIN"
+      cadOverlay="IM-06 // EV POWERTRAIN"
       mission={
         <p>
           Formar a los ingenieros del futuro enfrentándolos a desafíos reales del sector de la automoción.

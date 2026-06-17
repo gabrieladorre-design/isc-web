@@ -17,7 +17,7 @@ export const carsData = [
     season: "2025 / 2026",
     status: "PROTOTIPO ACTUAL",
     image: "https://images.unsplash.com/photo-1580273916550-e323be2ae537?auto=format&fit=crop&w=1000&q=80",
-    description: "Preparando la nueva temporada para competir en los mejores eventos de Europa, optimizando la fiabilidad y aplicando las lecciones aprendidas de nuestro primer paquete aerodinámico.",
+    description: "Octava generación del monoplaza y prototipo actual del equipo para la temporada 2025/2026. Concebido para consolidar el salto aerodinámico iniciado con el IFS-07, su desarrollo se centra en maximizar la fiabilidad y exprimir las lecciones aprendidas del primer paquete aerodinámico completo del equipo, con el objetivo de competir al más alto nivel en los principales eventos europeos de Formula Student.",
     specs: {
       powertrain: "100% Eléctrico",
       weight: "En desarrollo",
@@ -35,7 +35,7 @@ export const carsData = [
     season: "2024 / 2025",
     status: "",
     image: "https://images.unsplash.com/photo-1532974297617-c0f05fe48bff?auto=format&fit=crop&w=1000&q=80",
-    description: "Supone un nuevo comienzo. Un prototipo que incorpora por primera vez un paquete aerodinámico, dando lugar al coche más rápido y ligero de nuestra historia.",
+    description: "Séptima generación y punto de inflexión en el rendimiento del equipo: el monoplaza más rápido y ligero de nuestra historia. Incorpora por primera vez un paquete aerodinámico completo, que redefine la carga aerodinámica y el comportamiento dinámico en curva. Con él superamos las inspecciones técnicas por cuarta vez consecutiva, firmamos un 1.º puesto en Diseño en Formula Student Spain y logramos un Top 10 en la clasificación general de Formula Student Germany.",
     specs: {
       powertrain: "100% Eléctrico (AWD)",
       weight: "210 kg",
@@ -56,7 +56,7 @@ export const carsData = [
     season: "2023 / 2024",
     status: "",
     image: "https://images.unsplash.com/photo-1517153295259-74eb0b416cee?auto=format&fit=crop&w=1000&q=80",
-    description: "Consolidó nuestra presencia internacional compitiendo por primera vez en FS Germany. Logramos nuestro primer podio en Business Plan en Italia y completamos la primera endurance bajo la lluvia.",
+    description: "Sexta generación que consolidó nuestra proyección internacional. Marcó el debut del equipo en Formula Student Germany (Hockenheimring), la cita de referencia del campeonato, y nos dio nuestro primer podio en Business Plan en Italia. Con él completamos, además, nuestra primera prueba de Endurance disputada bajo lluvia, todo un hito de fiabilidad para el proyecto.",
     specs: {
       powertrain: "100% Eléctrico (RWD)",
       weight: "235 kg",
@@ -77,7 +77,7 @@ export const carsData = [
     season: "2022 / 2023",
     status: "",
     image: "https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?auto=format&fit=crop&w=1000&q=80",
-    description: "Marcó un antes y un después con el mayor relevo generacional. Participamos por primera vez en todas las pruebas dinámicas en FS Spain y finalizamos en una histórica 7ª posición en el ranking general.",
+    description: "Quinta generación, desarrollada bajo una filosofía de diseño orientada a la fiabilidad y marcada por el mayor relevo generacional del equipo. La consolidación de los procesos de validación y la madurez alcanzada por la ingeniería se tradujeron en un vehículo notablemente más robusto y consistente: por primera vez participamos en todas las pruebas dinámicas de Formula Student Spain y firmamos una histórica 7.ª posición en la clasificación general.",
     specs: {
       powertrain: "100% Eléctrico (RWD)",
       weight: "245 kg",
@@ -98,7 +98,7 @@ export const carsData = [
     season: "2021 / 2022",
     status: "",
     image: "https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=1000&q=80",
-    description: "Una evolución clave que permitió centrarnos en el detalle. Por primera vez, el equipo superó con éxito las inspecciones técnicas en ambas competiciones del verano y participó en sus pruebas dinámicas.",
+    description: "Cuarta generación, centrada en el detalle y la puesta a punto. Supuso un salto decisivo en fiabilidad: por primera vez el equipo superó con éxito las inspecciones técnicas tanto en Formula ATA Italy como en Formula Student Spain, participando en las pruebas dinámicas de ambas competiciones en un mismo verano.",
     specs: {
       powertrain: "100% Eléctrico",
       weight: "255 kg",
@@ -119,7 +119,7 @@ export const carsData = [
     season: "2019 / 2021",
     status: "",
     image: "https://images.unsplash.com/photo-1583121274602-3e2820c69888?auto=format&fit=crop&w=1000&q=80",
-    description: "El proyecto que superó una pandemia. El equipo creció a más de 60 miembros y en agosto de 2021 marcó un hito al ser nuestro primer coche plenamente operativo en arrancar en pista.",
+    description: "Tercera generación y el proyecto que superó la pandemia. Con un equipo que creció hasta más de 60 miembros, en agosto de 2021 alcanzamos un hito decisivo al poner en pista nuestro primer coche plenamente operativo. Logramos un 2.º puesto en Business Plan y un excelente feedback en diseño mecánico y eléctrico.",
     specs: {
       powertrain: "100% Eléctrico",
       weight: "265 kg",
@@ -139,7 +139,7 @@ export const carsData = [
     season: "2018 / 2019",
     status: "",
     image: "https://images.unsplash.com/photo-1614200187524-dc4b892acf16?auto=format&fit=crop&w=1000&q=80",
-    description: "Fruto de un gran cambio organizativo y la creación de departamentos de gestión. Introdujo avances técnicos notables, destacando una nueva arquitectura de batería con celdas cilíndricas.",
+    description: "Segunda generación, fruto de una profunda reestructuración organizativa y de la creación de los departamentos de gestión. Introdujo avances técnicos notables, destacando una nueva arquitectura de batería basada en celdas cilíndricas que mejoró sensiblemente la tecnología anterior.",
     specs: {
       powertrain: "100% Eléctrico",
       weight: "275 kg",
@@ -157,7 +157,7 @@ export const carsData = [
     season: "2017 / 2018",
     status: "",
     image: "https://images.unsplash.com/photo-1542362567-b07e54358753?auto=format&fit=crop&w=1000&q=80",
-    description: "El origen de todo. Desarrollado en tan solo un año por los miembros fundadores, fue el primer prototipo de nuestra historia. Sentó las bases sobre las que evolucionaría el proyecto.",
+    description: "El origen de todo. Desarrollado en apenas un año por los miembros fundadores, fue el primer prototipo de nuestra historia. Con él debutamos en Formula Student Spain (Montmeló), sentando las bases técnicas y humanas sobre las que evolucionaría todo el proyecto.",
     specs: {
       powertrain: "100% Eléctrico",
       weight: "290 kg",

@@ -3,8 +3,8 @@ import JoinUsSection from "@/components/data-display/JoinUsSection";
 export default function JoinUs() {
   return (
     <JoinUsSection
-      /* Cambia a true cuando se abra el plazo de inscripción */
-      isOpen={false}
+      /* Cambia a false cuando acabe el plazo de inscripción */
+      isOpen={true}
       formsUrl="https://forms.office.com/e/aa59hp5KtL?embed=true"
       headerTitle="ÚNETE AL DESAFÍO"
       headerSubtitle="Buscamos mentes inquietas, apasionadas por el motorsport y con ganas de aprender trabajando en equipo."

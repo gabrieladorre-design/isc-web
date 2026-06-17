@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import "./LandingSplit.scss";
 
 import iscLogo from "@/assets/logos/ISC.png";  
-import motoBg from "@/assets/fotos-y-videos/Landing/moto.jpg";
+import motoBg from "@/assets/fotos-y-videos/Landing/moto.png";
 import formulaBg from "@/assets/fotos-y-videos/Landing/coche.jpg";
 
 
