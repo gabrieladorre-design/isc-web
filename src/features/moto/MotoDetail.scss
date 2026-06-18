@@ -1,9 +1,9 @@
 @use "../../styles/variables" as *;
 
 .car-detail-page {
-  background-color: #0a0a0a;
+  background-color: #ffffff;
   min-height: 100vh;
-  color: white;
+  color: #1a1a1a;
   font-family: $font-main;
   padding-bottom: 5rem;
 }
@@ -21,7 +21,15 @@
   .overlay {
     position: absolute;
     top: 0; left: 0; width: 100%; height: 100%;
-    background: linear-gradient(to top, #0a0a0a 0%, rgba(0,0,0,0.4) 100%);
+    /* Oscurece arriba (legibilidad del botón Volver) y se funde en blanco
+       abajo para integrarse con el fondo técnico de la página. */
+    background: linear-gradient(
+      to top,
+      #ffffff 0%,
+      rgba(255, 255, 255, 0.88) 14%,
+      rgba(0, 0, 0, 0) 48%,
+      rgba(0, 0, 0, 0.55) 100%
+    );
   }
 
   /* Botón de volver */
@@ -36,7 +44,7 @@
     color: white;
     text-decoration: none;
     z-index: 10;
-    opacity: 0.8;
+    opacity: 0.9;
     transition: all 0.3s ease;
 
     &:hover {
@@ -58,12 +66,12 @@
       font-size: 5rem;
       font-weight: 900;
       margin: 0; /* Quitamos el margin por defecto para controlarlo con flexbox */
-      color: white;
+      color: $ib-main-green;
     }
 
     .summary {
       font-size: 1.2rem;
-      color: #ccc;
+      color: #444;
       line-height: 1.6;
       margin-top: 1.5rem; /* Separamos el párrafo del título */
     }
@@ -87,7 +95,7 @@
   }
 
   h2 {
-    color: $isc-yellow;
+    color: $ib-main-green;
     font-size: 1.8rem;
     font-weight: 800;
     margin-bottom: 2.5rem;
@@ -101,18 +109,20 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr));
   gap: 1.5rem;
-  
+
   .spec-card {
-    background: #111;
-    border: 1px solid #222;
+    background: #f6f7f9;
+    border: 1px solid #e6e8ec;
+    border-top: 3px solid $isc-yellow;
     padding: 2rem;
     border-radius: 8px;
     text-align: center;
     font-size: 1.4rem;
     font-weight: 700;
-    color: white;
+    color: #111;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.04);
 
-    small { display: block; font-size: 0.8rem; color: #777; text-transform: uppercase; margin-top: 10px;}
+    small { display: block; font-size: 0.8rem; color: #888; text-transform: uppercase; margin-top: 10px; letter-spacing: 0.5px; }
   }
 }
 
@@ -123,16 +133,17 @@
   gap: 2rem;
 
   .comp-card {
-    background: #111;
-    border: 1px solid #222;
+    background: #f6f7f9;
+    border: 1px solid #e6e8ec;
     padding: 2rem;
     border-radius: 8px;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.04);
     h4 { color: $ib-main-green; font-size: 1.3rem; margin-bottom: 0.8rem;}
-    p { color: #aaa; font-size: 1rem; margin-bottom: 0.5rem;}
-    .result { color: white; font-weight: 700; margin-top: 1rem;}
+    p { color: #555; font-size: 1rem; margin-bottom: 0.5rem;}
+    .result { color: #111; font-weight: 700; margin-top: 1rem;}
   }
 }
-.no-data { text-align: center; color: #666;}
+.no-data { text-align: center; color: #888;}
 
 /* 4. GALLERY */
 .image-grid {
@@ -155,17 +166,17 @@
 /* ERROR PAGE */
 .error-page {
   height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center;
-  h1 { font-size: 8rem; color: $isc-yellow; }
-  p { font-size: 1.5rem; color: #ccc; margin-bottom: 2rem; }
-  a { color: white; text-decoration: none; &:hover { text-decoration: underline; }}
+  h1 { font-size: 8rem; color: $ib-main-green; }
+  p { font-size: 1.5rem; color: #555; margin-bottom: 2rem; }
+  a { color: $ib-main-green; font-weight: 700; text-decoration: none; &:hover { text-decoration: underline; }}
 }
 
 /* RESPONSIVE */
 @media (max-width: 768px) {
-  .car-hero { 
-    height: 70vh; 
+  .car-hero {
+    height: 70vh;
     padding: 2rem;
-    
+
     .btn-back {
       top: 2rem;
       left: 2rem;

@@ -56,9 +56,9 @@ export default function MotoHome() {
         </>
       }
       whoHighlights={[
-        { icon: "⚡", text: "Motocicleta 100% Eléctrica" },
-        { icon: "🛠️", text: "Fabricación propia en ICAI" },
-        { icon: "🏁", text: "Competición Internacional" },
+        { icon: "bolt", text: "Motocicleta 100% Eléctrica" },
+        { icon: "tools", text: "Fabricación propia en ICAI" },
+        { icon: "flag", text: "Competición Internacional" },
       ]}
       cadImg={motoCad}
       cadAlt="Modelo CAD de la motocicleta"

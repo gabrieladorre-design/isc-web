@@ -47,9 +47,9 @@ export default function Home() {
         </>
       }
       whoHighlights={[
-        { icon: "⚡", text: "Vehículo 100% Eléctrico" },
-        { icon: "🛠️", text: "Fabricación propia en ICAI" },
-        { icon: "🏁", text: "Competición Internacional" },
+        { icon: "bolt", text: "Vehículo 100% Eléctrico" },
+        { icon: "tools", text: "Fabricación propia en ICAI" },
+        { icon: "flag", text: "Competición Internacional" },
       ]}
       cadImg={carCad}
       cadAlt="Monoplaza ISC"

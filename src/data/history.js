@@ -77,17 +77,11 @@ export const formulaTimeline = [
   }
 ];
 
-/* ===== MOTOSTUDENT (MOTO) — 2025 → 2018 ===== */
+/* ===== MOTOSTUDENT (MOTO) — 2024 → 2018 =====
+   La competición MotoStudent se disputa cada dos años. El equipo debutó en
+   2018, por lo que la trayectoria abarca cuatro ediciones bienales
+   (2018, 2020, 2022 y 2024) y, por tanto, cuatro prototipos: IM-01 a IM-04. */
 export const motoTimeline = [
-  {
-    year: "2025",
-    model: "IM-05",
-    subtitle: "Aerodinámica y Ligereza",
-    text: "El prototipo más ágil hasta la fecha. Redujimos un 15% el peso del chasis tubular y optimizamos el centro de gravedad. Superamos las exigentes inspecciones técnicas de MotorLand sin fallos.",
-    stats: "Top 10 Dinámicas",
-    imgCar: placeholderVehicle,
-    imgTeam: placeholderTeam
-  },
   {
     year: "2024",
     model: "IM-04",
@@ -98,25 +92,25 @@ export const motoTimeline = [
     imgTeam: placeholderTeam
   },
   {
-    year: "2023",
+    year: "2022",
     model: "IM-03",
     subtitle: "Fiabilidad en Pista",
-    text: "Completamos la carrera principal en el circuito de Aragón demostrando una fiabilidad térmica excelente en nuestro motor eléctrico bajo condiciones de calor extremo.",
+    text: "Completamos la carrera principal en el circuito de MotorLand Aragón demostrando una fiabilidad térmica excelente en nuestro motor eléctrico bajo condiciones de calor extremo.",
     stats: "Carrera Completada",
     imgCar: placeholderVehicle,
     imgTeam: placeholderTeam
   },
   {
-    year: "2021-2022",
+    year: "2020",
     model: "IM-02",
-    subtitle: "Desarrollo Virtual y Retorno",
-    text: "Tras los retos operativos de la pandemia, el equipo se reestructuró para diseñar un sistema de control electrónico totalmente nuevo. Gran puntuación en la fase de Diseño.",
+    subtitle: "Desarrollo y Retorno",
+    text: "Tras los retos operativos de la pandemia, el equipo se reestructuró para diseñar un sistema de control electrónico totalmente nuevo, obteniendo una gran puntuación en la fase de Diseño.",
     stats: "Innovación Electrónica",
     imgCar: placeholderVehicle,
     imgTeam: placeholderTeam
   },
   {
-    year: "2018-2020",
+    year: "2018",
     model: "IM-01",
     subtitle: "El Origen sobre Dos Ruedas",
     text: "Nace la división de motos del ISC Racing Team. En un tiempo récord, conseguimos fabricar nuestra primera moto eléctrica y presentarnos en la competición internacional MotoStudent.",

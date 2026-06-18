@@ -123,58 +123,93 @@
 }
 
 .custom-popup {
-  padding: 1.8rem;
   box-sizing: border-box;
+  font-family: $font-main;
 
-  h3 { 
-    color: $ib-main-green; 
-    margin: 0 0 0.8rem 0; 
-    font-weight: 900; 
-    font-size: 1.3rem; 
-    line-height: 1.3;
-    padding-right: 1.5rem; 
-    border-bottom: 2px solid #f0f0f0;
-    padding-bottom: 0.8rem;
+  /* --- Cabecera con color corporativo --- */
+  .popup-header {
+    background: $ib-main-green;
+    color: #fff;
+    padding: 1.2rem 1.4rem 1.1rem;
+
+    .popup-status {
+      display: inline-block;
+      font-size: 0.68rem;
+      font-weight: 800;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      padding: 0.25rem 0.6rem;
+      border-radius: 50px;
+      margin-bottom: 0.6rem;
+      background: $isc-yellow;
+      color: $ib-main-green;
+    }
+
+    h3 {
+      color: #fff;
+      margin: 0;
+      font-weight: 900;
+      font-size: 1.25rem;
+      line-height: 1.25;
+    }
+
+    .venue {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      color: rgba(255, 255, 255, 0.85);
+      font-size: 0.9rem;
+      font-weight: 600;
+      margin: 0.55rem 0 0;
+    }
   }
-  
-  .venue { 
-    color: #666; 
-    font-size: 0.95rem; 
-    margin: 0 0 1.2rem 0; 
-    font-weight: 600;
+
+  /* Variante para objetivos futuros: cabecera en gris neutro */
+  &.is-future .popup-header {
+    background: #3a3f45;
+    .popup-status { background: rgba(255, 255, 255, 0.18); color: #fff; }
   }
-  
-  .isc-highlight { 
-    background: #f8f9fa; 
-    border: 1px solid #eee;
-    border-left: 4px solid $isc-yellow; 
-    padding: 1rem; 
-    border-radius: 6px;
-    font-size: 0.95rem; 
-    color: #333; 
+
+  /* --- Cuerpo --- */
+  .popup-body {
+    padding: 1.2rem 1.4rem 1.4rem;
+  }
+
+  .isc-highlight {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    background: #f6f7f9;
+    border: 1px solid #ececef;
+    border-left: 4px solid $isc-yellow;
+    padding: 0.9rem 1rem;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    color: #333;
     line-height: 1.5;
 
     strong {
-      display: block;
-      color: $ib-main-green; 
-      font-size: 0.9rem;
-      margin-bottom: 0.4rem;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      color: $ib-main-green;
+      font-size: 0.78rem;
       text-transform: uppercase;
       letter-spacing: 0.5px;
       font-weight: 800;
     }
   }
-  
-  .future-goal { 
+
+  .future-goal {
     display: block;
-    background: #fdfdfd;
-    color: #888; 
-    font-size: 0.9rem; 
-    padding: 0.8rem;
-    border-radius: 6px;
+    background: #f6f7f9;
+    color: #777;
+    font-size: 0.9rem;
+    padding: 0.85rem;
+    border-radius: 8px;
     font-weight: 600;
     text-align: center;
-    border: 1px dashed #ccc;
+    border: 1px dashed #cfd3d8;
   }
 }
 

@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
+import Icon from "./Icon";
 import "./CompetitionsSection.scss";
 
 /**
@@ -44,7 +45,7 @@ export default function CompetitionsSection({
   legendIsc = "Participación ISC",
   legendOther = "Eventos Oficiales FS",
   mapCenter = [47.0, 8.0],
-  highlightLabel = "🏆 Hito ISC:",
+  highlightLabel = "Hito ISC:",
   futureGoalLabel = "Próximo objetivo",
 }) {
   useEffect(() => {
@@ -89,18 +90,23 @@ export default function CompetitionsSection({
                 icon={event.attended ? iscIcon : defaultIcon}
               >
                 {/* minWidth evita que Leaflet recorte el popup */}
-                <Popup className="custom-popup-container" minWidth={340}>
-                  <div className="custom-popup">
-                    <h3>{event.name}</h3>
-                    <p className="venue">📍 {event.venue}</p>
-                    {event.attended ? (
-                      <div className="isc-highlight">
-                        <strong>{highlightLabel}</strong>
-                        {event.highlight}
-                      </div>
-                    ) : (
-                      <span className="future-goal">{futureGoalLabel}</span>
-                    )}
+                <Popup className="custom-popup-container" minWidth={320}>
+                  <div className={`custom-popup ${event.attended ? "is-isc" : "is-future"}`}>
+                    <div className="popup-header">
+                      <span className="popup-status">{event.attended ? "Participación ISC" : "Objetivo"}</span>
+                      <h3>{event.name}</h3>
+                      <p className="venue"><Icon name="pin" /> {event.venue}</p>
+                    </div>
+                    <div className="popup-body">
+                      {event.attended ? (
+                        <div className="isc-highlight">
+                          <strong><Icon name="trophy" /> {highlightLabel}</strong>
+                          <span>{event.highlight}</span>
+                        </div>
+                      ) : (
+                        <span className="future-goal">{futureGoalLabel}</span>
+                      )}
+                    </div>
                   </div>
                 </Popup>
               </Marker>
@@ -119,7 +125,7 @@ export default function CompetitionsSection({
               <h3>{result.title}</h3>
               <p className="highlight">{result.highlight}</p>
               <div className="details"><p>{result.details}</p></div>
-              <span className="reveal-hint">Ver detalle ▾</span>
+              <span className="reveal-hint">Ver detalle <Icon name="chevron" /></span>
             </div>
           ))}
         </div>

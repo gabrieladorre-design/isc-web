@@ -47,11 +47,9 @@ function TimelineItem({ data, index, onImageClick, vehicleAlt, vehicleLabel }) {
       <div className="timeline-images">
         <div className="img-wrapper car" onClick={() => onImageClick(data.imgCar)}>
           <img src={data.imgCar} alt={`${vehicleAlt} ${data.model}`} />
-          <div className="img-label">{vehicleLabel}</div>
         </div>
         <div className="img-wrapper team" onClick={() => onImageClick(data.imgTeam)}>
           <img src={data.imgTeam} alt={`Equipo ${data.year}`} />
-          <div className="img-label">Equipo</div>
         </div>
       </div>
       <div className="timeline-dot"></div>

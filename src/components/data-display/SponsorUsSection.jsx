@@ -3,23 +3,33 @@ import "./SponsorUsSection.scss";
 
 /**
  * Página de "Conviértase en Patrocinador" reutilizable para Coche y Moto.
- * La maqueta (cabecera + intro/beneficios + categorías + CTA email) es idéntica;
- * todo el contenido se pasa por props.
+ * Orientada a ventas B2B: cabecera con imagen de impacto, propuesta de valor,
+ * franja visual con fotografías reales y categorías de patrocinio.
+ * Todo el contenido se pasa por props.
  *
  * Props:
- *  - headerSubtitle: subtítulo de la cabecera
- *  - introTitle:     título de la sección de introducción
+ *  - headerImage:     imagen de fondo de la cabecera (foto de impacto)
+ *  - headerSubtitle:  subtítulo de la cabecera
+ *  - introTitle:      título de la sección de introducción
  *  - introParagraphs: JSX con los párrafos de la introducción
- *  - benefits:       array de { icon, label } de la rejilla de beneficios
- *  - tiers:          array de { name, premium?, items:[...], note? } de categorías
+ *  - benefits:        array de { label, text } de la rejilla de beneficios
+ *  - valueProps:      array de { value, label } de la banda de cifras/argumentos
+ *  - pitchTitle / pitchText: titular y texto persuasivo de la franja visual
+ *  - showcaseImages:  array de imágenes (foto de impacto) de la franja visual
+ *  - tiers:           array de { name, premium?, items:[...], note? } de categorías
  *  - ctaTitle / ctaText: cabecera del CTA final
- *  - ctaEmailHref:   mailto completo del botón de contacto
+ *  - ctaEmailHref:    mailto completo del botón de contacto
  */
 export default function SponsorUsSection({
+  headerImage = null,
   headerSubtitle = "",
   introTitle = "",
   introParagraphs = null,
   benefits = [],
+  valueProps = [],
+  pitchTitle = "",
+  pitchText = "",
+  showcaseImages = [],
   tiers = [],
   ctaTitle = "",
   ctaText = "",
@@ -32,13 +42,33 @@ export default function SponsorUsSection({
   return (
     <div className="sponsor-us-page">
 
-      {/* CABECERA */}
-      <header className="su-header">
+      {/* CABECERA CON IMAGEN DE IMPACTO */}
+      <header
+        className={`su-header${headerImage ? " has-image" : ""}`}
+        style={headerImage ? { backgroundImage: `url(${headerImage})` } : undefined}
+      >
+        <div className="su-header__overlay" />
         <div className="header-content">
+          <span className="su-eyebrow">Colaboración corporativa · B2B</span>
           <h1>Conviértase en Patrocinador</h1>
           <p>{headerSubtitle}</p>
+          <a href={ctaEmailHref} className="su-header__cta">Quiero colaborar</a>
         </div>
       </header>
+
+      {/* BANDA DE PROPUESTA DE VALOR (cifras / argumentos) */}
+      {valueProps.length > 0 && (
+        <section className="su-valueprops">
+          <div className="container">
+            {valueProps.map((v, i) => (
+              <div className="vp-item" key={i}>
+                <span className="vp-value">{v.value}</span>
+                <span className="vp-label">{v.label}</span>
+              </div>
+            ))}
+          </div>
+        </section>
+      )}
 
       {/* INTRODUCCIÓN Y BENEFICIOS */}
       <section className="su-intro">
@@ -58,6 +88,29 @@ export default function SponsorUsSection({
           </div>
         </div>
       </section>
+
+      {/* FRANJA VISUAL DE IMPACTO (fotografías reales + pitch de ventas) */}
+      {(showcaseImages.length > 0 || pitchTitle) && (
+        <section className="su-showcase">
+          <div className="container">
+            {(pitchTitle || pitchText) && (
+              <div className="showcase-text">
+                {pitchTitle && <h2>{pitchTitle}</h2>}
+                {pitchText && <p>{pitchText}</p>}
+              </div>
+            )}
+            {showcaseImages.length > 0 && (
+              <div className="showcase-gallery">
+                {showcaseImages.map((src, i) => (
+                  <div className="showcase-img" key={i}>
+                    <img src={src} alt="" loading="lazy" />
+                  </div>
+                ))}
+              </div>
+            )}
+          </div>
+        </section>
+      )}
 
       {/* CATEGORÍAS DE PATROCINIO */}
       <section className="su-tiers">

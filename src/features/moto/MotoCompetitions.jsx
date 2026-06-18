@@ -11,7 +11,7 @@ export default function MotoCompetitions() {
       legendIsc="Sede Principal ISC"
       legendOther="Circuitos en Evaluación"
       mapCenter={[44.0, 4.0]}
-      highlightLabel="🏆 Hito ISC Moto:"
+      highlightLabel="Hito ISC Moto:"
       futureGoalLabel="Próximo objetivo / Test"
     />
   );

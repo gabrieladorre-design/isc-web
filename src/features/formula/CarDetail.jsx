@@ -1,6 +1,7 @@
 import { useEffect, useRef } from "react";
 import { useParams, Link } from "react-router-dom";
 import { carsData } from "@/data/formula/coches";
+import Icon from "@/components/data-display/Icon";
 import "./CarDetail.scss";
 
 export default function CarDetail() {
@@ -47,7 +48,7 @@ export default function CarDetail() {
      {/* Hero */}
       <header className="car-hero" style={{ backgroundImage: `url(${car.image})` }}>
         <div className="overlay"></div>
-        <Link to="/garaje" className="btn-back">← Volver al Garaje</Link>
+        <Link to="/garaje" className="btn-back"><Icon name="arrow-left" /> Volver al Garaje</Link>
 
         <div className="hero-content">
           <h1>{car.name}</h1>
@@ -61,10 +62,10 @@ export default function CarDetail() {
         <section className="specs-section" ref={addToRefs}>
           <h2>ESPECIFICACIONES TÉCNICAS</h2>
           <div className="specs-grid">
-            <div className="spec-card">⚡ <small>Powertrain</small> <br/> {car.specs.powertrain}</div>
-            <div className="spec-card">⚖️ <small>Peso Total</small> <br/> {car.specs.weight}</div>
-            <div className="spec-card">🛠️ <small>Chasis</small> <br/> {car.specs.chassis}</div>
-            <div className="spec-card">⏱️ <small>0-100 km/h</small> <br/> {car.specs.acceleration}</div>
+            <div className="spec-card"><Icon name="bolt" className="spec-icon" /> <small>Powertrain</small> <br/> {car.specs.powertrain}</div>
+            <div className="spec-card"><Icon name="weight" className="spec-icon" /> <small>Peso Total</small> <br/> {car.specs.weight}</div>
+            <div className="spec-card"><Icon name="tools" className="spec-icon" /> <small>Chasis</small> <br/> {car.specs.chassis}</div>
+            <div className="spec-card"><Icon name="stopwatch" className="spec-icon" /> <small>0-100 km/h</small> <br/> {car.specs.acceleration}</div>
           </div>
         </section>
 
@@ -76,8 +77,8 @@ export default function CarDetail() {
               {car.competitions.map((comp, index) => (
                 <div key={index} className="comp-card">
                   <h4>{comp.name}</h4>
-                  <p>📍 {comp.venue}</p>
-                  <p className="result">🏆 {comp.result}</p>
+                  <p><Icon name="pin" /> {comp.venue}</p>
+                  <p className="result"><Icon name="trophy" /> {comp.result}</p>
                 </div>
               ))}
             </div>

@@ -1,66 +1,94 @@
 // src/data/moto/motos.js
 // ───────────────────────────────────────────────────────────────────────────
 // FUENTE ÚNICA DE DATOS — Prototipos MotoStudent (ISC MS Racing).
-// (Imágenes: URLs de stock temporales, a sustituir por material real.)
+//
+// La competición MotoStudent se disputa cada dos años y el equipo debutó en
+// 2018. Por tanto, la trayectoria se compone de cuatro ediciones bienales
+// (2018, 2020, 2022 y 2024) y cuatro prototipos: IM-01 → IM-04.
+//
+// (Imágenes: URLs de stock temporales, a sustituir por material real.
+//  Specs no disponibles de los prototipos antiguos marcadas como "N/D".)
 // ───────────────────────────────────────────────────────────────────────────
 
 export const motosData = [
   {
-    id: "im06",
-    name: "IM-06",
-    season: "Temporada 2026",
-    status: "EN DESARROLLO",
-    image: "https://images.unsplash.com/photo-1558981403-c5f9899a28bc?auto=format&fit=crop&w=1000&q=80",
-    description: "Sexta generación del prototipo eléctrico, actualmente en desarrollo para la temporada 2026. Su diseño incorpora telemetría en tiempo real y una drástica reducción de peso, con el objetivo de dar el salto definitivo en rendimiento y pelear por el podio en MotorLand Aragón.",
+    id: "im04",
+    name: "IM-04",
+    season: "2024",
+    status: "PROTOTIPO ACTUAL",
+    image: "https://images.unsplash.com/photo-1568772585407-9361f9bf3a87?auto=format&fit=crop&w=1000&q=80",
+    description: "Cuarta generación y prototipo más reciente del equipo, correspondiente a la edición 2024. Supuso un salto cualitativo en ingeniería propia: estrenamos un paquete de baterías customizado y un basculante de fabricación íntegramente interna. Con estas mejoras logramos nuestro mejor tiempo en la prueba de aceleración.",
     specs: {
-      powertrain: "Motor Eléctrico 30kW",
-      weight: "Objetivo: < 130 kg",
-      chassis: "Multitubular de Acero de Alta Resistencia",
-      acceleration: "TBD",
+      powertrain: "Motor Eléctrico 25kW",
+      weight: "155 kg",
+      chassis: "Multitubular de Acero / Basculante de Aluminio",
+      acceleration: "3.5s (0-100 km/h)",
     },
-    competitions: [],
+    competitions: [
+      { name: "MotoStudent International", venue: "MotorLand Aragón", result: "Mejor Aceleración" },
+    ],
     gallery: [
       "https://images.unsplash.com/photo-1568772585407-9361f9bf3a87?auto=format&fit=crop&w=600&q=80",
     ],
   },
   {
-    id: "im05",
-    name: "IM-05",
-    season: "2024 / 2025",
-    status: "PROTOTIPO ACTUAL",
+    id: "im03",
+    name: "IM-03",
+    season: "2022",
+    status: "",
     image: "https://images.unsplash.com/photo-1599819811279-d5ad9cccf838?auto=format&fit=crop&w=1000&q=80",
-    description: "Prototipo actual y el más ágil hasta la fecha. Redujimos un 15 % el peso del chasis multitubular y optimizamos el centro de gravedad para mejorar el paso por curva. Superamos sin fallos las exigentes inspecciones técnicas de MotorLand Aragón y firmamos un Top 10 en las pruebas dinámicas.",
+    description: "Tercera generación, centrada en la fiabilidad. Completó la carrera principal en el circuito de MotorLand Aragón demostrando una excelente fiabilidad térmica del motor eléctrico bajo condiciones de calor extremo.",
     specs: {
-      powertrain: "Motor Eléctrico 28kW",
-      weight: "145 kg",
+      powertrain: "Motor Eléctrico",
+      weight: "N/D",
       chassis: "Multitubular de Acero",
-      acceleration: "3.2s (0-100 km/h)",
+      acceleration: "N/D",
     },
     competitions: [
-      { name: "MotoStudent International", venue: "MotorLand Aragón", result: "Top 10 Dinámicas" },
+      { name: "MotoStudent International", venue: "MotorLand Aragón", result: "Carrera completada" },
     ],
     gallery: [
       "https://images.unsplash.com/photo-1599819811279-d5ad9cccf838?auto=format&fit=crop&w=600&q=80",
     ],
   },
   {
-    id: "im04",
-    name: "IM-04",
-    season: "2023 / 2024",
+    id: "im02",
+    name: "IM-02",
+    season: "2020",
     status: "",
-    image: "https://images.unsplash.com/photo-1568772585407-9361f9bf3a87?auto=format&fit=crop&w=1000&q=80",
-    description: "Cuarta generación que supuso un salto cualitativo en ingeniería propia: estrenamos un paquete de baterías customizado y un basculante de fabricación íntegramente interna. Con estas mejoras logramos nuestro mejor tiempo en la prueba de aceleración.",
+    image: "https://images.unsplash.com/photo-1558981403-c5f9899a28bc?auto=format&fit=crop&w=1000&q=80",
+    description: "Segunda generación. Tras los retos operativos de la pandemia, el equipo se reestructuró y diseñó un sistema de control electrónico totalmente nuevo, obteniendo una gran puntuación en la fase de Diseño.",
     specs: {
-      powertrain: "Motor Eléctrico 25kW",
-      weight: "155 kg",
-      chassis: "Acero / Basculante Aluminio",
-      acceleration: "3.5s (0-100 km/h)",
+      powertrain: "Motor Eléctrico",
+      weight: "N/D",
+      chassis: "Multitubular de Acero",
+      acceleration: "N/D",
     },
     competitions: [
-      { name: "MotoStudent International", venue: "MotorLand Aragón", result: "Mejor Aceleración Equipo Rookie" },
+      { name: "MotoStudent International", venue: "MotorLand Aragón", result: "Destacados en fase de Diseño" },
     ],
     gallery: [
-      "https://images.unsplash.com/photo-1568772585407-9361f9bf3a87?auto=format&fit=crop&w=600&q=80",
+      "https://images.unsplash.com/photo-1558981403-c5f9899a28bc?auto=format&fit=crop&w=600&q=80",
+    ],
+  },
+  {
+    id: "im01",
+    name: "IM-01",
+    season: "2018",
+    status: "",
+    image: "https://images.unsplash.com/photo-1591637333184-19aa84b3e01f?auto=format&fit=crop&w=1000&q=80",
+    description: "Primera generación y origen de la división de motos del ISC Racing Team. En un tiempo récord fabricamos nuestra primera motocicleta eléctrica y debutamos en la competición internacional MotoStudent, sentando las bases del proyecto sobre dos ruedas.",
+    specs: {
+      powertrain: "Motor Eléctrico",
+      weight: "N/D",
+      chassis: "Multitubular de Acero",
+      acceleration: "N/D",
+    },
+    competitions: [
+      { name: "MotoStudent International", venue: "MotorLand Aragón", result: "Participación debut" },
+    ],
+    gallery: [
+      "https://images.unsplash.com/photo-1591637333184-19aa84b3e01f?auto=format&fit=crop&w=600&q=80",
     ],
   },
 ];

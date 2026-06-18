@@ -74,7 +74,7 @@ export const sponsors = [
   { id: "rapidharness", name: "RAPIDHARNESS", logo: rapidHarnessLogo, url: "https://rapidharness.com", tier: "official", disciplina: "ambas" },
   { id: "siemens", name: "SIEMENS", logo: siemensLogo, url: "https://www.sw.siemens.com", tier: "official", disciplina: "ambas" },
   { id: "teyde", name: "TEYDE", logo: teydeLogo, url: "https://www.teydeingenieria.com/", tier: "official", disciplina: "ambas" },
-  { id: "valmoldes", name: "VALMOLDES", logo: valmoldesLogo, url: "http://valmoldes.com/", tier: "official", disciplina: "ambas", style: { transform: "rotate(90deg)" } },
+  { id: "valmoldes", name: "VALMOLDES", logo: valmoldesLogo, url: "http://valmoldes.com/", tier: "official", disciplina: "ambas" },
   { id: "vector", name: "VECTOR", logo: vectorLogo, url: "https://www.vector.com", tier: "official", disciplina: "ambas" },
 
   // ── ASSOCIATE SPONSORS ─────────────────────────────────────────

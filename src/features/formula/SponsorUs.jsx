@@ -1,9 +1,25 @@
 import SponsorUsSection from "@/components/data-display/SponsorUsSection";
 
+// Imágenes reales de impacto (Jarama 2024)
+import headerImg from "@/assets/fotos-y-videos/HomeCoche/HomeCoche.JPG";
+import showcase1 from "@/assets/fotos-y-videos/HomeCoche/imagenes-deslizantes-home/Coche-02.jpg";
+import showcase2 from "@/assets/fotos-y-videos/HomeCoche/imagenes-deslizantes-home/Coche-04.jpg";
+import showcase3 from "@/assets/fotos-y-videos/HomeCoche/imagenes-deslizantes-home/Coche-06.jpg";
+
 export default function SponsorUs() {
   return (
     <SponsorUsSection
+      headerImage={headerImg}
       headerSubtitle="Asóciese con el ISC Racing Team e invierta en innovación, ingeniería y talento universitario."
+      valueProps={[
+        { value: "+80", label: "Ingenieros en el equipo" },
+        { value: "100%", label: "Monoplaza eléctrico" },
+        { value: "ICAI · ICADE", label: "Talento multidisciplinar" },
+        { value: "Europa", label: "Competición internacional" },
+      ]}
+      pitchTitle="Su marca, en el corazón de la ingeniería del futuro"
+      pitchText="Cada temporada, decenas de ingenieros llevan su marca a los circuitos más exigentes de Europa ante miles de profesionales del sector de la automoción, la energía y la tecnología. Asociarse con el ISC Racing Team es invertir en visibilidad de alto valor, en I+D real y en la próxima generación de talento que su empresa querrá contratar."
+      showcaseImages={[showcase1, showcase2, showcase3]}
       introTitle="Una alianza estratégica con retorno medible"
       introParagraphs={
         <>

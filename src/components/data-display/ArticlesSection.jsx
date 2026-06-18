@@ -12,6 +12,19 @@ import "./ArticlesSection.scss";
  *  - newsletters: array de newsletters { id, year, month, cover, file }
  *  - subtitle:    texto del subtítulo de la cabecera
  */
+// Orden de meses (ES) para poder ordenar cronológicamente.
+const MONTH_ORDER = {
+  ENERO: 1, FEBRERO: 2, MARZO: 3, ABRIL: 4, MAYO: 5, JUNIO: 6,
+  JULIO: 7, AGOSTO: 8, SEPTIEMBRE: 9, OCTUBRE: 10, NOVIEMBRE: 11, DICIEMBRE: 12,
+};
+
+// Clave numérica comparable a partir de year + month (más reciente = mayor).
+const dateKey = (n) => {
+  const yearNum = parseInt(String(n.year).match(/\d{4}/)?.[0] ?? "0", 10);
+  const monthNum = MONTH_ORDER[String(n.month).toUpperCase()] ?? 0;
+  return yearNum * 100 + monthNum;
+};
+
 export default function ArticlesSection({ newsletters = [], subtitle = "" }) {
   const [selectedPdf, setSelectedPdf] = useState(null);
 
@@ -20,14 +33,23 @@ export default function ArticlesSection({ newsletters = [], subtitle = "" }) {
     window.scrollTo(0, 0);
   }, []);
 
-  // Agrupamos las newsletters por año automáticamente (ej: 2024-2025)
-  const groupedNewsletters = newsletters.reduce((acc, newsletter) => {
+  // Orden cronológico DESCENDENTE estricto (las más recientes primero),
+  // independientemente del orden en que vengan en los datos.
+  const sortedNewsletters = [...newsletters].sort((a, b) => dateKey(b) - dateKey(a));
+
+  // Agrupamos las newsletters por año (preservando el orden descendente).
+  const groupedNewsletters = sortedNewsletters.reduce((acc, newsletter) => {
     if (!acc[newsletter.year]) {
       acc[newsletter.year] = [];
     }
     acc[newsletter.year].push(newsletter);
     return acc;
   }, {});
+
+  // Años ordenados de más reciente a más antiguo.
+  const orderedYears = Object.keys(groupedNewsletters).sort(
+    (a, b) => parseInt(b.match(/\d{4}/)?.[0] ?? "0", 10) - parseInt(a.match(/\d{4}/)?.[0] ?? "0", 10)
+  );
 
   // Funciones para abrir y cerrar el PDF
   const openViewer = (file) => {
@@ -50,7 +72,7 @@ export default function ArticlesSection({ newsletters = [], subtitle = "" }) {
 
       {/* Newsletters agrupadas por año */}
       <div className="newsletters-container">
-        {Object.keys(groupedNewsletters).map((year) => (
+        {orderedYears.map((year) => (
           <div key={year} className="year-section">
             <h2 className="year-title">{year}</h2>
 

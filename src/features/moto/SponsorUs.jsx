@@ -1,9 +1,25 @@
 import SponsorUsSection from "@/components/data-display/SponsorUsSection";
 
+// Imágenes reales de impacto del prototipo (MotorLand / Jarama 2024)
+import headerImg from "@/assets/fotos-y-videos/HomeMoto/HomeMoto.JPG";
+import showcase1 from "@/assets/fotos-y-videos/HomeMoto/imagenes-deslizantes-home/Moto-02.jpg";
+import showcase2 from "@/assets/fotos-y-videos/HomeMoto/imagenes-deslizantes-home/Moto-05.jpg";
+import showcase3 from "@/assets/fotos-y-videos/HomeMoto/imagenes-deslizantes-home/Moto-09.jpg";
+
 export default function MotoSponsorUs() {
   return (
     <SponsorUsSection
+      headerImage={headerImg}
       headerSubtitle="Asóciese con la división MotoStudent del ISC Racing Team e invierta en movilidad eléctrica y talento de ingeniería."
+      valueProps={[
+        { value: "20", label: "Ingenieros en el equipo" },
+        { value: "100%", label: "Prototipo eléctrico" },
+        { value: "ICAI · ICADE", label: "Talento multidisciplinar" },
+        { value: "MotorLand", label: "Competición internacional" },
+      ]}
+      pitchTitle="Lleve su marca a la vanguardia de la movilidad eléctrica"
+      pitchText="Nuestro prototipo eléctrico compite en MotorLand Aragón ante el sector de las dos ruedas, la energía y la ingeniería. Patrocinar a la división MotoStudent del ISC Racing Team es asociar su empresa a la innovación en propulsión eléctrica y conectar directamente con el talento que diseñará la movilidad del futuro."
+      showcaseImages={[showcase1, showcase2, showcase3]}
       introTitle="Una alianza estratégica con retorno medible"
       introParagraphs={
         <>

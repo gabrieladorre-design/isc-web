@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import Icon from "./Icon";
 import "./JoinUsSection.scss";
 
 /**
@@ -86,7 +87,7 @@ export default function JoinUsSection({
               ) : (
 
                 <div className="closed-state">
-                  <div className="icon-closed">🏁</div>
+                  <div className="icon-closed"><Icon name="flag" /></div>
                   <h3>Proceso Cerrado</h3>
                   <p>{closedText}</p>
                   <p className="closed-sub">Síguenos en nuestras redes sociales para ser la primera persona en enterarte de la próxima convocatoria.</p>

@@ -1,5 +1,6 @@
 import { useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
+import Icon from "./Icon";
 import "./HomeSection.scss";
 
 /**
@@ -123,7 +124,7 @@ export default function HomeSection({
             <div className="specs-highlights">
               {whoHighlights.map((h, i) => (
                 <div className="highlight" key={i}>
-                  <span className="icon">{h.icon}</span>
+                  <span className="icon"><Icon name={h.icon} /></span>
                   <span>{h.text}</span>
                 </div>
               ))}
@@ -146,12 +147,12 @@ export default function HomeSection({
       <section className="mission-vision-section" ref={addToRefs}>
         <div className="mv-container">
           <div className="mv-card">
-            <div className="icon-wrapper">🚀</div>
+            <div className="icon-wrapper"><Icon name="target" /></div>
             <h3>NUESTRA MISIÓN</h3>
             {mission}
           </div>
           <div className="mv-card">
-            <div className="icon-wrapper">🌍</div>
+            <div className="icon-wrapper"><Icon name="globe" /></div>
             <h3>NUESTRA VISIÓN</h3>
             {vision}
           </div>

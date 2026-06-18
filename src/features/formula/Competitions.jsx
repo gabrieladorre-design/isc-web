@@ -11,7 +11,7 @@ export default function Competitions() {
       legendIsc="Participación ISC"
       legendOther="Eventos Oficiales FS"
       mapCenter={[47.0, 8.0]}
-      highlightLabel="🏆 Hito ISC:"
+      highlightLabel="Hito ISC:"
       futureGoalLabel="Próximo objetivo"
     />
   );

@@ -1,3 +1,4 @@
+import Icon from "./Icon";
 import "./ContactSection.scss";
 
 // Iconos de redes sociales
@@ -46,26 +47,26 @@ export default function ContactSection({
         <div className="info-column">
 
           <div className="contact-card highlight-border">
-            <h3>💬 Contacto Directo</h3>
+            <h3><Icon name="chat" /> Contacto Directo</h3>
             <div className="contact-item">
               <span className="label">Teléfono (WhatsApp/Llamadas):</span>
               <a href="tel:+34609838646" className="phone-link">
-                📞 +34 609 83 86 46
+                <Icon name="phone" /> +34 609 83 86 46
               </a>
             </div>
             <hr className="divider-soft"/>
             <div className="contact-item">
               <span className="label">Correo Electrónico:</span>
               <a href={`mailto:${email}`} className="main-email">
-                ✉️ {email}
+                <Icon name="mail" /> {email}
               </a>
             </div>
           </div>
 
           <div className="contact-card">
-            <h3>📍 Nuestras Sedes</h3>
+            <h3><Icon name="pin" /> Nuestras Sedes</h3>
             <div className="location-block">
-              <strong>🛠️ Taller & Garage (Trabajo Técnico)</strong>
+              <strong><Icon name="tools" /> Taller & Garage (Trabajo Técnico)</strong>
               <p className="address">
                 C/ Labradores, 7<br/>
                 28660 Boadilla del Monte, Madrid
@@ -73,7 +74,7 @@ export default function ContactSection({
             </div>
             <hr className="divider"/>
             <div className="location-block">
-              <strong>🏛️ Sede Institucional (ICAI)</strong>
+              <strong><Icon name="building" /> Sede Institucional (ICAI)</strong>
               <p className="address">
                 C/ Alberto Aguilera 25<br/>
                 28015, Madrid
@@ -82,7 +83,7 @@ export default function ContactSection({
           </div>
 
           <div className="contact-card highlight-card">
-            <h3>📂 Dossier de Patrocinio</h3>
+            <h3><Icon name="folder" /> Dossier de Patrocinio</h3>
             <p>{dossierText}</p>
 
             <div className="dossier-buttons">
@@ -96,7 +97,7 @@ export default function ContactSection({
           </div>
 
           <div className="contact-card social-card">
-            <h3>🌐 Síguenos</h3>
+            <h3><Icon name="globe" /> Síguenos</h3>
             <div className="social-icons">
                <a href="https://www.instagram.com/iscfsracingteam/" target="_blank" rel="noreferrer">
                  <img src={instagramIcon} alt="Instagram" />
@@ -117,7 +118,7 @@ export default function ContactSection({
 
           {/* MAPA 1: TALLER */}
           <div className="contact-card map-card">
-            <h3>🛠️ Ubicación Taller (Boadilla)</h3>
+            <h3><Icon name="tools" /> Ubicación Taller (Boadilla)</h3>
             <div className="map-wrapper">
               <iframe
                 src="https://maps.google.com/maps?q=Calle+Labradores,+7,+28660+Boadilla+del+Monte,+Madrid&t=&z=15&ie=UTF8&iwloc=&output=embed"
@@ -134,7 +135,7 @@ export default function ContactSection({
 
           {/* MAPA 2: ICAI */}
           <div className="contact-card map-card">
-            <h3>🏛️ Ubicación ICAI (Madrid)</h3>
+            <h3><Icon name="building" /> Ubicación ICAI (Madrid)</h3>
             <div className="map-wrapper">
               <iframe
                 src="https://maps.google.com/maps?q=Universidad+Pontificia+Comillas+ICAI,+Calle+de+Alberto+Aguilera,+25,+Madrid&t=&z=16&ie=UTF8&iwloc=&output=embed"
