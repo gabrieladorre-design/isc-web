@@ -9,7 +9,7 @@ export default function Garage() {
       basePath="/moto/garaje"
       itemNoun="Prototipo"
       ctaPrefix="SABER MÁS DE LA"
-      activeIds={["im06", "im05"]}
+      activeIds={["im04"]}
     />
   );
 }

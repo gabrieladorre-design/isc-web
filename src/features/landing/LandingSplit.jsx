@@ -1,7 +1,8 @@
 import { Link } from "react-router-dom";
 import "./LandingSplit.scss";
 
-import iscLogo from "@/assets/logos/ISC.png";  
+import iscLogo from "@/assets/logos/ISC.png";
+import iscIconWhite from "@/assets/logos/isc_iconwhite.png";
 import motoBg from "@/assets/fotos-y-videos/Landing/moto.png";
 import formulaBg from "@/assets/fotos-y-videos/Landing/coche.jpg";
 
@@ -19,34 +20,27 @@ export default function LandingSplit() {
 
       {/* CONTENEDOR DIVIDIDO */}
       <div className="split-container">
-        
+
         {/* OPCIÓN 1: MOTO STUDENT */}
-        <Link 
-          to="/moto" 
+        <Link
+          to="/moto"
           className="split-side moto-side"
           style={{ backgroundImage: `url(${motoBg})` }}
         >
           <div className="overlay"></div>
-          <div className="content">
-            <div className="circle-logo">
-               <span>MOTO STUDENT</span> 
-            </div>
-          </div>
         </Link>
 
         {/* OPCIÓN 2: FORMULA STUDENT */}
-        <Link 
-          to="/formula" 
+        <Link
+          to="/formula"
           className="split-side formula-side"
           style={{ backgroundImage: `url(${formulaBg})` }}
         >
           <div className="overlay"></div>
-          <div className="content">
-            <div className="circle-logo">
-              <span>FORMULA STUDENT</span>
-            </div>
-          </div>
         </Link>
+
+        {/* ICONO CENTRAL (no intercepta clics: cada mitad sigue siendo clicable) */}
+        <img src={iscIconWhite} alt="ISC Racing Team" className="split-center-logo" />
 
       </div>
     </div>

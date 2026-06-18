@@ -1,10 +1,20 @@
 import "./FormulaStudent.scss";
 import AnimatedCounter from "@/components/data-display/AnimatedCounter";
+import PhotoGallery from "@/components/data-display/PhotoGallery";
 
-// Imagen real de competición (Fotos WEB/Coche → assets del proyecto)
-import introBg from "@/assets/fotos-y-videos/HomeCoche/HomeCoche.JPG";
-import testStaticImg from "@/assets/fotos-y-videos/HomeCoche/imagenes-deslizantes-home/Coche-03.jpg";
-import testDynamicImg from "@/assets/fotos-y-videos/HomeCoche/imagenes-deslizantes-home/Coche-05.jpg";
+// Fondo del hero (FormulaStudentMedia)
+import introBg from "@/assets/fotos-y-videos/pruebas/coche/fs-2024.jpg";
+
+// Galería de fotos de competición (FormulaStudentMedia) — carga automática
+const fsMediaMap = import.meta.glob(
+  "../../assets/fotos-y-videos/pruebas/coche/*.{jpg,jpeg,png}",
+  { eager: true, import: "default" }
+);
+const fsMedia = Object.keys(fsMediaMap).sort().map((k) => fsMediaMap[k]);
+// Pruebas Dinámicas: exactamente 8 fotos; el resto van a Estáticas.
+const DYNAMIC_COUNT = 8;
+const staticPhotos = fsMedia.slice(0, Math.max(0, fsMedia.length - DYNAMIC_COUNT));
+const dynamicPhotos = fsMedia.slice(Math.max(0, fsMedia.length - DYNAMIC_COUNT));
 
 function FormulaStudent() {
   return (
@@ -31,10 +41,6 @@ function FormulaStudent() {
             Se evalúa la capacidad del equipo para justificar el diseño, gestionar recursos y vender el proyecto.
           </p>
 
-          <div className="section-banner">
-            <img src={testStaticImg} alt="Equipo ISC en las pruebas estáticas" loading="lazy" />
-          </div>
-
           <div className="cards-grid">
             <div className="fs-card">
               <h3>Engineering Design</h3>
@@ -49,6 +55,8 @@ function FormulaStudent() {
               <p>Presentación de un modelo de negocio viable ante inversores para comercializar el prototipo.</p>
             </div>
           </div>
+
+          <PhotoGallery images={staticPhotos} alt="ISC Formula Student" />
         </div>
       </section>
 
@@ -60,10 +68,6 @@ function FormulaStudent() {
             El monoplaza demuestra su rendimiento real en pista.
           </p>
 
-          <div className="section-banner">
-            <img src={testDynamicImg} alt="Monoplaza ISC en las pruebas dinámicas" loading="lazy" />
-          </div>
-
           <div className="cards-grid">
             <div className="fs-card"><h3>Acceleration</h3><p>75 metros en línea recta desde parado.</p></div>
             <div className="fs-card"><h3>Skidpad</h3><p>Circuito en 8 para medir aceleración lateral.</p></div>
@@ -71,6 +75,8 @@ function FormulaStudent() {
             <div className="fs-card"><h3>Endurance</h3><p>22 km de resistencia y fiabilidad.</p></div>
             <div className="fs-card"><h3>Efficiency</h3><p>Consumo energético durante el Endurance.</p></div>
           </div>
+
+          <PhotoGallery images={dynamicPhotos} alt="ISC Formula Student en pista" />
         </div>
       </section>
 

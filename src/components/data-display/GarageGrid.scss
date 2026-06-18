@@ -35,18 +35,23 @@
   }
 }
 
-/* --- CONTENEDOR DE LA CUADRÍCULA --- */
+/* --- CONTENEDOR DE LA CUADRÍCULA ---
+   Flexbox centrado: las tarjetas impares de la última fila quedan centradas
+   (en lugar de alinearse a la izquierda), manteniendo la simetría. */
 .showroom-grid-container {
   max-width: 1200px;
   margin: 0 auto;
   padding: 5rem 2rem;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 3rem;
 }
 
 /* --- TARJETA DE CADA VEHÍCULO --- */
 .car-card {
+  flex: 1 1 320px;
+  max-width: 380px;
   background: #ffffff;
   border-radius: 12px;
   border: 1px solid #eee;

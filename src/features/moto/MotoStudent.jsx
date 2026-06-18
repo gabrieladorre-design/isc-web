@@ -1,10 +1,19 @@
 import "./MotoStudent.scss";
 import AnimatedCounter from "@/components/data-display/AnimatedCounter";
+import PhotoGallery from "@/components/data-display/PhotoGallery";
 
-// Imagen real de competición (Fotos WEB/Moto → assets del proyecto)
+// Fondo del hero
 import introBg from "@/assets/fotos-y-videos/HomeMoto/HomeMoto.JPG";
-import testStaticImg from "@/assets/fotos-y-videos/HomeMoto/imagenes-deslizantes-home/Moto-04.jpg";
-import testDynamicImg from "@/assets/fotos-y-videos/HomeMoto/imagenes-deslizantes-home/Moto-07.jpg";
+
+// Galería de fotos de competición (MotoStudentMedia) — carga automática
+const msMediaMap = import.meta.glob(
+  "../../assets/fotos-y-videos/pruebas/moto/*.{jpg,jpeg,png}",
+  { eager: true, import: "default" }
+);
+const msMedia = Object.keys(msMediaMap).sort().map((k) => msMediaMap[k]);
+const half = Math.ceil(msMedia.length / 2);
+const staticPhotos = msMedia.slice(0, half);
+const dynamicPhotos = msMedia.slice(half);
 
 function MotoStudent() {
   return (
@@ -30,10 +39,6 @@ function MotoStudent() {
             Se evalúa la viabilidad del proyecto como si fuéramos una empresa real del sector de las dos ruedas.
           </p>
 
-          <div className="section-banner">
-            <img src={testStaticImg} alt="Equipo ISC MotoStudent en las pruebas estáticas" loading="lazy" />
-          </div>
-
           <div className="cards-grid">
             <div className="ms-card">
               <h3>Engineering Design</h3>
@@ -48,6 +53,8 @@ function MotoStudent() {
               <p>Presentación de un modelo de negocio viable para la fabricación en serie y comercialización del prototipo.</p>
             </div>
           </div>
+
+          <PhotoGallery images={staticPhotos} alt="ISC MotoStudent" />
         </div>
       </section>
 
@@ -59,10 +66,6 @@ function MotoStudent() {
             El prototipo demuestra su rendimiento en el asfalto de MotorLand.
           </p>
 
-          <div className="section-banner">
-            <img src={testDynamicImg} alt="Prototipo eléctrico ISC en las pruebas dinámicas" loading="lazy" />
-          </div>
-
           <div className="cards-grid">
             <div className="ms-card"><h3>Brake Test</h3><p>Prueba de frenada crítica para certificar la seguridad antes de salir a pista.</p></div>
             <div className="ms-card"><h3>Acceleration</h3><p>Aceleración máxima en línea recta para medir la entrega de potencia eléctrica.</p></div>
@@ -70,6 +73,8 @@ function MotoStudent() {
             <div className="ms-card"><h3>Qualifying</h3><p>Clasificación cronometrada para definir la parrilla de salida del evento final.</p></div>
             <div className="ms-card"><h3>Main Race</h3><p>El evento estrella: una carrera real rueda a rueda contra el resto de universidades.</p></div>
           </div>
+
+          <PhotoGallery images={dynamicPhotos} alt="ISC MotoStudent en pista" />
         </div>
       </section>
 

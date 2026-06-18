@@ -1,7 +1,7 @@
 import SponsorUsSection from "@/components/data-display/SponsorUsSection";
 
-// Imágenes reales de impacto (Jarama 2024)
-import headerImg from "@/assets/fotos-y-videos/HomeCoche/HomeCoche.JPG";
+// Imágenes reales de impacto
+import headerImg from "@/assets/fotos-y-videos/pruebas/coche/fs-team.jpg";
 import showcase1 from "@/assets/fotos-y-videos/HomeCoche/imagenes-deslizantes-home/Coche-02.jpg";
 import showcase2 from "@/assets/fotos-y-videos/HomeCoche/imagenes-deslizantes-home/Coche-04.jpg";
 import showcase3 from "@/assets/fotos-y-videos/HomeCoche/imagenes-deslizantes-home/Coche-06.jpg";

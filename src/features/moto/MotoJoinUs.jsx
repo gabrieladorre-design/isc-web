@@ -3,13 +3,14 @@ import JoinUsSection from "@/components/data-display/JoinUsSection";
 export default function MotoJoinUs() {
   return (
     <JoinUsSection
-      /* Cambia a false cuando acabe el plazo de inscripción */
-      isOpen={true}
+      /* Cambia a true cuando se reabra el plazo de inscripción */
+      isOpen={false}
       formsUrl="https://forms.office.com/e/aa59hp5KtL?embed=true"
       headerTitle="ÚNETE A MOTOSTUDENT"
       headerSubtitle="Buscamos mentes inquietas, apasionadas por el motociclismo y listas para diseñar el futuro de las dos ruedas."
       formIntro="Completa el formulario para iniciar tu proceso de selección con el equipo de MotoStudent."
       iframeTitle="Formulario Recruitment ISC Moto"
+      instagramUrl="https://www.instagram.com/iscmsracingteam/"
       closedText="Actualmente no tenemos ningún proceso de selección abierto para el equipo de motos."
       info={
         <>

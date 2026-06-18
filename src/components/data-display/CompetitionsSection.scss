@@ -216,14 +216,17 @@
   }
 
   .timeline-grid {
-    display: grid;
-    /* Cajas más anchas para que el texto respire */
-    grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
+    /* Flexbox centrado: la tarjeta impar de la última fila queda centrada,
+       no alineada a la izquierda. */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     gap: 2.5rem;
-    /* Flexbox: todas las cajas miden lo mismo de alto */
-    align-items: stretch; 
+    align-items: stretch;
 
     .result-card {
+      flex: 1 1 320px;
+      max-width: 380px;
       background: white;
       padding: 2.5rem;
       border-radius: 12px;
@@ -323,8 +326,15 @@
   .map-section .map-info { flex-direction: column; align-items: flex-start; gap: 1rem; }
   .map-section .map-wrapper { height: 400px; }
 
+  /* El popup ancho no debe salirse de la pantalla en móvil */
+  .leaflet-popup-content-wrapper { max-width: 86vw; }
+  .leaflet-popup-content { width: auto !important; }
+  .custom-popup .popup-header { padding: 1.2rem 1.3rem 1rem; h3 { font-size: 1.2rem; } }
+  .custom-popup .popup-body { padding: 1.2rem 1.3rem 1.3rem; }
+
   /* En táctil no hay hover: los detalles se muestran siempre y ocultamos la pista */
   .results-section .timeline-grid .result-card {
+    max-width: 100%;
     .details { grid-template-rows: 1fr; opacity: 1; margin-top: 1.25rem; }
     .reveal-hint { display: none; }
   }

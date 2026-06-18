@@ -87,12 +87,18 @@ export default function JoinUsSection({
               ) : (
 
                 <div className="closed-state">
+                  <span className="cs-badge">Próximamente</span>
                   <div className="icon-closed"><Icon name="flag" /></div>
-                  <h3>Proceso Cerrado</h3>
+                  <h3>Proceso de selección cerrado temporalmente</h3>
                   <p>{closedText}</p>
-                  <p className="closed-sub">Síguenos en nuestras redes sociales para ser la primera persona en enterarte de la próxima convocatoria.</p>
+                  <p className="closed-sub">
+                    Estamos preparando la próxima convocatoria. Cuando reabramos las
+                    candidaturas lo anunciaremos <strong>aquí mismo</strong> y en
+                    nuestras redes sociales. Te invitamos a seguirnos para no perderte
+                    la apertura.
+                  </p>
                   <a href={instagramUrl} target="_blank" rel="noreferrer" className="btn-external">
-                    IR A INSTAGRAM
+                    Síguenos para enterarte
                   </a>
                 </div>
               )}

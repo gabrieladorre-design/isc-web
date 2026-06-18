@@ -73,7 +73,6 @@ export default function SponsorUsSection({
       <section className="su-intro">
         <div className="container su-intro__grid">
           <div className="intro-text">
-            <span className="intro-kicker">Por qué asociarse</span>
             <h2>{introTitle}</h2>
             {introParagraphs}
           </div>
