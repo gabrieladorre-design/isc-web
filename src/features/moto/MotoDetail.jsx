@@ -46,11 +46,14 @@ export default function MotoDetail() {
       <header className="car-hero" style={{ backgroundImage: `url(${moto.image})` }}>
         <div className="overlay"></div>
         <Link to="/moto/garaje" className="btn-back"><Icon name="arrow-left" /> Volver al Garaje</Link>
-        <div className="hero-content">
-          <h1>{moto.name}</h1>
-          <p className="summary">{moto.description}</p>
-        </div>
       </header>
+
+      {/* Bloque de información sobre fondo blanco para máxima legibilidad */}
+      <section className="model-intro">
+        {moto.status && <span className="model-status">{moto.status}</span>}
+        <h1>{moto.name}</h1>
+        <p className="summary">{moto.description}</p>
+      </section>
 
       <div className="main-content-container">
         <section className="specs-section" ref={addToRefs}>

@@ -125,75 +125,62 @@
 .custom-popup {
   box-sizing: border-box;
   font-family: $font-main;
+  width: 100%;
 
   /* --- Cabecera con color corporativo --- */
   .popup-header {
     background: $ib-main-green;
     color: #fff;
-    padding: 1.2rem 1.4rem 1.1rem;
-
-    .popup-status {
-      display: inline-block;
-      font-size: 0.68rem;
-      font-weight: 800;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      padding: 0.25rem 0.6rem;
-      border-radius: 50px;
-      margin-bottom: 0.6rem;
-      background: $isc-yellow;
-      color: $ib-main-green;
-    }
+    padding: 1.6rem 1.8rem 1.4rem;
 
     h3 {
       color: #fff;
       margin: 0;
       font-weight: 900;
-      font-size: 1.25rem;
+      font-size: 1.4rem;
       line-height: 1.25;
     }
 
     .venue {
       display: flex;
       align-items: center;
-      gap: 0.4rem;
+      gap: 0.45rem;
       color: rgba(255, 255, 255, 0.85);
-      font-size: 0.9rem;
+      font-size: 0.95rem;
       font-weight: 600;
-      margin: 0.55rem 0 0;
+      margin: 0.7rem 0 0;
     }
   }
 
   /* Variante para objetivos futuros: cabecera en gris neutro */
   &.is-future .popup-header {
     background: #3a3f45;
-    .popup-status { background: rgba(255, 255, 255, 0.18); color: #fff; }
   }
 
   /* --- Cuerpo --- */
   .popup-body {
-    padding: 1.2rem 1.4rem 1.4rem;
+    padding: 1.6rem 1.8rem 1.8rem;
   }
 
   .isc-highlight {
     display: flex;
     flex-direction: column;
-    gap: 0.35rem;
+    gap: 0.5rem;
     background: #f6f7f9;
     border: 1px solid #ececef;
     border-left: 4px solid $isc-yellow;
-    padding: 0.9rem 1rem;
-    border-radius: 8px;
-    font-size: 0.95rem;
+    padding: 1.2rem 1.3rem;
+    border-radius: 10px;
+    font-size: 1rem;
     color: #333;
-    line-height: 1.5;
+    line-height: 1.55;
 
     strong {
       display: flex;
       align-items: center;
-      gap: 0.4rem;
+      gap: 0.45rem;
       color: $ib-main-green;
-      font-size: 0.78rem;
+      font-size: 0.82rem;
       text-transform: uppercase;
       letter-spacing: 0.5px;
       font-weight: 800;
@@ -204,9 +191,9 @@
     display: block;
     background: #f6f7f9;
     color: #777;
-    font-size: 0.9rem;
-    padding: 0.85rem;
-    border-radius: 8px;
+    font-size: 0.95rem;
+    padding: 1.1rem;
+    border-radius: 10px;
     font-weight: 600;
     text-align: center;
     border: 1px dashed #cfd3d8;

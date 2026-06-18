@@ -49,12 +49,14 @@ export default function CarDetail() {
       <header className="car-hero" style={{ backgroundImage: `url(${car.image})` }}>
         <div className="overlay"></div>
         <Link to="/garaje" className="btn-back"><Icon name="arrow-left" /> Volver al Garaje</Link>
-
-        <div className="hero-content">
-          <h1>{car.name}</h1>
-          <p className="summary">{car.description}</p>
-        </div>
       </header>
+
+      {/* Bloque de información sobre fondo blanco para máxima legibilidad */}
+      <section className="model-intro">
+        {car.status && <span className="model-status">{car.status}</span>}
+        <h1>{car.name}</h1>
+        <p className="summary">{car.description}</p>
+      </section>
 
       <div className="main-content-container">
         

@@ -13,7 +13,8 @@
   background-size: cover;
   background-position: center;
   color: white;
-  padding: 9rem 2rem 7rem;
+  /* Más recorrido vertical: el bloque de texto baja y la fotografía respira */
+  padding: 12rem 2rem 9rem;
   text-align: center;
   overflow: hidden;
 
@@ -85,40 +86,51 @@
   }
 }
 
-/* --- BANDA DE PROPUESTA DE VALOR --- */
+/* --- BANDA DE PROPUESTA DE VALOR ---
+   Franja clara y elevada que se separa visualmente de la fotografía del hero,
+   dejando despejada la imagen del título. */
 .su-valueprops {
-  background: $ib-main-green;
-  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  background: #ffffff;
+  padding: 0 2rem;
 
   .container {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
-    gap: 1.5rem 4rem;
-    padding-top: 2.5rem;
-    padding-bottom: 2.5rem;
+    justify-content: space-around;
+    align-items: center;
+    gap: 2rem 3rem;
+    margin-top: -3.5rem;          /* La tarjeta "sube" para solaparse con el hero */
+    position: relative;
+    z-index: 5;
+    background: #ffffff;
+    border-radius: 18px;
+    padding: 2.6rem 2.5rem;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.12);
+    border: 1px solid #eef0f2;
   }
 
   .vp-item {
     text-align: center;
-    color: #fff;
+    color: $ib-main-green;
+    flex: 1 1 160px;
 
     .vp-value {
       display: block;
       font-size: 2.6rem;
       font-weight: 900;
-      color: $isc-yellow;
+      color: $ib-main-green;
       line-height: 1;
     }
     .vp-label {
       display: block;
-      margin-top: 0.4rem;
-      font-size: 0.9rem;
-      font-weight: 600;
+      margin-top: 0.5rem;
+      font-size: 0.82rem;
+      font-weight: 700;
       letter-spacing: 0.5px;
-      opacity: 0.9;
+      color: #777;
       text-transform: uppercase;
     }
+    & + .vp-item { border-left: 1px solid #eef0f2; }
   }
 }
 
@@ -175,61 +187,120 @@
   padding: 0 2rem;
 }
 
-/* --- INTRO Y BENEFICIOS --- */
+/* --- INTRO Y BENEFICIOS (layout asimétrico "out of the box") --- */
 .su-intro {
-  padding: 5rem 0;
+  padding: 6rem 0 6.5rem;
   background: white;
 
+  /* Rejilla asimétrica: relato a la izquierda, beneficios a la derecha */
+  &__grid {
+    display: grid;
+    grid-template-columns: 0.85fr 1.15fr;
+    gap: 4rem;
+    align-items: start;
+  }
+
   .intro-text {
-    text-align: center;
-    max-width: 900px;
-    margin: 0 auto 4rem;
+    text-align: left;
+    position: sticky;
+    top: 6rem;
+
+    .intro-kicker {
+      display: inline-block;
+      font-size: 0.8rem;
+      font-weight: 800;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: $isc-yellow;
+      background: rgba(0, 64, 42, 0.06);
+      padding: 0.4rem 0.9rem;
+      border-radius: 50px;
+      color: $ib-main-green;
+      margin-bottom: 1.4rem;
+    }
 
     h2 {
       color: $ib-main-green;
-      font-size: 2.5rem;
+      font-size: 2.6rem;
       font-weight: 900;
-      margin-bottom: 2rem;
+      line-height: 1.15;
+      margin-bottom: 1.8rem;
     }
 
     p {
-      font-size: 1.15rem;
+      font-size: 1.1rem;
       color: #555;
-      line-height: 1.7;
-      margin-bottom: 1.5rem;
+      line-height: 1.75;
+      margin-bottom: 1.2rem;
     }
   }
 
+  /* Beneficios como tarjetas numeradas con hover elegante */
   .benefits-grid {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 2rem;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
 
     .benefit-item {
-      background: #fdfdfd;
-      border: 1px solid #eee;
-      border-top: 3px solid $ib-main-green;
-      border-radius: 12px;
-      padding: 2rem;
-      text-align: left;
-      width: 240px;
-      box-shadow: 0 10px 20px rgba(0,0,0,0.03);
-      transition: transform 0.3s ease;
+      position: relative;
+      display: flex;
+      gap: 1.1rem;
+      background: #fbfcfc;
+      border: 1px solid #eef0f1;
+      border-radius: 16px;
+      padding: 1.8rem 1.6rem;
+      overflow: hidden;
+      transition: transform 0.35s cubic-bezier(0.25, 0.8, 0.25, 1),
+                  box-shadow 0.35s ease, border-color 0.35s ease;
 
-      &:hover { transform: translateY(-5px); border-color: $isc-yellow; border-top-color: $isc-yellow; }
+      /* Barra de acento que aparece al pasar el ratón */
+      &::before {
+        content: "";
+        position: absolute;
+        left: 0; top: 0; bottom: 0;
+        width: 4px;
+        background: $isc-yellow;
+        transform: scaleY(0);
+        transform-origin: top;
+        transition: transform 0.35s ease;
+      }
+
+      &:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 18px 38px rgba(0, 64, 42, 0.12);
+        border-color: #e2e6e7;
+        &::before { transform: scaleY(1); }
+        .benefit-num { background: $ib-main-green; color: $isc-yellow; }
+      }
+
+      .benefit-num {
+        flex-shrink: 0;
+        width: 44px;
+        height: 44px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 12px;
+        background: rgba(0, 64, 42, 0.07);
+        color: $ib-main-green;
+        font-weight: 900;
+        font-size: 1.05rem;
+        transition: background 0.35s ease, color 0.35s ease;
+      }
+
+      .benefit-body { flex: 1; }
 
       h3 {
         color: $ib-main-green;
-        font-size: 1.15rem;
+        font-size: 1.12rem;
         font-weight: 800;
-        margin: 0 0 0.6rem;
+        margin: 0.2rem 0 0.5rem;
       }
 
       .benefit-text {
         color: $isc-grey;
         font-size: 0.95rem;
-        line-height: 1.5;
+        line-height: 1.55;
         margin: 0;
       }
     }
@@ -335,7 +406,17 @@
 }
 
 /* RESPONSIVE */
+@media (max-width: 900px) {
+  .su-intro__grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+    .intro-text { position: static; top: auto; }
+  }
+}
+
 @media (max-width: 768px) {
-  .su-header { padding: 6rem 1rem 4rem; h1 { font-size: 2.5rem; } }
-  .benefits-grid { gap: 1rem; .benefit-item { width: 100%; max-width: 320px; padding: 1.5rem; } }
+  .su-header { padding: 8rem 1rem 5rem; h1 { font-size: 2.5rem; } }
+  .su-valueprops .container { margin-top: -2rem; padding: 2rem 1.5rem; gap: 1.5rem; }
+  .su-valueprops .vp-item { flex-basis: 40%; & + .vp-item { border-left: none; } }
+  .su-intro .benefits-grid { grid-template-columns: 1fr; }
 }

@@ -1,17 +1,23 @@
 import "./FormulaStudent.scss";
 import AnimatedCounter from "@/components/data-display/AnimatedCounter";
 
+// Imagen real de competición (Fotos WEB/Coche → assets del proyecto)
+import introBg from "@/assets/fotos-y-videos/HomeCoche/HomeCoche.JPG";
+import testStaticImg from "@/assets/fotos-y-videos/HomeCoche/imagenes-deslizantes-home/Coche-03.jpg";
+import testDynamicImg from "@/assets/fotos-y-videos/HomeCoche/imagenes-deslizantes-home/Coche-05.jpg";
+
 function FormulaStudent() {
   return (
     <div className="fs-page">
-      
+
       {/* 1. INTRODUCCIÓN */}
-      <section className="fs-intro">
+      <section className="fs-intro" style={{ backgroundImage: `url(${introBg})` }}>
+        <div className="fs-intro__overlay" />
         <div className="fs-intro__content">
           <h1 className="fs-title">Formula Student</h1>
           <p className="fs-description">
-            Formula Student es la competición de ingeniería automovilística más prestigiosa a nivel universitario. 
-            Equipos de todo el mundo diseñan, construyen y compiten con sus propios monoplazas, enfrentándose 
+            Formula Student es la competición de ingeniería automovilística más prestigiosa a nivel universitario.
+            Equipos de todo el mundo diseñan, construyen y compiten con sus propios monoplazas, enfrentándose
             a desafíos que evalúan no solo la velocidad, sino la excelencia en ingeniería.
           </p>
         </div>
@@ -24,7 +30,11 @@ function FormulaStudent() {
           <p className="section-subtitle">
             Se evalúa la capacidad del equipo para justificar el diseño, gestionar recursos y vender el proyecto.
           </p>
-          
+
+          <div className="section-banner">
+            <img src={testStaticImg} alt="Equipo ISC en las pruebas estáticas" loading="lazy" />
+          </div>
+
           <div className="cards-grid">
             <div className="fs-card">
               <h3>Engineering Design</h3>
@@ -49,6 +59,10 @@ function FormulaStudent() {
           <p className="section-subtitle">
             El monoplaza demuestra su rendimiento real en pista.
           </p>
+
+          <div className="section-banner">
+            <img src={testDynamicImg} alt="Monoplaza ISC en las pruebas dinámicas" loading="lazy" />
+          </div>
 
           <div className="cards-grid">
             <div className="fs-card"><h3>Acceleration</h3><p>75 metros en línea recta desde parado.</p></div>

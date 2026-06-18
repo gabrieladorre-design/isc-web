@@ -1,12 +1,18 @@
 import "./MotoStudent.scss";
 import AnimatedCounter from "@/components/data-display/AnimatedCounter";
 
+// Imagen real de competición (Fotos WEB/Moto → assets del proyecto)
+import introBg from "@/assets/fotos-y-videos/HomeMoto/HomeMoto.JPG";
+import testStaticImg from "@/assets/fotos-y-videos/HomeMoto/imagenes-deslizantes-home/Moto-04.jpg";
+import testDynamicImg from "@/assets/fotos-y-videos/HomeMoto/imagenes-deslizantes-home/Moto-07.jpg";
+
 function MotoStudent() {
   return (
     <div className="ms-page">
-      
+
       {/* 1. INTRODUCCIÓN */}
-      <section className="ms-intro">
+      <section className="ms-intro" style={{ backgroundImage: `url(${introBg})` }}>
+        <div className="ms-intro__overlay" />
         <div className="ms-intro__content">
           <h1 className="ms-title">MotoStudent</h1>
           <p className="ms-description">
@@ -23,7 +29,11 @@ function MotoStudent() {
           <p className="section-subtitle">
             Se evalúa la viabilidad del proyecto como si fuéramos una empresa real del sector de las dos ruedas.
           </p>
-          
+
+          <div className="section-banner">
+            <img src={testStaticImg} alt="Equipo ISC MotoStudent en las pruebas estáticas" loading="lazy" />
+          </div>
+
           <div className="cards-grid">
             <div className="ms-card">
               <h3>Engineering Design</h3>
@@ -48,6 +58,10 @@ function MotoStudent() {
           <p className="section-subtitle">
             El prototipo demuestra su rendimiento en el asfalto de MotorLand.
           </p>
+
+          <div className="section-banner">
+            <img src={testDynamicImg} alt="Prototipo eléctrico ISC en las pruebas dinámicas" loading="lazy" />
+          </div>
 
           <div className="cards-grid">
             <div className="ms-card"><h3>Brake Test</h3><p>Prueba de frenada crítica para certificar la seguridad antes de salir a pista.</p></div>

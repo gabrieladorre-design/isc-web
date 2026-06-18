@@ -8,73 +8,99 @@
   padding-bottom: 5rem;
 }
 
-/* --- HERO SECTION --- */
+/* --- HERO SECTION (banner de imagen) --- */
 .car-hero {
-  height: 85vh;
+  height: 58vh;
+  min-height: 380px;
   background-size: cover;
   background-position: center;
   position: relative;
-  display: flex;
-  align-items: flex-end;
-  padding: 4rem;
 
   .overlay {
     position: absolute;
     top: 0; left: 0; width: 100%; height: 100%;
-    /* Oscurece arriba (legibilidad del botón Volver) y se funde en blanco
-       abajo para integrarse con el fondo técnico de la página. */
+    /* Oscurece la parte superior para que el botón "Volver" sea legible
+       y un leve velo inferior para asentar el banner sobre el contenido. */
     background: linear-gradient(
-      to top,
-      #ffffff 0%,
-      rgba(255, 255, 255, 0.88) 14%,
-      rgba(0, 0, 0, 0) 48%,
-      rgba(0, 0, 0, 0.55) 100%
+      to bottom,
+      rgba(0, 0, 0, 0.45) 0%,
+      rgba(0, 0, 0, 0) 30%,
+      rgba(0, 0, 0, 0) 80%,
+      rgba(0, 0, 0, 0.12) 100%
     );
   }
 
   /* Botón de volver */
   .btn-back {
     position: absolute;
-    top: 3rem;    /* Lo ancla en la parte superior */
-    left: 4rem;   /* Lo alinea con el borde izquierdo del texto de abajo */
-    font-size: 1.3rem; /* Tamaño más grande */
+    top: 2.5rem;
+    left: 3rem;
+    font-size: 1.2rem;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 1px;
     color: white;
     text-decoration: none;
     z-index: 10;
-    opacity: 0.9;
+    opacity: 0.95;
     transition: all 0.3s ease;
 
     &:hover {
       opacity: 1;
-      transform: translateX(-5px); /* Pequeño efecto de moverse a la izquierda */
-      color: $isc-yellow; /* Se ilumina con el amarillo del equipo */
+      transform: translateX(-5px);
+      color: $isc-yellow;
+    }
+  }
+}
+
+/* --- BLOQUE DE INFORMACIÓN DEL MODELO (sobre blanco) --- */
+.model-intro {
+  max-width: 1000px;
+  margin: 0 auto;
+  /* Bajamos el bloque: amplio margen superior para que respire y no se
+     solape con el banner. */
+  padding: 4rem 2rem 0;
+  text-align: left;
+
+  .model-status {
+    display: inline-block;
+    background: $isc-yellow;
+    color: $ib-main-green;
+    font-size: 0.78rem;
+    font-weight: 800;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 0.35rem 0.9rem;
+    border-radius: 50px;
+    margin-bottom: 1.2rem;
+  }
+
+  h1 {
+    font-size: 4.5rem;
+    font-weight: 900;
+    margin: 0;
+    color: #1a1a1a; /* Negro elegante, contraste impecable sobre blanco */
+    line-height: 1.05;
+    letter-spacing: -1px;
+
+    /* Acento corporativo bajo el nombre del modelo */
+    &::after {
+      content: "";
+      display: block;
+      width: 80px;
+      height: 5px;
+      background: $isc-yellow;
+      border-radius: 3px;
+      margin-top: 1.2rem;
     }
   }
 
-  .hero-content {
-    position: relative;
-    z-index: 2;
-    max-width: 800px;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-
-    h1 {
-      font-size: 5rem;
-      font-weight: 900;
-      margin: 0; /* Quitamos el margin por defecto para controlarlo con flexbox */
-      color: $ib-main-green;
-    }
-
-    .summary {
-      font-size: 1.2rem;
-      color: #444;
-      line-height: 1.6;
-      margin-top: 1.5rem; /* Separamos el párrafo del título */
-    }
+  .summary {
+    font-size: 1.2rem;
+    color: #3a3a3a; /* Gris oscuro legible */
+    line-height: 1.7;
+    margin-top: 1.8rem;
+    max-width: 820px;
   }
 }
 
@@ -174,15 +200,18 @@
 /* RESPONSIVE */
 @media (max-width: 768px) {
   .car-hero {
-    height: 70vh;
-    padding: 2rem;
+    height: 42vh;
+    min-height: 260px;
 
     .btn-back {
-      top: 2rem;
-      left: 2rem;
-      font-size: 1rem; /* Más pequeño en móviles para encajar mejor */
+      top: 1.5rem;
+      left: 1.5rem;
+      font-size: 1rem;
     }
   }
-  .car-hero .hero-content h1 { font-size: 3rem; }
-  .car-hero .hero-content .summary { font-size: 1rem;}
+  .model-intro {
+    padding: 2.5rem 1.5rem 0;
+    h1 { font-size: 2.8rem; }
+    .summary { font-size: 1.05rem; margin-top: 1.2rem; }
+  }
 }

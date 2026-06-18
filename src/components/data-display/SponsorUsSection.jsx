@@ -49,7 +49,6 @@ export default function SponsorUsSection({
       >
         <div className="su-header__overlay" />
         <div className="header-content">
-          <span className="su-eyebrow">Colaboración corporativa · B2B</span>
           <h1>Conviértase en Patrocinador</h1>
           <p>{headerSubtitle}</p>
           <a href={ctaEmailHref} className="su-header__cta">Quiero colaborar</a>
@@ -70,10 +69,11 @@ export default function SponsorUsSection({
         </section>
       )}
 
-      {/* INTRODUCCIÓN Y BENEFICIOS */}
+      {/* INTRODUCCIÓN Y BENEFICIOS (layout asimétrico) */}
       <section className="su-intro">
-        <div className="container">
+        <div className="container su-intro__grid">
           <div className="intro-text">
+            <span className="intro-kicker">Por qué asociarse</span>
             <h2>{introTitle}</h2>
             {introParagraphs}
           </div>
@@ -81,8 +81,11 @@ export default function SponsorUsSection({
           <div className="benefits-grid">
             {benefits.map((b, i) => (
               <div className="benefit-item" key={i}>
-                <h3>{b.label}</h3>
-                {b.text && <p className="benefit-text">{b.text}</p>}
+                <span className="benefit-num">{String(i + 1).padStart(2, "0")}</span>
+                <div className="benefit-body">
+                  <h3>{b.label}</h3>
+                  {b.text && <p className="benefit-text">{b.text}</p>}
+                </div>
               </div>
             ))}
           </div>
