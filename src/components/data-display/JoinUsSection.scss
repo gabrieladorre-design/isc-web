@@ -194,31 +194,18 @@
     }
   }
 
-  /* MODELO CERRADO — placeholder corporativo "Coming Soon" */
+  /* MODELO CERRADO — placeholder corporativo */
   .closed-state {
-    padding: 5rem 3rem;
+    padding: 5.5rem 3rem;
     text-align: center;
     background:
       radial-gradient(circle at 50% 0%, rgba(0, 64, 42, 0.05), transparent 60%),
       white;
 
-    .cs-badge {
-      display: inline-block;
-      background: $isc-yellow;
-      color: $ib-main-green;
-      font-size: 0.78rem;
-      font-weight: 800;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      padding: 0.4rem 1.1rem;
-      border-radius: 50px;
-      margin-bottom: 2rem;
-    }
-
     .icon-closed {
       width: 92px;
       height: 92px;
-      margin: 0 auto 1.8rem;
+      margin: 0 auto 2rem;
       display: flex;
       align-items: center;
       justify-content: center;

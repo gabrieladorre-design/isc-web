@@ -28,6 +28,9 @@ export default function LandingSplit() {
           style={{ backgroundImage: `url(${motoBg})` }}
         >
           <div className="overlay"></div>
+          <div className="icon-badge">
+            <img src={iscIconWhite} alt="ISC MotoStudent" />
+          </div>
         </Link>
 
         {/* OPCIÓN 2: FORMULA STUDENT */}
@@ -37,10 +40,10 @@ export default function LandingSplit() {
           style={{ backgroundImage: `url(${formulaBg})` }}
         >
           <div className="overlay"></div>
+          <div className="icon-badge">
+            <img src={iscIconWhite} alt="ISC Formula Student" />
+          </div>
         </Link>
-
-        {/* ICONO CENTRAL (no intercepta clics: cada mitad sigue siendo clicable) */}
-        <img src={iscIconWhite} alt="ISC Racing Team" className="split-center-logo" />
 
       </div>
     </div>

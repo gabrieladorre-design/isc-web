@@ -87,7 +87,6 @@ export default function JoinUsSection({
               ) : (
 
                 <div className="closed-state">
-                  <span className="cs-badge">Próximamente</span>
                   <div className="icon-closed"><Icon name="flag" /></div>
                   <h3>Proceso de selección cerrado temporalmente</h3>
                   <p>{closedText}</p>
