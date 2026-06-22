@@ -2,7 +2,6 @@ import HomeSection from "@/components/data-display/HomeSection";
 
 // Assets locales (fotos/vídeos reales del prototipo — MotorLand/Jarama 2024)
 import heroBg from "@/assets/fotos-y-videos/HomeMoto/HomeMoto.JPG";
-import presentationVideo from "@/assets/fotos-y-videos/HomeMoto/HomeVideoMoto.mp4";
 import motoCad from "@/assets/fotos-y-videos/HomeMoto/ModeloMoto.JPG";
 
 // Imágenes de la galería deslizante
@@ -37,13 +36,7 @@ export default function MotoHome() {
         { to: "/moto/sponsors", label: "PATROCÍNANOS" },
       ]}
       presentation={{
-        src: presentationVideo,
-        poster: heroBg,
-        autoPlay: true,
-        muted: true,
-        loop: true,
-        playsInline: true,
-        controls: true,
+        youtubeId: "XTQ6Y1S85x8",
       }}
       whoParagraphs={
         <>

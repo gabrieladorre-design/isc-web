@@ -99,15 +99,25 @@ export default function HomeSection({
       <section className="presentation-section" ref={addToRefs}>
         <div className="presentation-container">
           <div className="video-wrapper">
-            <video
-              src={presentation.src}
-              poster={presentation.poster}
-              autoPlay={presentation.autoPlay}
-              loop={presentation.loop}
-              muted={presentation.muted}
-              playsInline={presentation.playsInline}
-              controls={presentation.controls}
-            ></video>
+            {presentation.youtubeId ? (
+              <iframe
+                src={`https://www.youtube.com/embed/${presentation.youtubeId}?autoplay=1&mute=1&loop=1&playlist=${presentation.youtubeId}&controls=1&rel=0&modestbranding=1`}
+                title="Vídeo de presentación"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              ></iframe>
+            ) : (
+              <video
+                src={presentation.src}
+                poster={presentation.poster}
+                autoPlay={presentation.autoPlay}
+                loop={presentation.loop}
+                muted={presentation.muted}
+                playsInline={presentation.playsInline}
+                controls={presentation.controls}
+              ></video>
+            )}
           </div>
         </div>
       </section>

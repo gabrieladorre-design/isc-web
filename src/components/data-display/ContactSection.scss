@@ -199,5 +199,7 @@
 
 @media (max-width: 900px) {
   .contact-container { flex-direction: column; gap: 2rem; margin-top: 2rem; }
+  /* Evita que el min-width de 320px desborde en pantallas pequeñas */
+  .info-column, .map-column { min-width: 0; width: 100%; }
   .map-wrapper { height: 350px; } /* Un pelín más pequeños en móvil para que quepan bien */
 }

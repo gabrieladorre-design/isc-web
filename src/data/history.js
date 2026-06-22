@@ -7,8 +7,37 @@
 //             imgTeam = foto del equipo de esa temporada
 // ───────────────────────────────────────────────────────────────────────────
 
-import placeholderVehicle from "@/assets/slider1.jpg";
-import placeholderTeam from "@/assets/team-photo.jpg";
+// Fotos reales de los modelos de moto (imgCar)
+import moto01 from "@/assets/fotos-y-videos/ModelosMoto/im01.jpg";
+import moto02 from "@/assets/fotos-y-videos/ModelosMoto/im02.jpg";
+import moto03 from "@/assets/fotos-y-videos/ModelosMoto/im03.jpg";
+import moto04 from "@/assets/fotos-y-videos/ModelosMoto/im04.jpg";
+
+// Fotos de equipo/competición de moto (imgTeam) — MotoStudentMedia
+import motoTeam01 from "@/assets/fotos-y-videos/pruebas/moto/ms-01.jpeg";
+import motoTeam02 from "@/assets/fotos-y-videos/pruebas/moto/ms-05.jpg";
+import motoTeam03 from "@/assets/fotos-y-videos/pruebas/moto/ms-03.jpeg";
+import motoTeam04 from "@/assets/fotos-y-videos/pruebas/moto/ms-11.jpeg";
+
+// Fotos reales de los modelos de coche (imgCar)
+import car01 from "@/assets/fotos-y-videos/ModelosCoche/ifs01.jpg";
+import car02 from "@/assets/fotos-y-videos/ModelosCoche/ifs02.jpg";
+import car03 from "@/assets/fotos-y-videos/ModelosCoche/ifs03.jpg";
+import car04 from "@/assets/fotos-y-videos/ModelosCoche/ifs04.jpg";
+import car05 from "@/assets/fotos-y-videos/ModelosCoche/ifs05.jpg";
+import car06 from "@/assets/fotos-y-videos/ModelosCoche/ifs06.jpg";
+import car07 from "@/assets/fotos-y-videos/ModelosCoche/ifs07.jpg";
+
+// Fotos de equipo/competición de coche (imgTeam) — CocheStudentMedia
+import carTeam01 from "@/assets/fotos-y-videos/CocheMedia/cm-01.jpg";
+import carTeam02 from "@/assets/fotos-y-videos/CocheMedia/cm-02.jpg";
+import carTeam03 from "@/assets/fotos-y-videos/CocheMedia/cm-03.jpg";
+import carTeam04 from "@/assets/fotos-y-videos/CocheMedia/cm-04.jpg";
+import carTeam05 from "@/assets/fotos-y-videos/CocheMedia/cm-05.jpg";
+import carTeam06 from "@/assets/fotos-y-videos/CocheMedia/cm-06.jpg";
+import carTeam07 from "@/assets/fotos-y-videos/CocheMedia/cm-07.jpg";
+import carTeam08 from "@/assets/fotos-y-videos/CocheMedia/cm-08.jpg";
+import carTeam09 from "@/assets/fotos-y-videos/CocheMedia/cm-09.jpg";
 
 /* ===== FORMULA STUDENT (COCHE) — 2025 → 2017 ===== */
 export const formulaTimeline = [
@@ -18,8 +47,8 @@ export const formulaTimeline = [
     subtitle: "Aerodinámica y Velocidad",
     text: "El coche más rápido y ligero hasta la fecha. Incorpora por primera vez un paquete aerodinámico completo. Superamos todas las inspecciones técnicas por cuarta vez consecutiva.",
     stats: "Revolución Aerodinámica",
-    imgCar: placeholderVehicle,
-    imgTeam: placeholderTeam
+    imgCar: car07,
+    imgTeam: carTeam02
   },
   {
     year: "2024",
@@ -27,8 +56,8 @@ export const formulaTimeline = [
     subtitle: "Alemania y Lluvia",
     text: "Debut en Formula Student Germany, la cita de referencia. Logramos nuestro primer podio en Business Plan (Italia) y completamos una carrera de Endurance bajo la lluvia.",
     stats: "Podio Business Plan",
-    imgCar: placeholderVehicle,
-    imgTeam: placeholderTeam
+    imgCar: car06,
+    imgTeam: carTeam06
   },
   {
     year: "2023",
@@ -36,8 +65,8 @@ export const formulaTimeline = [
     subtitle: "Madurez y Fiabilidad",
     text: "Quinta generación del monoplaza, desarrollada bajo una filosofía de diseño orientada a la fiabilidad. La consolidación de los procesos de validación y la madurez alcanzada por la ingeniería del equipo se tradujeron en un vehículo notablemente más robusto y consistente, capaz de mantener un rendimiento estable a lo largo de toda la competición.",
     stats: "P7 General FS Spain",
-    imgCar: placeholderVehicle,
-    imgTeam: placeholderTeam
+    imgCar: car05,
+    imgTeam: carTeam03
   },
   {
     year: "2022",
@@ -45,8 +74,8 @@ export const formulaTimeline = [
     subtitle: "Fiabilidad en Pista",
     text: "Por primera vez, el equipo superó con éxito las inspecciones técnicas tanto en Formula ATA Italy como en FS Spain, participando en las pruebas dinámicas de ambas competiciones.",
     stats: "Inspecciones Superadas",
-    imgCar: placeholderVehicle,
-    imgTeam: placeholderTeam
+    imgCar: car04,
+    imgTeam: carTeam04
   },
   {
     year: "2020-2021",
@@ -54,8 +83,8 @@ export const formulaTimeline = [
     subtitle: "Hito Operativo",
     text: "A pesar de la pandemia, logramos finalizar el primer coche plenamente operativo. Conseguimos un 2º puesto en Business Plan y un excelente feedback en diseño mecánico y eléctrico.",
     stats: "2º Business Plan",
-    imgCar: placeholderVehicle,
-    imgTeam: placeholderTeam
+    imgCar: car03,
+    imgTeam: carTeam05
   },
   {
     year: "2019",
@@ -63,8 +92,8 @@ export const formulaTimeline = [
     subtitle: "Crecimiento Técnico",
     text: "Con un equipo más grande, se desarrolló el IFS-02. Se introdujo una nueva arquitectura de batería basada en celdas cilíndricas, mejorando notablemente la tecnología anterior.",
     stats: "Nueva Batería",
-    imgCar: placeholderVehicle,
-    imgTeam: placeholderTeam
+    imgCar: car02,
+    imgTeam: carTeam09
   },
   {
     year: "2017-2018",
@@ -72,8 +101,8 @@ export const formulaTimeline = [
     subtitle: "El Origen",
     text: "En tan solo un año, desarrollamos el primer prototipo de nuestra historia. Con él, participamos en nuestra primera competición, Formula Student Spain (Montmeló), sentando las bases del proyecto.",
     stats: "Primer Prototipo",
-    imgCar: placeholderVehicle,
-    imgTeam: placeholderTeam
+    imgCar: car01,
+    imgTeam: carTeam07
   }
 ];
 
@@ -88,8 +117,8 @@ export const motoTimeline = [
     subtitle: "Revolución Eléctrica",
     text: "Dimos un salto cualitativo con nuestro nuevo paquete de baterías customizado y un basculante de fabricación propia. Logramos nuestro mejor tiempo en la prueba de aceleración.",
     stats: "Mejor Aceleración",
-    imgCar: placeholderVehicle,
-    imgTeam: placeholderTeam
+    imgCar: moto04,
+    imgTeam: motoTeam01
   },
   {
     year: "2022",
@@ -97,8 +126,8 @@ export const motoTimeline = [
     subtitle: "Fiabilidad en Pista",
     text: "Completamos la carrera principal en el circuito de MotorLand Aragón demostrando una fiabilidad térmica excelente en nuestro motor eléctrico bajo condiciones de calor extremo.",
     stats: "Carrera Completada",
-    imgCar: placeholderVehicle,
-    imgTeam: placeholderTeam
+    imgCar: moto03,
+    imgTeam: motoTeam02
   },
   {
     year: "2020",
@@ -106,8 +135,8 @@ export const motoTimeline = [
     subtitle: "Desarrollo y Retorno",
     text: "Tras los retos operativos de la pandemia, el equipo se reestructuró para diseñar un sistema de control electrónico totalmente nuevo, obteniendo una gran puntuación en la fase de Diseño.",
     stats: "Innovación Electrónica",
-    imgCar: placeholderVehicle,
-    imgTeam: placeholderTeam
+    imgCar: moto02,
+    imgTeam: motoTeam03
   },
   {
     year: "2018",
@@ -115,7 +144,7 @@ export const motoTimeline = [
     subtitle: "El Origen sobre Dos Ruedas",
     text: "Nace la división de motos del ISC Racing Team. En un tiempo récord, conseguimos fabricar nuestra primera moto eléctrica y presentarnos en la competición internacional MotoStudent.",
     stats: "El Primer Prototipo",
-    imgCar: placeholderVehicle,
-    imgTeam: placeholderTeam
+    imgCar: moto01,
+    imgTeam: motoTeam04
   }
 ];

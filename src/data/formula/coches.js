@@ -1,14 +1,19 @@
 // src/data/formula/coches.js
 // ───────────────────────────────────────────────────────────────────────────
 // FUENTE ÚNICA DE DATOS — Monoplazas Formula Student (ISC Racing).
-// NOTA sobre imágenes: los campos "image" y "gallery" usan URLs temporales
-// (fotos de stock de Unsplash que ya venían en el proyecto). Se sustituirán
-// por las fotos reales cuando llegue el material de Marketing. Para usar una
-// foto local en el futuro, colócala en /public/img/... y pon la ruta empezando
-// por "/", por ejemplo: "/img/formula/coches/ifs07/portada.jpg".
+// Imágenes reales de cada modelo en assets/fotos-y-videos/ModelosCoche/.
 //
 // Para añadir un coche nuevo: copia un bloque { ... } completo y edítalo.
 // ───────────────────────────────────────────────────────────────────────────
+
+import ifs01Img from "@/assets/fotos-y-videos/ModelosCoche/ifs01.jpg";
+import ifs02Img from "@/assets/fotos-y-videos/ModelosCoche/ifs02.jpg";
+import ifs03Img from "@/assets/fotos-y-videos/ModelosCoche/ifs03.jpg";
+import ifs04Img from "@/assets/fotos-y-videos/ModelosCoche/ifs04.jpg";
+import ifs05Img from "@/assets/fotos-y-videos/ModelosCoche/ifs05.jpg";
+import ifs06Img from "@/assets/fotos-y-videos/ModelosCoche/ifs06.jpg";
+import ifs07Img from "@/assets/fotos-y-videos/ModelosCoche/ifs07.jpg";
+import ifs08Img from "@/assets/fotos-y-videos/ModelosCoche/ifs08.jpg";
 
 export const carsData = [
   {
@@ -16,7 +21,7 @@ export const carsData = [
     name: "IFS-08",
     season: "2025 / 2026",
     status: "PROTOTIPO ACTUAL",
-    image: "https://images.unsplash.com/photo-1580273916550-e323be2ae537?auto=format&fit=crop&w=1000&q=80",
+    image: ifs08Img,
     description: "Octava generación del monoplaza y prototipo actual del equipo para la temporada 2025/2026. Concebido para consolidar el salto aerodinámico iniciado con el IFS-07, su desarrollo se centra en maximizar la fiabilidad y exprimir las lecciones aprendidas del primer paquete aerodinámico completo del equipo, con el objetivo de competir al más alto nivel en los principales eventos europeos de Formula Student.",
     specs: {
       powertrain: "100% Eléctrico",
@@ -25,16 +30,13 @@ export const carsData = [
       acceleration: "TBD",
     },
     competitions: [],
-    gallery: [
-      "https://images.unsplash.com/photo-1580273916550-e323be2ae537?auto=format&fit=crop&w=600&q=80",
-    ],
   },
   {
     id: "ifs07",
     name: "IFS-07",
     season: "2024 / 2025",
     status: "",
-    image: "https://images.unsplash.com/photo-1532974297617-c0f05fe48bff?auto=format&fit=crop&w=1000&q=80",
+    image: ifs07Img,
     description: "Séptima generación y punto de inflexión en el rendimiento del equipo: el monoplaza más rápido y ligero de nuestra historia. Incorpora por primera vez un paquete aerodinámico completo, que redefine la carga aerodinámica y el comportamiento dinámico en curva. Con él superamos las inspecciones técnicas por cuarta vez consecutiva, firmamos un 1.º puesto en Diseño en Formula Student Spain y logramos un Top 10 en la clasificación general de Formula Student Germany.",
     specs: {
       powertrain: "100% Eléctrico (AWD)",
@@ -46,16 +48,13 @@ export const carsData = [
       { name: "Formula Student Germany", venue: "Hockenheimring", result: "TOP 10 overall" },
       { name: "Formula Student Spain", venue: "Circuit de Barcelona-Catalunya", result: "1st in Design" },
     ],
-    gallery: [
-      "https://images.unsplash.com/photo-1532974297617-c0f05fe48bff?auto=format&fit=crop&w=600&q=80",
-    ],
   },
   {
     id: "ifs06",
     name: "IFS-06",
     season: "2023 / 2024",
     status: "",
-    image: "https://images.unsplash.com/photo-1517153295259-74eb0b416cee?auto=format&fit=crop&w=1000&q=80",
+    image: ifs06Img,
     description: "Sexta generación que consolidó nuestra proyección internacional. Marcó el debut del equipo en Formula Student Germany (Hockenheimring), la cita de referencia del campeonato, y nos dio nuestro primer podio en Business Plan en Italia. Con él completamos, además, nuestra primera prueba de Endurance disputada bajo lluvia, todo un hito de fiabilidad para el proyecto.",
     specs: {
       powertrain: "100% Eléctrico (RWD)",
@@ -67,16 +66,13 @@ export const carsData = [
       { name: "Formula Student Italy", venue: "Autodromo Riccardo Paletti", result: "Podio Business Plan" },
       { name: "Formula Student Germany", venue: "Hockenheimring", result: "Participación histórica" },
     ],
-    gallery: [
-      "https://images.unsplash.com/photo-1517153295259-74eb0b416cee?auto=format&fit=crop&w=600&q=80",
-    ],
   },
   {
     id: "ifs05",
     name: "IFS-05",
     season: "2022 / 2023",
     status: "",
-    image: "https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?auto=format&fit=crop&w=1000&q=80",
+    image: ifs05Img,
     description: "Quinta generación, desarrollada bajo una filosofía de diseño orientada a la fiabilidad y marcada por el mayor relevo generacional del equipo. La consolidación de los procesos de validación y la madurez alcanzada por la ingeniería se tradujeron en un vehículo notablemente más robusto y consistente: por primera vez participamos en todas las pruebas dinámicas de Formula Student Spain y firmamos una histórica 7.ª posición en la clasificación general.",
     specs: {
       powertrain: "100% Eléctrico (RWD)",
@@ -88,16 +84,13 @@ export const carsData = [
       { name: "Formula Student Spain", venue: "Circuit de Barcelona-Catalunya", result: "P7 Overall" },
       { name: "Formula ATA Italy", venue: "Autodromo Riccardo Paletti", result: "P2 Business Plan" },
     ],
-    gallery: [
-      "https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?auto=format&fit=crop&w=600&q=80",
-    ],
   },
   {
     id: "ifs04",
     name: "IFS-04",
     season: "2021 / 2022",
     status: "",
-    image: "https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=1000&q=80",
+    image: ifs04Img,
     description: "Cuarta generación, centrada en el detalle y la puesta a punto. Supuso un salto decisivo en fiabilidad: por primera vez el equipo superó con éxito las inspecciones técnicas tanto en Formula ATA Italy como en Formula Student Spain, participando en las pruebas dinámicas de ambas competiciones en un mismo verano.",
     specs: {
       powertrain: "100% Eléctrico",
@@ -109,16 +102,13 @@ export const carsData = [
       { name: "Formula Student Spain", venue: "Montmeló", result: "Inspecciones superadas" },
       { name: "Formula ATA Italy", venue: "Autodromo Riccardo Paletti", result: "Inspecciones superadas" },
     ],
-    gallery: [
-      "https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=600&q=80",
-    ],
   },
   {
     id: "ifs03",
     name: "IFS-03",
     season: "2019 / 2021",
     status: "",
-    image: "https://images.unsplash.com/photo-1583121274602-3e2820c69888?auto=format&fit=crop&w=1000&q=80",
+    image: ifs03Img,
     description: "Tercera generación y el proyecto que superó la pandemia. Con un equipo que creció hasta más de 60 miembros, en agosto de 2021 alcanzamos un hito decisivo al poner en pista nuestro primer coche plenamente operativo. Logramos un 2.º puesto en Business Plan y un excelente feedback en diseño mecánico y eléctrico.",
     specs: {
       powertrain: "100% Eléctrico",
@@ -129,16 +119,13 @@ export const carsData = [
     competitions: [
       { name: "Formula Student Europe", venue: "Varios", result: "P2 Business Plan" },
     ],
-    gallery: [
-      "https://images.unsplash.com/photo-1583121274602-3e2820c69888?auto=format&fit=crop&w=600&q=80",
-    ],
   },
   {
     id: "ifs02",
     name: "IFS-02",
     season: "2018 / 2019",
     status: "",
-    image: "https://images.unsplash.com/photo-1614200187524-dc4b892acf16?auto=format&fit=crop&w=1000&q=80",
+    image: ifs02Img,
     description: "Segunda generación, fruto de una profunda reestructuración organizativa y de la creación de los departamentos de gestión. Introdujo avances técnicos notables, destacando una nueva arquitectura de batería basada en celdas cilíndricas que mejoró sensiblemente la tecnología anterior.",
     specs: {
       powertrain: "100% Eléctrico",
@@ -147,16 +134,13 @@ export const carsData = [
       acceleration: "4.2s (0-100 km/h)",
     },
     competitions: [],
-    gallery: [
-      "https://images.unsplash.com/photo-1614200187524-dc4b892acf16?auto=format&fit=crop&w=600&q=80",
-    ],
   },
   {
     id: "ifs01",
     name: "IFS-01",
     season: "2017 / 2018",
     status: "",
-    image: "https://images.unsplash.com/photo-1542362567-b07e54358753?auto=format&fit=crop&w=1000&q=80",
+    image: ifs01Img,
     description: "El origen de todo. Desarrollado en apenas un año por los miembros fundadores, fue el primer prototipo de nuestra historia. Con él debutamos en Formula Student Spain (Montmeló), sentando las bases técnicas y humanas sobre las que evolucionaría todo el proyecto.",
     specs: {
       powertrain: "100% Eléctrico",
@@ -166,9 +150,6 @@ export const carsData = [
     },
     competitions: [
       { name: "Formula Student Spain", venue: "Montmeló", result: "Participación debut" },
-    ],
-    gallery: [
-      "https://images.unsplash.com/photo-1542362567-b07e54358753?auto=format&fit=crop&w=600&q=80",
     ],
   },
 ];

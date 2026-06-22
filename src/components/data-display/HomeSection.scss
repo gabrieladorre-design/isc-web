@@ -109,11 +109,12 @@ $dark-bg: #111;
     box-shadow: 0 25px 50px rgba(0,0,0,0.2); 
     background: #000;
     
-    video {
+    video, iframe {
       width: 100%;
       display: block;
       aspect-ratio: 16/9;
       object-fit: cover;
+      border: none;
     }
   }
 }
@@ -352,13 +353,28 @@ $dark-bg: #111;
   to { opacity: 1; transform: translateY(0); }
 }
 
-/* RESPONSIVE */
+/* RESPONSIVE
+   IMPORTANTE: usamos selectores con la misma anidación que las reglas base
+   (.hero-section .hero-content h1, etc.) para que la especificidad gane y
+   los overrides móviles se apliquen de verdad. */
 @media (max-width: 900px) {
-  .hero-content h1 { font-size: 2.8rem; white-space: normal; }
-  .who-container { flex-direction: column; }
-  .who-text { text-align: center; }
-  .who-text .divider-left { margin: 0 auto 2rem; }
-  .specs-highlights { align-items: center; }
-  .mv-container { grid-template-columns: 1fr; }
-  .hero-buttons { flex-direction: column; width: 100%; max-width: 300px; margin: 0 auto; }
+  .hero-section .hero-content { padding: 0 16px; }
+  .hero-section .hero-content h1 {
+    font-size: clamp(1.6rem, 8vw, 2.3rem);
+    letter-spacing: 1px;
+    white-space: normal;
+    word-break: break-word;
+  }
+  .hero-section .hero-content p { font-size: 1.05rem; }
+  .hero-section .hero-buttons { flex-direction: column; width: 100%; max-width: 300px; margin: 0 auto; }
+
+  .who-we-are-section .who-container { flex-direction: column; }
+  .who-we-are-section .who-text { text-align: center; }
+  .who-we-are-section .who-text .divider-left { margin: 0 auto 2rem; }
+  .who-we-are-section .specs-highlights { align-items: center; }
+
+  /* Misión/Visión: una sola columna (antes seguía en 2 por especificidad) */
+  .mission-vision-section .mv-container { grid-template-columns: 1fr; gap: 1.5rem; }
+  .mission-vision-section .mv-card { padding: 2rem 1.5rem; }
+  .mission-vision-section .mv-card h3 { font-size: 1.6rem; }
 }

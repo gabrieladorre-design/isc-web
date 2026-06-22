@@ -32,6 +32,47 @@ body {
   width: 100%;
 }
 
+/* Salvaguarda global anti-overflow: ningún medio empuja el ancho de la página */
+img,
+video,
+iframe {
+  max-width: 100%;
+}
+
+/* Los títulos largos nunca se cortan: si no caben, parten de línea */
+h1, h2, h3, h4 {
+  overflow-wrap: break-word;
+}
+
+/* En móvil reducimos los grandes títulos de cabecera para que quepan enteros
+   (usamos !important para vencer las reglas base anidadas de cada sección). */
+@media (max-width: 600px) {
+  .intro-title,
+  .su-header h1,
+  .articles-header h1,
+  .comp-header h1,
+  .garage-header h1,
+  .join-header h1,
+  .team-header h1,
+  .history-header h1 {
+    font-size: 2rem !important;
+    line-height: 1.15 !important;
+    letter-spacing: 0.5px !important;
+  }
+  /* Mensaje "Proceso de selección cerrado temporalmente": que "temporalmente"
+     quepa entera y no se parta. */
+  .closed-state h3 {
+    font-size: 1.45rem !important;
+    line-height: 1.3 !important;
+  }
+}
+
+/* Evita el scroll horizontal accidental sin romper el position: sticky del
+   Navbar ni el scroll-to-top (overflow-x: clip SOLO en el elemento raíz). */
+html {
+  overflow-x: clip;
+}
+
 /* Si quieres, enlaces básicos */
 a {
   color: inherit;

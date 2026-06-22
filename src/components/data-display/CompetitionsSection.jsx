@@ -90,7 +90,7 @@ export default function CompetitionsSection({
                 icon={event.attended ? iscIcon : defaultIcon}
               >
                 {/* minWidth evita que Leaflet recorte el popup */}
-                <Popup className="custom-popup-container" minWidth={640} maxWidth={700}>
+                <Popup className="custom-popup-container" minWidth={720} maxWidth={780}>
                   <div className={`custom-popup ${event.attended ? "is-isc" : "is-future"}`}>
                     <div className="popup-header">
                       <h3>{event.name}</h3>

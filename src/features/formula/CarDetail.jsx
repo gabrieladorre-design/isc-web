@@ -89,18 +89,6 @@ export default function CarDetail() {
           )}
         </section>
 
-        {/* Galería */}
-        <section className="gallery-section" ref={addToRefs}>
-          <h2>GALERÍA DE IMÁGENES</h2>
-          <div className="image-grid">
-            {car.gallery.map((imgUrl, index) => (
-              <div key={index} className="gallery-item">
-                <img src={imgUrl} alt={`${car.name} Gallery ${index}`} />
-              </div>
-            ))}
-          </div>
-        </section>
-
       </div>
     </div>
   );

@@ -75,8 +75,8 @@
     width: clamp(150px, 16vw, 230px);
     aspect-ratio: 1 / 1;
     border-radius: 50%;
-    background: rgba($isc-yellow, 0.45);
-    border: 2px solid rgba(255, 255, 255, 0.55);
+    background: rgba($ib-main-green, 0.28);
+    border: 2px solid rgba(255, 255, 255, 0.45);
     backdrop-filter: blur(2px);
     display: flex;
     align-items: center;
@@ -97,7 +97,7 @@
     .overlay { background: rgba(0, 0, 0, 0.1); }
     .icon-badge {
       transform: scale(1.08);
-      background: rgba($isc-yellow, 0.62);
+      background: rgba($ib-main-green, 0.45);
       box-shadow: 0 14px 44px rgba(0, 0, 0, 0.5);
     }
   }

@@ -66,6 +66,22 @@ export default function MotoDetail() {
           </div>
         </section>
 
+        {moto.video && (
+          <section className="model-video-section" ref={addToRefs}>
+            <h2>EL PROTOTIPO EN ACCIÓN</h2>
+            <div className="model-video-wrapper">
+              <video
+                src={moto.video}
+                autoPlay
+                loop
+                muted
+                playsInline
+                controls
+              ></video>
+            </div>
+          </section>
+        )}
+
         <section className="competitions-section" ref={addToRefs}>
           <h2>HISTORIAL DE COMPETICIÓN</h2>
           {moto.competitions.length > 0 ? (
@@ -81,17 +97,6 @@ export default function MotoDetail() {
           ) : (
             <p className="no-data">No hay datos de competición registrados para este modelo.</p>
           )}
-        </section>
-
-        <section className="gallery-section" ref={addToRefs}>
-          <h2>GALERÍA DE IMÁGENES</h2>
-          <div className="image-grid">
-            {moto.gallery.map((imgUrl, index) => (
-              <div key={index} className="gallery-item">
-                <img src={imgUrl} alt={`${moto.name} Gallery ${index}`} />
-              </div>
-            ))}
-          </div>
         </section>
       </div>
     </div>
