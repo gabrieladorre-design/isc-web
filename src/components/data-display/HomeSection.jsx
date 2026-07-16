@@ -43,6 +43,7 @@ export default function HomeSection({
   ctaButtons = [],
 }) {
   const revealRefs = useRef([]);
+  const videoRef = useRef(null);
 
   useEffect(() => {
     const observer = new IntersectionObserver((entries) => {
@@ -55,6 +56,61 @@ export default function HomeSection({
 
     revealRefs.current.forEach((el) => el && observer.observe(el));
     return () => observer.disconnect();
+  }, []);
+
+  /* Reproduce el vídeo de presentación automáticamente al entrar en pantalla
+     y lo pausa al salir. Intenta reproducir CON sonido; si el navegador bloquea
+     el autoplay con audio, cae a silenciado (y el sonido se activará en cuanto
+     el usuario interactúe con la página, ver efecto siguiente). */
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          video.muted = false;
+          video.play().catch(() => {
+            // Autoplay con sonido bloqueado → reproducir en silencio
+            video.muted = true;
+            video.play().catch(() => {});
+          });
+        } else {
+          video.pause();
+        }
+      },
+      { threshold: 0.4 }
+    );
+    observer.observe(video);
+    return () => observer.disconnect();
+  }, []);
+
+  /* Activa el sonido en la primera interacción del usuario con la página
+     (los navegadores solo permiten audio tras un gesto del usuario). */
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+    const enableSound = () => {
+      video.muted = false;
+      video.volume = 1;
+      if (!video.paused || isElementInViewport(video)) {
+        video.play().catch(() => {});
+      }
+      window.removeEventListener("pointerdown", enableSound);
+      window.removeEventListener("keydown", enableSound);
+      window.removeEventListener("touchstart", enableSound);
+    };
+    const isElementInViewport = (el) => {
+      const r = el.getBoundingClientRect();
+      return r.top < window.innerHeight && r.bottom > 0;
+    };
+    window.addEventListener("pointerdown", enableSound);
+    window.addEventListener("keydown", enableSound);
+    window.addEventListener("touchstart", enableSound);
+    return () => {
+      window.removeEventListener("pointerdown", enableSound);
+      window.removeEventListener("keydown", enableSound);
+      window.removeEventListener("touchstart", enableSound);
+    };
   }, []);
 
   const addToRefs = (el) => {
@@ -109,12 +165,11 @@ export default function HomeSection({
               ></iframe>
             ) : (
               <video
+                ref={videoRef}
                 src={presentation.src}
                 poster={presentation.poster}
-                autoPlay={presentation.autoPlay}
                 loop={presentation.loop}
-                muted={presentation.muted}
-                playsInline={presentation.playsInline}
+                playsInline
                 controls={presentation.controls}
               ></video>
             )}

@@ -30,10 +30,7 @@ export default function Home() {
       presentation={{
         src: presentationVideo,
         poster: heroBg,
-        autoPlay: false,
-        muted: false,
-        loop: false,
-        playsInline: true,
+        loop: true,
         controls: true,
       }}
       whoParagraphs={
