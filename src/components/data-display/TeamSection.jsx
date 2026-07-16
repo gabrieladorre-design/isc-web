@@ -1,19 +1,21 @@
 import { useState, useEffect, useRef } from "react";
-import { teamMembers, categories } from "@/data/team";
 import linkedinIcon from "@/assets/redes/linkedin.png";
 import "./TeamSection.scss";
 
 /**
  * Sección de "Nuestro Equipo" reutilizable para Coche y Moto.
- * El organigrama (datos del equipo) es idéntico; solo cambian el subtítulo,
- * las cifras de las estadísticas y el texto de la descripción.
+ * Cada división pasa sus propios datos de equipo por props.
  *
- * Los datos del equipo viven en src/data/team.js.
+ * Los datos del equipo viven en:
+ *  - Coche: src/data/team.js
+ *  - Moto:  src/data/moto/team.js
  *
  * Props:
  *  - subtitle:    subtítulo de la cabecera
  *  - stats:       array de tarjetas de estadísticas { target, label }
  *  - description: contenido JSX del bloque de descripción del equipo
+ *  - members:     array de miembros { name, role, photo, linkedin, tier, category }
+ *  - categories:  botones de filtro del organigrama { id, label }
  */
 
 /* Contador numérico animado al entrar en viewport */
@@ -60,6 +62,8 @@ export default function TeamSection({
   subtitle = "",
   stats = [],
   description = null,
+  members = [],
+  categories = [],
 }) {
   const [activeFilter, setActiveFilter] = useState("all");
 
@@ -129,7 +133,7 @@ export default function TeamSection({
             {/* TIER 1: TEAM LEADER */}
             <div className="hierarchy-tier">
               <div className="members-grid center-grid">
-                {teamMembers.filter(m => m.tier === "tl").map((member, i) => (
+                {members.filter(m => m.tier === "tl").map((member, i) => (
                   <MemberCard key={`tl-${i}`} member={member} />
                 ))}
               </div>
@@ -138,7 +142,7 @@ export default function TeamSection({
             {/* TIER 2: DIRECTORES TÉCNICOS */}
             <div className="hierarchy-tier">
               <div className="members-grid">
-                {teamMembers.filter(m => m.tier === "dt").map((member, i) => (
+                {members.filter(m => m.tier === "dt").map((member, i) => (
                   <MemberCard key={`dt-${i}`} member={member} />
                 ))}
               </div>
@@ -147,7 +151,7 @@ export default function TeamSection({
             {/* TIER 3: JEFES DE DEPARTAMENTO */}
             <div className="hierarchy-tier last-tier">
               <div className="members-grid">
-                {teamMembers.filter(m => m.tier === "head").map((member, i) => (
+                {members.filter(m => m.tier === "head").map((member, i) => (
                   <MemberCard key={`head-${i}`} member={member} />
                 ))}
               </div>
@@ -160,7 +164,7 @@ export default function TeamSection({
         {activeFilter !== "all" && (
           <div className="filtered-view">
             <div className="members-grid">
-              {teamMembers
+              {members
                 .filter(m => m.category === activeFilter)
                 .map((member, i) => (
                   <MemberCard key={`filter-${i}`} member={member} />

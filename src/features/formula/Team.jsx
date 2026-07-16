@@ -1,4 +1,5 @@
 import TeamSection from "@/components/data-display/TeamSection";
+import { teamMembers, categories } from "@/data/team";
 
 export default function Team() {
   return (
@@ -18,6 +19,8 @@ export default function Team() {
           <p>Los <strong>Jefes de Departamento</strong> se encargan del desarrollo de una parcela específica del monoplaza y cuentan con un equipo de ingenieros para llevar todas esas tareas a cabo.</p>
         </>
       }
+      members={teamMembers}
+      categories={categories}
     />
   );
 }

@@ -1,4 +1,5 @@
 import TeamSection from "@/components/data-display/TeamSection";
+import { motoTeamMembers, motoCategories } from "@/data/moto/team";
 
 export default function MotoTeam() {
   return (
@@ -6,8 +7,8 @@ export default function MotoTeam() {
       subtitle="Impulsados por la innovación, unidos por la velocidad en dos ruedas."
       stats={[
         { target: 1, label: "Team Leader" },
-        { target: 2, label: "Directores Técnicos" },
-        { target: 4, label: "Jefes de Departamento" },
+        { target: 2, label: "Directores" },
+        { target: 2, label: "Jefes de Departamento" },
         { target: 13, label: "Ingenieros" },
       ]}
       description={
@@ -18,6 +19,8 @@ export default function MotoTeam() {
           <p>Los <strong>Jefes de Departamento</strong> se encargan del desarrollo de una parcela específica del prototipo y cuentan con un equipo de ingenieros para llevar todas esas tareas a cabo.</p>
         </>
       }
+      members={motoTeamMembers}
+      categories={motoCategories}
     />
   );
 }
