@@ -26,7 +26,7 @@ export const carsData = [
     specs: {
       powertrain: "100% Eléctrico",
       weight: "En desarrollo",
-      chassis: "Monocasco Fibra de Carbono",
+      chassis: "Tubular de Acero",
       acceleration: "TBD",
     },
     competitions: [],

@@ -29,9 +29,10 @@ export default function Home() {
       ]}
       presentation={{
         src: presentationVideo,
-        autoPlay: true,
-        muted: true,
-        loop: true,
+        poster: heroBg,
+        autoPlay: false,
+        muted: false,
+        loop: false,
         playsInline: true,
         controls: true,
       }}
