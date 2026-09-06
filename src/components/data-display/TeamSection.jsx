@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import linkedinIcon from "@/assets/redes/linkedin.png";
+import { useI18n } from "@/i18n";
 import "./TeamSection.scss";
 
 /**
@@ -65,6 +66,7 @@ export default function TeamSection({
   members = [],
   categories = [],
 }) {
+  const { t, tx } = useI18n();
   const [activeFilter, setActiveFilter] = useState("all");
 
   // Tarjeta de miembro
@@ -80,7 +82,7 @@ export default function TeamSection({
       </div>
       <div className="card-info">
         <h3>{member.name}</h3>
-        <span>{member.role}</span>
+        <span>{tx(member.role)}</span>
       </div>
     </div>
   );
@@ -90,7 +92,7 @@ export default function TeamSection({
 
       {/* CABECERA */}
       <header className="team-header">
-        <h1>Nuestro Equipo</h1>
+        <h1>{t("team.title")}</h1>
         <p>{subtitle}</p>
       </header>
 
@@ -100,7 +102,7 @@ export default function TeamSection({
           {stats.map((stat, i) => (
             <div className="stat-item" key={i}>
               <AnimatedNumber target={stat.target} />
-              <p>{stat.label}</p>
+              <p>{tx(stat.label)}</p>
             </div>
           ))}
         </div>
@@ -118,7 +120,7 @@ export default function TeamSection({
             className={`dept-link ${activeFilter === cat.id ? "active" : ""}`}
             onClick={() => setActiveFilter(cat.id)}
           >
-            {cat.label}
+            {tx(cat.label)}
           </button>
         ))}
       </nav>

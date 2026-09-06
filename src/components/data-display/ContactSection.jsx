@@ -1,4 +1,5 @@
 import Icon from "./Icon";
+import { useI18n } from "@/i18n";
 import "./ContactSection.scss";
 
 // Iconos de redes sociales
@@ -28,16 +29,18 @@ export default function ContactSection({
   dossierEnHref = "#",
   dossierFileES = "Dossier_ES.pdf",
   dossierFileEN = "Dossier_EN.pdf",
-  mapTallerTitle = "Mapa Taller",
-  mapIcaiTitle = "Mapa ICAI",
+  mapTallerTitle = "",
+  mapIcaiTitle = "",
   faqs = [],
 }) {
+  const { t } = useI18n();
+
   return (
     <div className="contact-page">
 
       {/* CABECERA */}
       <header className="contact-header">
-        <h1>Contacta con Nosotros</h1>
+        <h1>{t("contact.title")}</h1>
         <p>{headerSubtitle}</p>
       </header>
 
@@ -47,16 +50,16 @@ export default function ContactSection({
         <div className="info-column">
 
           <div className="contact-card highlight-border">
-            <h3><Icon name="chat" /> Contacto Directo</h3>
+            <h3><Icon name="chat" /> {t("contact.directContact")}</h3>
             <div className="contact-item">
-              <span className="label">Teléfono (WhatsApp/Llamadas):</span>
+              <span className="label">{t("contact.phoneLabel")}</span>
               <a href="tel:+34609838646" className="phone-link">
                 <Icon name="phone" /> +34 609 83 86 46
               </a>
             </div>
             <hr className="divider-soft"/>
             <div className="contact-item">
-              <span className="label">Correo Electrónico:</span>
+              <span className="label">{t("contact.emailLabel")}</span>
               <a href={`mailto:${email}`} className="main-email">
                 <Icon name="mail" /> {email}
               </a>
@@ -64,9 +67,9 @@ export default function ContactSection({
           </div>
 
           <div className="contact-card">
-            <h3><Icon name="pin" /> Nuestras Sedes</h3>
+            <h3><Icon name="pin" /> {t("contact.sitesTitle")}</h3>
             <div className="location-block">
-              <strong><Icon name="tools" /> Taller & Garage (Trabajo Técnico)</strong>
+              <strong><Icon name="tools" /> {t("contact.workshopTitle")}</strong>
               <p className="address">
                 C/ Labradores, 7<br/>
                 28660 Boadilla del Monte, Madrid
@@ -74,7 +77,7 @@ export default function ContactSection({
             </div>
             <hr className="divider"/>
             <div className="location-block">
-              <strong><Icon name="building" /> Sede Institucional (ICAI)</strong>
+              <strong><Icon name="building" /> {t("contact.institutionalTitle")}</strong>
               <p className="address">
                 C/ Alberto Aguilera 25<br/>
                 28015, Madrid
@@ -83,21 +86,21 @@ export default function ContactSection({
           </div>
 
           <div className="contact-card highlight-card">
-            <h3><Icon name="folder" /> Dossier de Patrocinio</h3>
+            <h3><Icon name="folder" /> {t("contact.dossierTitle")}</h3>
             <p>{dossierText}</p>
 
             <div className="dossier-buttons">
               <a href={dossierEsHref} download={dossierFileES} className="download-btn">
-                VERSIÓN ESPAÑOL
+                {t("contact.versionEs")}
               </a>
               <a href={dossierEnHref} download={dossierFileEN} className="download-btn">
-                ENGLISH VERSION
+                {t("contact.versionEn")}
               </a>
             </div>
           </div>
 
           <div className="contact-card social-card">
-            <h3><Icon name="globe" /> Síguenos</h3>
+            <h3><Icon name="globe" /> {t("contact.followTitle")}</h3>
             <div className="social-icons">
                <a href="https://www.instagram.com/iscfsracingteam/" target="_blank" rel="noreferrer">
                  <img src={instagramIcon} alt="Instagram" />
@@ -118,7 +121,7 @@ export default function ContactSection({
 
           {/* MAPA 1: TALLER */}
           <div className="contact-card map-card">
-            <h3><Icon name="tools" /> Ubicación Taller (Boadilla)</h3>
+            <h3><Icon name="tools" /> {t("contact.mapWorkshopHeading")}</h3>
             <div className="map-wrapper">
               <iframe
                 src="https://maps.google.com/maps?q=Calle+Labradores,+7,+28660+Boadilla+del+Monte,+Madrid&t=&z=15&ie=UTF8&iwloc=&output=embed"
@@ -135,7 +138,7 @@ export default function ContactSection({
 
           {/* MAPA 2: ICAI */}
           <div className="contact-card map-card">
-            <h3><Icon name="building" /> Ubicación ICAI (Madrid)</h3>
+            <h3><Icon name="building" /> {t("contact.mapIcaiHeading")}</h3>
             <div className="map-wrapper">
               <iframe
                 src="https://maps.google.com/maps?q=Universidad+Pontificia+Comillas+ICAI,+Calle+de+Alberto+Aguilera,+25,+Madrid&t=&z=16&ie=UTF8&iwloc=&output=embed"
@@ -156,7 +159,7 @@ export default function ContactSection({
 
       {/* SECCIÓN FAQ */}
       <section className="faq-section">
-        <h2>Preguntas Frecuentes</h2>
+        <h2>{t("contact.faqTitle")}</h2>
         <div className="faq-grid">
           {faqs.map((faq, i) => (
             <div className="faq-item" key={i}>

@@ -1,5 +1,6 @@
 import { useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
+import { useI18n } from "@/i18n";
 import "./GarageGrid.scss";
 
 /**
@@ -14,17 +15,19 @@ import "./GarageGrid.scss";
  *  - itemNoun:  palabra para el texto alternativo ("Monoplaza" / "Prototipo")
  *  - ctaPrefix: prefijo del botón ("SABER MÁS DEL" / "SABER MÁS DE LA")
  *  - activeIds: ids cuyo badge de estado se resalta en amarillo
- *  - title:     título de la cabecera (por defecto "EL GARAJE")
+ *  - title:     título de la cabecera (si no se indica, "EL GARAJE" traducido)
  */
 export default function GarageGrid({
   items = [],
   subtitle = "",
   basePath = "",
-  itemNoun = "Prototipo",
-  ctaPrefix = "SABER MÁS DEL",
+  itemNoun = "",
+  ctaPrefix = "",
   activeIds = [],
-  title = "EL GARAJE",
+  title = null,
 }) {
+  const { t, tx } = useI18n();
+  const headerTitle = title ?? t("garage.title");
   const revealRefs = useRef([]);
 
   useEffect(() => {
@@ -53,7 +56,7 @@ export default function GarageGrid({
     <div className="garage-page">
       {/* CABECERA REDUCIDA */}
       <header className="garage-header">
-        <h1 className="slide-up">{title}</h1>
+        <h1 className="slide-up">{headerTitle}</h1>
         <p className="slide-up delay-1">{subtitle}</p>
       </header>
 
@@ -70,7 +73,7 @@ export default function GarageGrid({
                     activeIds.includes(item.id) ? "active" : ""
                   }`}
                 >
-                  {item.status}
+                  {tx(item.status)}
                 </div>
               )}
             </div>

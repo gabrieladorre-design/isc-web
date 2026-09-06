@@ -1,3 +1,4 @@
+import { useI18n } from "@/i18n";
 import "./Footer.scss";
 
 // Redes
@@ -13,19 +14,22 @@ import iberdrolaLogo from "@/assets/logospatros/iberdrola-logo.png";
 
 /**
  * Pie de página reutilizable para Coche y Moto.
- * El diseño es idéntico; solo cambian el lema, el Instagram y el email,
- * que llegan por props (los valores por defecto son los de Formula Student).
+ * El diseño es idéntico; solo cambian el lema, el Instagram y el email.
  *
  * Props:
- *  - tagline:      lema bajo la marca ("ICAI Formula Student Team" / "ICAI Moto Student Team")
+ *  - variant:      "formula" | "moto" — elige el lema traducido correspondiente
  *  - instagramUrl: enlace al Instagram de la disciplina
  *  - email:        correo de contacto
  */
 export default function Footer({
-  tagline = "ICAI Formula Student Team",
+  variant = "formula",
   instagramUrl = "https://www.instagram.com/iscfsracingteam/",
   email = "formulastudent@iscracingteam.com",
 }) {
+  const { t } = useI18n();
+  const tagline =
+    variant === "moto" ? t("footer.taglineMoto") : t("footer.taglineFormula");
+
   return (
     <footer className="footer">
       <div className="footer__container">
@@ -60,13 +64,13 @@ export default function Footer({
 
         {/* COLUMNA DERECHA */}
         <div className="footer__right">
-          <p className="footer__uni">ICAI · Universidad Pontificia Comillas</p>
+          <p className="footer__uni">{t("footer.university")}</p>
           <div className="footer__address-lines">
             <p>C/ Alberto Aguilera 25</p>
             <p>28015 Madrid</p>
           </div>
           <a href={`mailto:${email}`} className="footer__contact-link">
-            Contact Us
+            {t("footer.contact")}
           </a>
         </div>
 

@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import Icon from "./Icon";
+import { useI18n } from "@/i18n";
 import "./JoinUsSection.scss";
 
 /**
@@ -25,10 +26,12 @@ export default function JoinUsSection({
   headerSubtitle = "",
   info = null,
   formIntro = "",
-  iframeTitle = "Formulario Recruitment",
+  iframeTitle = "",
   closedText = "",
   instagramUrl = "https://www.instagram.com/iscfsracingteam/",
 }) {
+  const { t } = useI18n();
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -60,7 +63,7 @@ export default function JoinUsSection({
               {isOpen ? (
                 <>
                   <div className="form-card-header">
-                    <h3>Formulario de Inscripción</h3>
+                    <h3>{t("joinUs.formTitle")}</h3>
                     <p>{formIntro}</p>
                   </div>
 
@@ -77,9 +80,9 @@ export default function JoinUsSection({
                   </div>
 
                   <div className="form-fallback">
-                    <p>¿No puedes visualizar bien el formulario?</p>
+                    <p>{t("joinUs.fallbackQuestion")}</p>
                     <a href={formsUrl.replace("?embed=true", "")} target="_blank" rel="noreferrer" className="btn-external">
-                      ABRIR EN UNA PESTAÑA NUEVA
+                      {t("joinUs.openNewTab")}
                     </a>
                   </div>
                 </>
@@ -88,16 +91,11 @@ export default function JoinUsSection({
 
                 <div className="closed-state">
                   <div className="icon-closed"><Icon name="flag" /></div>
-                  <h3>Proceso de selección cerrado temporalmente</h3>
+                  <h3>{t("joinUs.closedTitle")}</h3>
                   <p>{closedText}</p>
-                  <p className="closed-sub">
-                    Estamos preparando la próxima convocatoria. Cuando reabramos las
-                    candidaturas lo anunciaremos <strong>aquí mismo</strong> y en
-                    nuestras redes sociales. Te invitamos a seguirnos para no perderte
-                    la apertura.
-                  </p>
+                  <p className="closed-sub">{t("joinUs.closedSub")}</p>
                   <a href={instagramUrl} target="_blank" rel="noreferrer" className="btn-external">
-                    Síguenos para enterarte
+                    {t("joinUs.followUs")}
                   </a>
                 </div>
               )}

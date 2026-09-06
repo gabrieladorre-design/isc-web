@@ -5,7 +5,10 @@
 //   motoTeamMembers: { name, role, photo, linkedin, tier, category }
 //     tier:     "tl" (Team Leader) | "dt" (Directores) | "head" (Jefe de Dpto.)
 //     category: "management" | "design" | "powertrain" | "media"
-//   motoCategories:  botones de filtro del organigrama { id, label }
+//   motoCategories:  botones de filtro del organigrama { id, label: { es, en } }
+//
+// Los cargos (role) están en inglés, que es como los usa el equipo en las dos
+// versiones de la web. Las etiquetas de los filtros sí van en los dos idiomas.
 // ───────────────────────────────────────────────────────────────────────────
 
 /* --- IMPORTACIÓN DE FOTOS --- */
@@ -29,9 +32,9 @@ export const motoTeamMembers = [
 ];
 
 export const motoCategories = [
-  { id: "all", label: "Ver Todo el Organigrama" },
-  { id: "management", label: "Management" },
-  { id: "design", label: "Diseño y Aerodinámica" },
-  { id: "powertrain", label: "Power Train" },
-  { id: "media", label: "Media" }
+  { id: "all", label: { es: "Ver Todo el Organigrama", en: "See the Full Org Chart" } },
+  { id: "management", label: { es: "Management", en: "Management" } },
+  { id: "design", label: { es: "Diseño y Aerodinámica", en: "Design & Aerodynamics" } },
+  { id: "powertrain", label: { es: "Power Train", en: "Power Train" } },
+  { id: "media", label: { es: "Media", en: "Media" } }
 ];

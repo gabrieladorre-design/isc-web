@@ -1,6 +1,7 @@
 import { useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import Icon from "./Icon";
+import { useI18n } from "@/i18n";
 import "./HomeSection.scss";
 
 /**
@@ -42,6 +43,7 @@ export default function HomeSection({
   ctaText = "",
   ctaButtons = [],
 }) {
+  const { t } = useI18n();
   const revealRefs = useRef([]);
   const videoRef = useRef(null);
 
@@ -158,7 +160,7 @@ export default function HomeSection({
             {presentation.youtubeId ? (
               <iframe
                 src={`https://www.youtube.com/embed/${presentation.youtubeId}?autoplay=1&mute=1&loop=1&playlist=${presentation.youtubeId}&controls=1&rel=0&modestbranding=1`}
-                title="Vídeo de presentación"
+                title={t("home.presentationVideoTitle")}
                 frameBorder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen
@@ -182,7 +184,7 @@ export default function HomeSection({
         <div className="who-container">
 
           <div className="who-text">
-            <h2>QUIÉNES SOMOS</h2>
+            <h2>{t("home.whoTitle")}</h2>
             <div className="divider-left"></div>
             {whoParagraphs}
 
@@ -213,12 +215,12 @@ export default function HomeSection({
         <div className="mv-container">
           <div className="mv-card">
             <div className="icon-wrapper"><Icon name="target" /></div>
-            <h3>NUESTRA MISIÓN</h3>
+            <h3>{t("home.missionTitle")}</h3>
             {mission}
           </div>
           <div className="mv-card">
             <div className="icon-wrapper"><Icon name="globe" /></div>
-            <h3>NUESTRA VISIÓN</h3>
+            <h3>{t("home.visionTitle")}</h3>
             {vision}
           </div>
         </div>
@@ -226,12 +228,12 @@ export default function HomeSection({
 
       {/* 5. GALERÍA DESLIZANTE */}
       <section className="gallery-section">
-        <h2>NUESTRA PASIÓN EN IMÁGENES</h2>
+        <h2>{t("home.galleryTitle")}</h2>
         <div className="gallery-slider">
           <div className="slider-track">
             {gallery.map((imgSrc, i) => (
               <div key={i} className="slide">
-                <img src={imgSrc} alt={`Gallery slide ${i}`} />
+                <img src={imgSrc} alt={`${t("home.slideAlt")} ${i + 1}`} />
               </div>
             ))}
           </div>

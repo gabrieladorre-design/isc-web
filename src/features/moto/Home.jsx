@@ -1,4 +1,5 @@
 import HomeSection from "@/components/data-display/HomeSection";
+import { useI18n } from "@/i18n";
 
 // Assets locales (fotos/vídeos reales del prototipo — MotorLand/Jarama 2024)
 import heroBg from "@/assets/fotos-y-videos/HomeMoto/HomeMoto.JPG";
@@ -25,56 +26,38 @@ const galleryImages = [
 ];
 
 export default function MotoHome() {
+  const { t } = useI18n();
+
   return (
     <HomeSection
       heroTitle="ISC MS RACING TEAM"
       heroImage={heroBg}
       heroOverlayColor="rgba(0, 0, 0, 0.4)"
-      heroSubtitle="COMPROMISO. TALENTO. PASIÓN."
+      heroSubtitle={t("home.moto.heroSubtitle")}
       heroButtons={[
-        { to: "/moto/team", label: "NUESTRO EQUIPO" },
-        { to: "/moto/sponsors", label: "PATROCÍNANOS" },
+        { to: "/moto/team", label: t("home.moto.btnTeam") },
+        { to: "/moto/sponsors", label: t("home.moto.btnSponsor") },
       ]}
       presentation={{
         youtubeId: "XTQ6Y1S85x8",
       }}
-      whoParagraphs={
-        <>
-          <p className="intro-text">
-            El <strong>ISC MS Racing Team</strong> es el equipo de MotoStudent de la Universidad Pontificia Comillas.
-          </p>
-          <p>
-            Está formado por <strong>20 estudiantes</strong>, mayoritariamente de la Escuela de Ingeniería ICAI, contando también con miembros de ICADE. Nuestro objetivo principal es claro: concebir, diseñar, fabricar y competir al más alto nivel con una motocicleta 100% eléctrica.
-          </p>
-        </>
-      }
+      whoParagraphs={t("home.moto.whoParagraphs")}
       whoHighlights={[
-        { icon: "bolt", text: "Motocicleta 100% Eléctrica" },
-        { icon: "tools", text: "Fabricación propia en ICAI" },
-        { icon: "flag", text: "Competición Internacional" },
+        { icon: "bolt", text: t("home.moto.highlight1") },
+        { icon: "tools", text: t("home.moto.highlight2") },
+        { icon: "flag", text: t("home.moto.highlight3") },
       ]}
       cadImg={motoCad}
-      cadAlt="Modelo CAD de la motocicleta"
+      cadAlt={t("home.moto.cadAlt")}
       cadOverlay="IM-06 // EV POWERTRAIN"
-      mission={
-        <p>
-          Formar a los ingenieros del futuro enfrentándolos a desafíos reales del sector de la automoción.
-          Fomentamos el talento, el trabajo en equipo y la excelencia técnica
-          a través de la competición universitaria de motociclismo más exigente del mundo.
-        </p>
-      }
-      vision={
-        <p>
-          Consolidarnos como un equipo referente en el paddock de <strong>MotoStudent</strong>.
-          Diseñar prototipos eléctricos cada vez más eficientes y competir al más alto nivel.
-        </p>
-      }
+      mission={t("home.moto.mission")}
+      vision={t("home.moto.vision")}
       gallery={galleryImages}
-      ctaTitle="¿QUIERES FORMAR PARTE DEL PROYECTO?"
-      ctaText="Tanto si eres estudiante buscando un reto, como si eres una empresa apostando por la innovación en dos ruedas."
+      ctaTitle={t("home.moto.ctaTitle")}
+      ctaText={t("home.moto.ctaText")}
       ctaButtons={[
-        { to: "/moto/recruitment", label: "ÚNETE COMO ALUMNO", className: "btn-primary" },
-        { to: "/moto/sponsors", label: "COLABORA COMO EMPRESA", className: "btn-white" },
+        { to: "/moto/recruitment", label: t("home.moto.ctaStudent"), className: "btn-primary" },
+        { to: "/moto/sponsors", label: t("home.moto.ctaCompany"), className: "btn-white" },
       ]}
     />
   );

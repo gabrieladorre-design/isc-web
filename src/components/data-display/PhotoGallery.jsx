@@ -1,4 +1,5 @@
 import { useState, useEffect, useCallback } from "react";
+import { useI18n } from "@/i18n";
 import "./PhotoGallery.scss";
 
 /**
@@ -8,11 +9,14 @@ import "./PhotoGallery.scss";
  *
  * Props:
  *  - images: array de URLs de imágenes (ya importadas / resueltas por Vite)
- *  - alt:    texto alternativo base (se numera por imagen)
+ *  - alt:    texto alternativo base (se numera por imagen). Si no se indica,
+ *            se usa el texto traducido por defecto.
  */
-export default function PhotoGallery({ images = [], alt = "Fotografía del equipo ISC" }) {
+export default function PhotoGallery({ images = [], alt = null }) {
   const [activeIndex, setActiveIndex] = useState(null);
   const isOpen = activeIndex !== null;
+  const { t } = useI18n();
+  const altText = alt ?? t("common.galleryPhotoAlt");
 
   const close = useCallback(() => setActiveIndex(null), []);
   const next = useCallback(
@@ -51,9 +55,9 @@ export default function PhotoGallery({ images = [], alt = "Fotografía del equip
             className="pg-item"
             key={i}
             onClick={() => setActiveIndex(i)}
-            aria-label={`Ampliar imagen ${i + 1}`}
+            aria-label={`${t("common.enlargeImage")} ${i + 1}`}
           >
-            <img src={src} alt={`${alt} ${i + 1}`} loading="lazy" />
+            <img src={src} alt={`${altText} ${i + 1}`} loading="lazy" />
             <span className="pg-zoom" aria-hidden="true">+</span>
           </button>
         ))}
@@ -61,21 +65,21 @@ export default function PhotoGallery({ images = [], alt = "Fotografía del equip
 
       {isOpen && (
         <div className="pg-lightbox" onClick={close}>
-          <button className="pg-close" onClick={close} aria-label="Cerrar">&times;</button>
+          <button className="pg-close" onClick={close} aria-label={t("common.close")}>&times;</button>
           <button
             className="pg-nav pg-prev"
             onClick={(e) => { e.stopPropagation(); prev(); }}
-            aria-label="Anterior"
+            aria-label={t("common.previous")}
           >&#8249;</button>
           <img
             src={images[activeIndex]}
-            alt={`${alt} ${activeIndex + 1}`}
+            alt={`${altText} ${activeIndex + 1}`}
             onClick={(e) => e.stopPropagation()}
           />
           <button
             className="pg-nav pg-next"
             onClick={(e) => { e.stopPropagation(); next(); }}
-            aria-label="Siguiente"
+            aria-label={t("common.next")}
           >&#8250;</button>
           <span className="pg-counter">{activeIndex + 1} / {images.length}</span>
         </div>

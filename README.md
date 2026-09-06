@@ -59,6 +59,8 @@ src/
 │   ├── formula/       Páginas específicas de Formula Student
 │   ├── moto/          Páginas específicas de MotoStudent
 │   └── landing/       Pantalla de aterrizaje (bifurcación Coche / Moto)
+├── i18n/              Sistema de idiomas (español / inglés)
+│   └── dictionaries/  es.jsx y en.jsx — todo el texto de la web
 └── styles/            Variables globales y estilos base
 ```
 
@@ -76,6 +78,34 @@ evitando rutas relativas frágiles.
   `competitions.js`) en la raíz de `src/data/`; los específicos por disciplina en
   `src/data/formula/` y `src/data/moto/`.
 
+### Idiomas (español / inglés)
+
+La web es bilingüe. El idioma inicial es el **del navegador de quien visita la
+página**: si está en español se muestra en español, si está en inglés (o en
+cualquier otro idioma) se muestra en inglés. Un botón **ES / EN** arriba a la
+derecha permite cambiarlo, y la elección se guarda en `localStorage` para las
+siguientes visitas.
+
+- `src/i18n/config.js` — idiomas soportados, detección del navegador y guardado.
+- `src/i18n/LanguageProvider.jsx` — envuelve la app y expone `lang`, `setLang`,
+  `t()` y `tx()`. También sincroniza el atributo `lang` del `<html>`.
+- `src/i18n/dictionaries/es.jsx` y `en.jsx` — **todo el texto fijo de la web**.
+  Los dos archivos tienen exactamente las mismas claves.
+- `src/components/layout/LanguageSwitcher.jsx` — el botón ES / EN.
+
+Dos formas de traducir, según de dónde salga el texto:
+
+- **Texto fijo de la interfaz** (títulos, botones, etiquetas): vive en los
+  diccionarios y se lee con `t("ruta.con.puntos")`, p. ej. `t("home.whoTitle")`.
+- **Texto de los archivos de datos** (`src/data/`): vive junto al dato como
+  `{ es: "...", en: "..." }` y se pinta con `tx(valor)`. `tx()` también acepta
+  cadenas normales, así que es seguro usarlo con cualquier campo.
+
+**Para añadir un idioma nuevo:** añádelo a `SUPPORTED_LANGUAGES` y
+`LANGUAGE_LABELS` en `config.js`, crea `dictionaries/<código>.jsx` copiando
+`es.jsx`, regístralo en `dictionaries/index.js` y añade ese campo en los textos
+de `src/data/`.
+
 ### Notas de estado
 
 - La portada de la Moto ya utiliza **material real local** (no URLs remotas).
@@ -83,7 +113,11 @@ evitando rutas relativas frágiles.
   ediciones bienales de MotoStudent (2018, 2020, 2022, 2024).
 - Las newsletters viven en `src/assets/articulos/coche/` y
   `src/assets/articulos/moto/` (PDF + portada `.png`), y se renderizan en orden
-  cronológico descendente.
+  cronológico descendente (por `monthIndex`, para que el orden sea el mismo en
+  los dos idiomas).
+- **La pestaña "Actualidad" (Newsletters) está oculta del menú temporalmente.**
+  No se ha borrado nada: la página, las rutas y los PDFs siguen ahí. Para volver
+  a mostrarla, pon `SHOW_NEWSLETTERS = true` en `src/data/navigation.js`.
 
 ---
 
@@ -133,21 +167,41 @@ Dentro de `src/assets` el material se organiza por tipo:
 
 ## 3. Cambiar un TEXTO
 
-Los textos están en `src/data`, en archivos `.js` (listas fáciles de leer).
+**La web está en dos idiomas.** Casi todos los textos aparecen dos veces: una
+detrás de `es:` (español) y otra detrás de `en:` (inglés). **Cambia siempre los
+dos**, o esa frase se quedará desactualizada en uno de los idiomas.
+
+### 3.1 Textos de coches, motos, historia, resultados… → `src/data`
 
 1. Abre el archivo (p. ej. `src/data/formula/coches.js` para el coche, o
    `src/data/moto/motos.js` para la moto).
 2. Busca el texto **entre comillas** y cambia **solo lo de dentro**:
 
    ```js
-   description: "Nuestro monoplaza eléctrico de 2026, más ligero y potente.",
+   description: {
+     es: "Nuestro monoplaza eléctrico de 2026, más ligero y potente.",
+     en: "Our 2026 electric single-seater, lighter and more powerful.",
+   },
    ```
 
 3. Guarda (Ctrl/Cmd + S).
 
+### 3.2 Títulos, botones y textos de las páginas → `src/i18n/dictionaries`
+
+Los títulos ("QUIÉNES SOMOS", "Nuestro Equipo"), los botones y los párrafos de
+las páginas están en dos archivos gemelos:
+
+- `src/i18n/dictionaries/es.jsx` → versión en español
+- `src/i18n/dictionaries/en.jsx` → versión en inglés
+
+Los dos tienen **exactamente las mismas etiquetas y en el mismo orden**. Busca la
+frase en `es.jsx`, cámbiala, y cambia la misma línea en `en.jsx`.
+
+### Reglas comunes
+
 **Nunca** borres las comillas `" "`, ni la coma `,` final, ni la etiqueta de la
-izquierda (`description:`, `name:`…). Si tu texto lleva comillas dentro, avisa a la
-persona técnica.
+izquierda (`description:`, `es:`, `en:`, `name:`…). Si tu texto lleva comillas
+dentro, avisa a la persona técnica.
 
 ## 4. Cambiar o añadir FOTOS
 
@@ -188,8 +242,11 @@ Para añadir uno nuevo, súbelo con nombre claro sin espacios y avisa a la perso
 
 | Quiero cambiar… | Voy a… | Cómo |
 |---|---|---|
-| Texto / spec del coche | `src/data/formula/coches.js` | Editar lo de **dentro de las comillas** |
+| Texto / spec del coche | `src/data/formula/coches.js` | Editar lo de dentro de las comillas, **en `es:` y en `en:`** |
 | Texto / spec de la moto | `src/data/moto/motos.js` | Igual |
+| Títulos, botones y párrafos de las páginas | `src/i18n/dictionaries/es.jsx` **y** `en.jsx` | Cambiar la misma línea en los dos archivos |
+| Nombres del menú de arriba | `src/data/navigation.js` | Editar `label: { es, en }` |
+| Volver a mostrar "Actualidad" (Newsletters) | `src/data/navigation.js` | Poner `SHOW_NEWSLETTERS = true` |
 | Lista de patrocinadores | `src/data/sponsors.js` | Añadir/editar entradas |
 | Miembros del equipo | `src/data/team.js` | Añadir/editar entradas |
 | Newsletters | `src/data/articles.js` (+ archivos en `assets/articulos/…`) | Añadir entrada y avisar |

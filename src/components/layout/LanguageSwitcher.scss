@@ -1,0 +1,76 @@
+@use "../../styles/variables" as *;
+
+/* ───────────────────────────────────────────────────────────────────────────
+   SELECTOR DE IDIOMA (ES / EN)
+   Dos pastillas juntas; la del idioma activo se pinta en amarillo ISC.
+   ─────────────────────────────────────────────────────────────────────────── */
+.lang-switcher {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  padding: 3px;
+  border: 1.5px solid rgba(255, 255, 255, 0.35);
+  border-radius: 999px;
+  background-color: rgba(0, 0, 0, 0.18);
+  font-family: $font-main;
+  flex-shrink: 0;
+
+  &__btn {
+    appearance: none;
+    border: none;
+    background: transparent;
+    color: rgba(255, 255, 255, 0.85);
+    font-family: inherit;
+    font-weight: 700;
+    font-size: 0.78rem;
+    letter-spacing: 0.6px;
+    line-height: 1;
+    padding: 7px 12px;
+    border-radius: 999px;
+    cursor: pointer;
+    transition: background-color 0.25s ease, color 0.25s ease;
+
+    &:hover {
+      color: $isc-yellow;
+    }
+
+    &.is-active {
+      background-color: $isc-yellow;
+      color: $ib-main-green;
+      cursor: default;
+    }
+
+    &:focus-visible {
+      outline: 2px solid $isc-yellow;
+      outline-offset: 2px;
+    }
+  }
+
+  /* --- Variante flotante: página de entrada (sin navbar) --- */
+  &--floating {
+    position: fixed;
+    top: 1.4rem;
+    right: 1.6rem;
+    z-index: 1200;
+    border-color: rgba(255, 255, 255, 0.55);
+    background-color: rgba(0, 0, 0, 0.45);
+    backdrop-filter: blur(6px);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+  }
+}
+
+@media (max-width: 900px) {
+  .lang-switcher {
+    padding: 2px;
+
+    &__btn {
+      font-size: 0.72rem;
+      padding: 6px 9px;
+    }
+
+    &--floating {
+      top: 1rem;
+      right: 1rem;
+    }
+  }
+}

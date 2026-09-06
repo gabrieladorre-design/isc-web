@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { useI18n } from "@/i18n";
 import "./SponsorUsSection.scss";
 
 /**
@@ -35,6 +36,8 @@ export default function SponsorUsSection({
   ctaText = "",
   ctaEmailHref = "#",
 }) {
+  const { t } = useI18n();
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -49,9 +52,9 @@ export default function SponsorUsSection({
       >
         <div className="su-header__overlay" />
         <div className="header-content">
-          <h1>Conviértase en Patrocinador</h1>
+          <h1>{t("sponsorUs.title")}</h1>
           <p>{headerSubtitle}</p>
-          <a href={ctaEmailHref} className="su-header__cta">Quiero colaborar</a>
+          <a href={ctaEmailHref} className="su-header__cta">{t("sponsorUs.headerCta")}</a>
         </div>
       </header>
 
@@ -117,7 +120,7 @@ export default function SponsorUsSection({
       {/* CATEGORÍAS DE PATROCINIO */}
       <section className="su-tiers">
         <div className="container">
-          <h2 className="section-title">Categorías de Patrocinio</h2>
+          <h2 className="section-title">{t("sponsorUs.tiersTitle")}</h2>
 
           <div className="tiers-grid">
             {tiers.map((tier, i) => (
@@ -146,7 +149,7 @@ export default function SponsorUsSection({
           <p>{ctaText}</p>
 
           <a href={ctaEmailHref} className="btn-email">
-            CONTACTAR POR EMAIL
+            {t("sponsorUs.emailButton")}
           </a>
         </div>
       </section>

@@ -4,6 +4,7 @@ import {
   TIER_LABELS,
   sponsorsByTier,
 } from "@/data/sponsors";
+import { useI18n } from "@/i18n";
 import "./SponsorsSection.scss";
 
 /**
@@ -32,20 +33,22 @@ const TIER_CONFIG = {
 export default function SponsorsSection({
   introText,
   sponsorUsPath = "/sponsor-us",
-  ctaText = "Únete a nuestro equipo e impulsa la innovación.",
+  ctaText = "",
 }) {
+  const { t } = useI18n();
+
   return (
     <div className="sponsors-page">
       {/* 1. INTRODUCCIÓN (Verde) */}
       <section className="sponsors-intro">
         <div className="intro-content">
-          <h1 className="intro-title">Nuestros Patrocinadores</h1>
+          <h1 className="intro-title">{t("sponsors.title")}</h1>
           <div className="intro-divider"></div>
           <p className="intro-text">{introText}</p>
 
           {/* BOTÓN EN LA CABECERA */}
           <Link to={sponsorUsPath} className="sponsor-btn-top">
-            PATROCÍNANOS
+            {t("sponsors.button")}
           </Link>
         </div>
       </section>
@@ -84,10 +87,10 @@ export default function SponsorsSection({
 
       {/* 7. LLAMADA A LA ACCIÓN FINAL */}
       <section className="join-sponsors-cta">
-        <h2>¿Quieres ver tu marca aquí?</h2>
+        <h2>{t("sponsors.ctaTitle")}</h2>
         <p>{ctaText}</p>
         <Link to={sponsorUsPath} className="sponsor-cta-btn">
-          PATROCÍNANOS
+          {t("sponsors.button")}
         </Link>
       </section>
     </div>

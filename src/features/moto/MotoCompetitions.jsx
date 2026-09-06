@@ -1,18 +1,21 @@
 import CompetitionsSection from "@/components/data-display/CompetitionsSection";
 import { motoEvents, motoResults } from "@/data/competitions";
+import { useI18n } from "@/i18n";
 
 export default function MotoCompetitions() {
+  const { t } = useI18n();
+
   return (
     <CompetitionsSection
       events={motoEvents}
       results={motoResults}
-      subtitle="El terreno donde la ingeniería eléctrica se pone a prueba sobre dos ruedas."
-      mapTitle="Mapa de Competición"
-      legendIsc="Sede Principal ISC"
-      legendOther="Circuitos en Evaluación"
+      subtitle={t("competitions.moto.subtitle")}
+      mapTitle={t("competitions.moto.mapTitle")}
+      legendIsc={t("competitions.moto.legendIsc")}
+      legendOther={t("competitions.moto.legendOther")}
       mapCenter={[44.0, 4.0]}
-      highlightLabel="Hito ISC Moto:"
-      futureGoalLabel="Próximo objetivo / Test"
+      highlightLabel={t("competitions.moto.highlightLabel")}
+      futureGoalLabel={t("competitions.moto.futureGoalLabel")}
     />
   );
 }

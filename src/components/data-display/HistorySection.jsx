@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import { useI18n } from "@/i18n";
 import "./HistorySection.scss";
 
 /**
@@ -20,6 +21,7 @@ import "./HistorySection.scss";
 function TimelineItem({ data, index, onImageClick, vehicleAlt, vehicleLabel }) {
   const [isVisible, setIsVisible] = useState(false);
   const ref = useRef(null);
+  const { t, tx } = useI18n();
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -40,16 +42,16 @@ function TimelineItem({ data, index, onImageClick, vehicleAlt, vehicleLabel }) {
       <div className="timeline-content">
         <span className="year-badge">{data.year}</span>
         <h2 className="model-title">{data.model}</h2>
-        <h3 className="model-subtitle">{data.subtitle}</h3>
-        <p className="model-desc">{data.text}</p>
-        <span className="stat-badge">{data.stats}</span>
+        <h3 className="model-subtitle">{tx(data.subtitle)}</h3>
+        <p className="model-desc">{tx(data.text)}</p>
+        <span className="stat-badge">{tx(data.stats)}</span>
       </div>
       <div className="timeline-images">
         <div className="img-wrapper car" onClick={() => onImageClick(data.imgCar)}>
           <img src={data.imgCar} alt={`${vehicleAlt} ${data.model}`} />
         </div>
         <div className="img-wrapper team" onClick={() => onImageClick(data.imgTeam)}>
-          <img src={data.imgTeam} alt={`Equipo ${data.year}`} />
+          <img src={data.imgTeam} alt={`${t("history.teamAlt")} ${data.year}`} />
         </div>
       </div>
       <div className="timeline-dot"></div>
@@ -62,16 +64,17 @@ export default function HistorySection({
   timeline = [],
   futureTitle = "",
   futureBody = null,
-  vehicleAlt = "Coche",
-  vehicleLabel = "Monoplaza",
+  vehicleAlt = "",
+  vehicleLabel = "",
 }) {
+  const { t } = useI18n();
   // Estado para controlar qué imagen está ampliada
   const [zoomedImage, setZoomedImage] = useState(null);
 
   return (
     <div className="history-page">
       <header className="history-header">
-        <h1>Nuestra Evolución</h1>
+        <h1>{t("history.title")}</h1>
         <p>{subtitle}</p>
       </header>
 
@@ -87,8 +90,8 @@ export default function HistorySection({
 
           <div className="future-card">
             <div className="future-header">
-              <span className="future-year">TEMPORADA 2026</span>
-              <span className="future-tag">EN DESARROLLO</span>
+              <span className="future-year">{t("history.futureSeason")}</span>
+              <span className="future-tag">{t("history.futureTag")}</span>
             </div>
             <h2>{futureTitle}</h2>
             {futureBody}
@@ -112,7 +115,7 @@ export default function HistorySection({
       {zoomedImage && (
         <div className="lightbox-overlay" onClick={() => setZoomedImage(null)}>
           <span className="close-btn">&times;</span>
-          <img src={zoomedImage} alt="Ampliación" className="lightbox-img" />
+          <img src={zoomedImage} alt={t("common.zoomedImageAlt")} className="lightbox-img" />
         </div>
       )}
     </div>

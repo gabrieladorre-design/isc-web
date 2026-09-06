@@ -5,7 +5,10 @@
 //   teamMembers: { name, role, photo, linkedin, tier, category }
 //     tier:     "tl" (Team Leader) | "dt" (Director Técnico) | "head" (Jefe de Dpto.)
 //     category: "management" | "mechanical" | "electronics" | "driverless" | "statics"
-//   categories:  botones de filtro del organigrama { id, label }
+//   categories:  botones de filtro del organigrama { id, label: { es, en } }
+//
+// Los cargos (role) están en inglés, que es como los usa el equipo en las dos
+// versiones de la web. Las etiquetas de los filtros sí van en los dos idiomas.
 // ───────────────────────────────────────────────────────────────────────────
 
 /* --- IMPORTACIÓN DE FOTOS --- */
@@ -67,10 +70,10 @@ export const teamMembers = [
 ];
 
 export const categories = [
-  { id: "all", label: "Ver Todo el Organigrama" },
-  { id: "management", label: "Management" },
-  { id: "mechanical", label: "Mecánica" },
-  { id: "electronics", label: "Electrónica" },
-  { id: "driverless", label: "Driverless" },
-  { id: "statics", label: "Statics" }
+  { id: "all", label: { es: "Ver Todo el Organigrama", en: "See the Full Org Chart" } },
+  { id: "management", label: { es: "Management", en: "Management" } },
+  { id: "mechanical", label: { es: "Mecánica", en: "Mechanical" } },
+  { id: "electronics", label: { es: "Electrónica", en: "Electronics" } },
+  { id: "driverless", label: { es: "Driverless", en: "Driverless" } },
+  { id: "statics", label: { es: "Statics", en: "Statics" } }
 ];

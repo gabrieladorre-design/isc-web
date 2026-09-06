@@ -1,14 +1,17 @@
 import GarageGrid from "@/components/data-display/GarageGrid";
 import { motosData } from "@/data/moto/motos";
+import { useI18n } from "@/i18n";
 
 export default function Garage() {
+  const { t } = useI18n();
+
   return (
     <GarageGrid
       items={motosData}
-      subtitle="Pura ingeniería sobre dos ruedas. Explora la evolución técnica de nuestros prototipos eléctricos."
+      subtitle={t("garage.moto.subtitle")}
       basePath="/moto/garaje"
-      itemNoun="Prototipo"
-      ctaPrefix="SABER MÁS DE LA"
+      itemNoun={t("garage.moto.itemNoun")}
+      ctaPrefix={t("garage.moto.ctaPrefix")}
       activeIds={["im04"]}
     />
   );

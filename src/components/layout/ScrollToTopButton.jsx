@@ -1,9 +1,11 @@
 import { useState, useEffect } from "react";
 import Icon from "@/components/data-display/Icon";
+import { useI18n } from "@/i18n";
 import "./ScrollToTopButton.scss";
 
 export default function ScrollToTopButton() {
   const [isVisible, setIsVisible] = useState(false);
+  const { t } = useI18n();
 
   useEffect(() => {
     const toggleVisibility = () => {
@@ -23,7 +25,7 @@ export default function ScrollToTopButton() {
   return (
     <button 
       onClick={scrollToTop}
-      aria-label="Volver arriba"
+      aria-label={t("common.scrollTop")}
       style={{
         position: 'fixed', bottom: '20px', right: '20px',
         width: '48px', height: '48px',

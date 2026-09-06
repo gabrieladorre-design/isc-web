@@ -1,4 +1,6 @@
 import { Link } from "react-router-dom";
+import LanguageSwitcher from "@/components/layout/LanguageSwitcher";
+import { useI18n } from "@/i18n";
 import "./LandingSplit.scss";
 
 import iscLogo from "@/assets/logos/ISC.png";
@@ -8,14 +10,19 @@ import formulaBg from "@/assets/fotos-y-videos/Landing/coche.jpg";
 
 
 export default function LandingSplit() {
+  const { t } = useI18n();
+
   return (
     <div className="landing-split-page">
+
+      {/* SELECTOR DE IDIOMA (esta página no lleva navbar, por eso va flotante) */}
+      <LanguageSwitcher variant="floating" />
       
       {/* CABECERA */}
       <header className="landing-header">
         <img src={iscLogo} alt="ISC Logo" className="header-logo" />
         <h1>ISC RACING TEAM</h1>
-        <p>Ingeniería, pasión y velocidad.<br/>Elige tu disciplina.</p>
+        <p>{t("landing.tagline")}</p>
       </header>
 
       {/* CONTENEDOR DIVIDIDO */}

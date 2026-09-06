@@ -1,6 +1,10 @@
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import "./App.scss";
 
+// --- IDIOMAS (español / inglés) ---
+// El proveedor detecta el idioma del navegador y lo comparte con toda la web.
+import { LanguageProvider } from './i18n';
+
 
 // --- LAYOUTS (compartidos Coche + Moto vía props) ---
 import Navbar from './components/layout/Navbar';
@@ -99,12 +103,12 @@ function AppContent() {
       {!isLandingPage &&
         (isMotoPage ? (
           <Footer
-            tagline="ICAI Moto Student Team"
+            variant="moto"
             instagramUrl="https://www.instagram.com/iscmsracingteam/"
             email="motostudent@iscracingteam.com"
           />
         ) : (
-          <Footer />
+          <Footer variant="formula" />
         ))}
       
       <ScrollToTopButton />
@@ -114,9 +118,11 @@ function AppContent() {
 
 function App() {
   return (
-    <Router>
-      <AppContent />
-    </Router>
+    <LanguageProvider>
+      <Router>
+        <AppContent />
+      </Router>
+    </LanguageProvider>
   );
 }
 

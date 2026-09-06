@@ -3,6 +3,7 @@ import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
 import Icon from "./Icon";
+import { useI18n } from "@/i18n";
 import "./CompetitionsSection.scss";
 
 /**
@@ -41,13 +42,15 @@ export default function CompetitionsSection({
   events = [],
   results = [],
   subtitle = "",
-  mapTitle = "Mapa del Tour Europeo",
-  legendIsc = "Participación ISC",
-  legendOther = "Eventos Oficiales FS",
+  mapTitle = "",
+  legendIsc = "",
+  legendOther = "",
   mapCenter = [47.0, 8.0],
-  highlightLabel = "Hito ISC:",
-  futureGoalLabel = "Próximo objetivo",
+  highlightLabel = "",
+  futureGoalLabel = "",
 }) {
+  const { t, tx } = useI18n();
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -56,7 +59,7 @@ export default function CompetitionsSection({
     <div className="competitions-page">
       {/* CABECERA */}
       <header className="comp-header">
-        <h1>Competición y Resultados</h1>
+        <h1>{t("competitions.title")}</h1>
         <p>{subtitle}</p>
       </header>
 
@@ -94,13 +97,13 @@ export default function CompetitionsSection({
                   <div className={`custom-popup ${event.attended ? "is-isc" : "is-future"}`}>
                     <div className="popup-header">
                       <h3>{event.name}</h3>
-                      <p className="venue"><Icon name="pin" /> {event.venue}</p>
+                      <p className="venue"><Icon name="pin" /> {tx(event.venue)}</p>
                     </div>
                     <div className="popup-body">
                       {event.attended ? (
                         <div className="isc-highlight">
                           <strong><Icon name="trophy" /> {highlightLabel}</strong>
-                          <span>{event.highlight}</span>
+                          <span>{tx(event.highlight)}</span>
                         </div>
                       ) : (
                         <span className="future-goal">{futureGoalLabel}</span>
@@ -116,15 +119,15 @@ export default function CompetitionsSection({
 
       {/* HISTORIAL DE RESULTADOS */}
       <section className="results-section">
-        <h2>Nuestro Palmarés Histórico</h2>
+        <h2>{t("competitions.resultsTitle")}</h2>
         <div className="timeline-grid">
           {results.map((result, index) => (
             <div className="result-card" key={index} tabIndex={0}>
               <span className="year">{result.year}</span>
-              <h3>{result.title}</h3>
-              <p className="highlight">{result.highlight}</p>
-              <div className="details"><p>{result.details}</p></div>
-              <span className="reveal-hint">Ver detalle <Icon name="chevron" /></span>
+              <h3>{tx(result.title)}</h3>
+              <p className="highlight">{tx(result.highlight)}</p>
+              <div className="details"><p>{tx(result.details)}</p></div>
+              <span className="reveal-hint">{t("competitions.revealHint")} <Icon name="chevron" /></span>
             </div>
           ))}
         </div>

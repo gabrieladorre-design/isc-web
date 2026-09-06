@@ -23,6 +23,13 @@
     }
   }
 
+  /* Zona derecha del navbar: enlaces + selector de idioma + hamburguesa */
+  &__right {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+  }
+
   &__links {
     display: flex;
     list-style: none;
@@ -200,6 +207,8 @@
   }
 
   .navbar__logo img { height: 38px; }
+
+  .navbar__right { gap: 0.9rem; }
 
   .navbar__burger {
     display: flex;

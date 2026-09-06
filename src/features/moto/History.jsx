@@ -1,20 +1,18 @@
 import HistorySection from "@/components/data-display/HistorySection";
 import { motoTimeline } from "@/data/history";
+import { useI18n } from "@/i18n";
 
 export default function MotoHistory() {
+  const { t } = useI18n();
+
   return (
     <HistorySection
-      subtitle="Acelerando hacia el futuro en MotoStudent."
+      subtitle={t("history.moto.subtitle")}
       timeline={motoTimeline}
-      vehicleAlt="Moto"
-      vehicleLabel="Prototipo"
-      futureTitle="La Siguiente Generación"
-      futureBody={
-        <p>
-          El equipo está inmerso en el diseño del <strong>IM-06</strong>.
-          Nuestro objetivo para la próxima edición en MotorLand Aragón es implementar telemetría en tiempo real y reducir drásticamente el peso del conjunto para competir por el podio internacional.
-        </p>
-      }
+      vehicleAlt={t("history.moto.vehicleAlt")}
+      vehicleLabel={t("history.moto.vehicleLabel")}
+      futureTitle={t("history.moto.futureTitle")}
+      futureBody={t("history.moto.futureBody")}
     />
   );
 }

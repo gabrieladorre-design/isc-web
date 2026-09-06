@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { useI18n } from "@/i18n";
 import "./ArticlesSection.scss";
 
 /**
@@ -12,20 +13,17 @@ import "./ArticlesSection.scss";
  *  - newsletters: array de newsletters { id, year, month, cover, file }
  *  - subtitle:    texto del subtítulo de la cabecera
  */
-// Orden de meses (ES) para poder ordenar cronológicamente.
-const MONTH_ORDER = {
-  ENERO: 1, FEBRERO: 2, MARZO: 3, ABRIL: 4, MAYO: 5, JUNIO: 6,
-  JULIO: 7, AGOSTO: 8, SEPTIEMBRE: 9, OCTUBRE: 10, NOVIEMBRE: 11, DICIEMBRE: 12,
-};
-
-// Clave numérica comparable a partir de year + month (más reciente = mayor).
+// Clave numérica comparable a partir de year + monthIndex (más reciente = mayor).
+// Se usa monthIndex (1-12) y no el nombre del mes para que el orden sea el mismo
+// en cualquier idioma.
 const dateKey = (n) => {
   const yearNum = parseInt(String(n.year).match(/\d{4}/)?.[0] ?? "0", 10);
-  const monthNum = MONTH_ORDER[String(n.month).toUpperCase()] ?? 0;
+  const monthNum = Number(n.monthIndex) || 0;
   return yearNum * 100 + monthNum;
 };
 
 export default function ArticlesSection({ newsletters = [], subtitle = "" }) {
+  const { t, tx } = useI18n();
   const [selectedPdf, setSelectedPdf] = useState(null);
 
   // Al cargar la página, que empiece arriba del todo
@@ -66,7 +64,7 @@ export default function ArticlesSection({ newsletters = [], subtitle = "" }) {
     <div className="articles-page">
       {/* CABECERA */}
       <header className="articles-header">
-        <h1>Newsletters</h1>
+        <h1>{t("articles.title")}</h1>
         <p>{subtitle}</p>
       </header>
 
@@ -83,12 +81,12 @@ export default function ArticlesSection({ newsletters = [], subtitle = "" }) {
                   className="newsletter-card"
                   onClick={() => openViewer(item.file)}
                 >
-                  <h3 className="month-title">{item.month}</h3>
+                  <h3 className="month-title">{tx(item.month)}</h3>
 
                   <div className="card-image">
-                    <img src={item.cover} alt={`Newsletter ${item.month}`} />
+                    <img src={item.cover} alt={`${t("articles.coverAlt")} ${tx(item.month)}`} />
                     <div className="overlay">
-                      <span>LEER PDF</span>
+                      <span>{t("articles.readPdf")}</span>
                     </div>
                   </div>
                 </div>
@@ -108,7 +106,7 @@ export default function ArticlesSection({ newsletters = [], subtitle = "" }) {
             {/* Este iframe carga el visor nativo de PDFs del navegador */}
             <iframe
               src={`${selectedPdf}#toolbar=0&view=FitH`}
-              title="Visor PDF"
+              title={t("articles.viewerTitle")}
               width="100%"
               height="100%"
             ></iframe>

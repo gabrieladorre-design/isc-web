@@ -7,7 +7,9 @@
 // Para añadir una newsletter: coloca el PDF y su portada en la carpeta de la
 // disciplina, impórtalos arriba y añade un objeto al array correspondiente.
 //
-// Campos: { id, year, month, cover, file }
+// Campos: { id, year, monthIndex, month: { es, en }, cover, file }
+//   monthIndex → número del mes (1-12). Se usa para ordenar cronológicamente
+//                independientemente del idioma en el que se esté viendo la web.
 // ───────────────────────────────────────────────────────────────────────────
 
 /* ===== PORTADAS Y PDFs — COCHE ===== */
@@ -51,25 +53,25 @@ import mCover202302 from "@/assets/articulos/moto/2023-02.png";
 import mFile202302  from "@/assets/articulos/moto/2023-02.pdf";
 
 export const formulaNewsletters = [
-  { id: 1, year: "2024", month: "DICIEMBRE", cover: cCover202412, file: cFile202412 },
-  { id: 2, year: "2024", month: "NOVIEMBRE", cover: cCover202411, file: cFile202411 },
-  { id: 3, year: "2024", month: "JULIO",     cover: cCover202407, file: cFile202407 },
-  { id: 4, year: "2024", month: "MARZO",     cover: cCover202403, file: cFile202403 },
-  { id: 5, year: "2024", month: "ENERO",     cover: cCover202401, file: cFile202401 },
-  { id: 6, year: "2023", month: "MAYO",      cover: cCover202305, file: cFile202305 },
-  { id: 7, year: "2023", month: "ABRIL",     cover: cCover202304, file: cFile202304 },
-  { id: 8, year: "2023", month: "MARZO",     cover: cCover202303, file: cFile202303 },
-  { id: 9, year: "2023", month: "FEBRERO",   cover: cCover202302, file: cFile202302 },
+  { id: 1, year: "2024", monthIndex: 12, month: { es: "DICIEMBRE", en: "DECEMBER" }, cover: cCover202412, file: cFile202412 },
+  { id: 2, year: "2024", monthIndex: 11, month: { es: "NOVIEMBRE", en: "NOVEMBER" }, cover: cCover202411, file: cFile202411 },
+  { id: 3, year: "2024", monthIndex: 7, month: { es: "JULIO", en: "JULY" }, cover: cCover202407, file: cFile202407 },
+  { id: 4, year: "2024", monthIndex: 3, month: { es: "MARZO", en: "MARCH" }, cover: cCover202403, file: cFile202403 },
+  { id: 5, year: "2024", monthIndex: 1, month: { es: "ENERO", en: "JANUARY" }, cover: cCover202401, file: cFile202401 },
+  { id: 6, year: "2023", monthIndex: 5, month: { es: "MAYO", en: "MAY" }, cover: cCover202305, file: cFile202305 },
+  { id: 7, year: "2023", monthIndex: 4, month: { es: "ABRIL", en: "APRIL" }, cover: cCover202304, file: cFile202304 },
+  { id: 8, year: "2023", monthIndex: 3, month: { es: "MARZO", en: "MARCH" }, cover: cCover202303, file: cFile202303 },
+  { id: 9, year: "2023", monthIndex: 2, month: { es: "FEBRERO", en: "FEBRUARY" }, cover: cCover202302, file: cFile202302 },
 ];
 
 export const motoNewsletters = [
-  { id: 1, year: "2024", month: "DICIEMBRE", cover: mCover202412, file: mFile202412 },
-  { id: 2, year: "2024", month: "NOVIEMBRE", cover: mCover202411, file: mFile202411 },
-  { id: 3, year: "2024", month: "JULIO",     cover: mCover202407, file: mFile202407 },
-  { id: 4, year: "2024", month: "MARZO",     cover: mCover202403, file: mFile202403 },
-  { id: 5, year: "2024", month: "ENERO",     cover: mCover202401, file: mFile202401 },
-  { id: 6, year: "2023", month: "MAYO",      cover: mCover202305, file: mFile202305 },
-  { id: 7, year: "2023", month: "ABRIL",     cover: mCover202304, file: mFile202304 },
-  { id: 8, year: "2023", month: "MARZO",     cover: mCover202303, file: mFile202303 },
-  { id: 9, year: "2023", month: "FEBRERO",   cover: mCover202302, file: mFile202302 },
+  { id: 1, year: "2024", monthIndex: 12, month: { es: "DICIEMBRE", en: "DECEMBER" }, cover: mCover202412, file: mFile202412 },
+  { id: 2, year: "2024", monthIndex: 11, month: { es: "NOVIEMBRE", en: "NOVEMBER" }, cover: mCover202411, file: mFile202411 },
+  { id: 3, year: "2024", monthIndex: 7, month: { es: "JULIO", en: "JULY" }, cover: mCover202407, file: mFile202407 },
+  { id: 4, year: "2024", monthIndex: 3, month: { es: "MARZO", en: "MARCH" }, cover: mCover202403, file: mFile202403 },
+  { id: 5, year: "2024", monthIndex: 1, month: { es: "ENERO", en: "JANUARY" }, cover: mCover202401, file: mFile202401 },
+  { id: 6, year: "2023", monthIndex: 5, month: { es: "MAYO", en: "MAY" }, cover: mCover202305, file: mFile202305 },
+  { id: 7, year: "2023", monthIndex: 4, month: { es: "ABRIL", en: "APRIL" }, cover: mCover202304, file: mFile202304 },
+  { id: 8, year: "2023", monthIndex: 3, month: { es: "MARZO", en: "MARCH" }, cover: mCover202303, file: mFile202303 },
+  { id: 9, year: "2023", monthIndex: 2, month: { es: "FEBRERO", en: "FEBRUARY" }, cover: mCover202302, file: mFile202302 },
 ];

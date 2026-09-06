@@ -1,35 +1,25 @@
 import ContactSection from "@/components/data-display/ContactSection";
+import { useI18n } from "@/i18n";
 
 // Dossier oficial específico de MotoStudent.
 import dossierPdfES from "@/assets/Dossier_ISC/Dossier_ISC_MotoStudent_ES.pdf";
 import dossierPdfEN from "@/assets/Dossier_ISC/Dossier_ISC_MotoStudent_EN.pdf";
 
 export default function MotoContact() {
+  const { t } = useI18n();
+
   return (
     <ContactSection
-      headerSubtitle="¿Tienes alguna duda o propuesta para MotoStudent? Estamos aquí para escucharte."
+      headerSubtitle={t("contact.moto.headerSubtitle")}
       email="motostudent@iscracingteam.com"
-      dossierText="Descarga nuestro dossier oficial con toda la información técnica del prototipo y opciones de colaboración."
+      dossierText={t("contact.moto.dossierText")}
       dossierEsHref={dossierPdfES}
       dossierEnHref={dossierPdfEN}
       dossierFileES="Dossier_ISC_MotoStudent_ES.pdf"
       dossierFileEN="Dossier_ISC_MotoStudent_EN.pdf"
-      mapTallerTitle="Mapa Taller Moto"
-      mapIcaiTitle="Mapa ICAI Moto"
-      faqs={[
-        {
-          q: "¿Cómo puedo unirme al equipo?",
-          a: <>El proceso de selección suele abrirse en septiembre y enero. Visita la sección <a href="/moto/recruitment">Recruitment</a> para ver si el plazo está abierto.</>,
-        },
-        {
-          q: "¿Buscáis patrocinadores?",
-          a: <>¡Siempre! Si representas a una empresa interesada en apoyar la innovación eléctrica en dos ruedas, descarga nuestro <strong>Dossier</strong> o llámanos.</>,
-        },
-        {
-          q: "¿Organizan visitas?",
-          a: "Sí, organizamos jornadas de puertas abiertas puntuales en nuestro taller. Anunciamos las fechas en nuestro Instagram.",
-        },
-      ]}
+      mapTallerTitle={t("contact.moto.mapWorkshopTitle")}
+      mapIcaiTitle={t("contact.moto.mapIcaiTitle")}
+      faqs={t("contact.moto.faqs")}
     />
   );
 }

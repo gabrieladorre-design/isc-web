@@ -2,11 +2,13 @@ import { useEffect, useRef } from "react";
 import { useParams, Link } from "react-router-dom"; 
 import { motosData } from "@/data/moto/motos";
 import Icon from "@/components/data-display/Icon";
+import { useI18n } from "@/i18n";
 import "./MotoDetail.scss";
 
 export default function MotoDetail() {
   const { motoId } = useParams(); 
   const revealRefs = useRef([]);
+  const { t, tx } = useI18n();
   
   const moto = motosData.find((m) => m.id === motoId);
 
@@ -35,8 +37,8 @@ export default function MotoDetail() {
     return (
       <div className="error-page">
         <h1>404</h1>
-        <p>Prototipo no encontrado.</p>
-        <Link to="/moto/garaje">Volver al Garaje</Link>
+        <p>{t("detail.notFoundMoto")}</p>
+        <Link to="/moto/garaje">{t("detail.back")}</Link>
       </div>
     );
   }
@@ -45,30 +47,30 @@ export default function MotoDetail() {
     <div className="car-detail-page">
       <header className="car-hero" style={{ backgroundImage: `url(${moto.image})` }}>
         <div className="overlay"></div>
-        <Link to="/moto/garaje" className="btn-back"><Icon name="arrow-left" /> Volver al Garaje</Link>
+        <Link to="/moto/garaje" className="btn-back"><Icon name="arrow-left" /> {t("detail.back")}</Link>
       </header>
 
       {/* Bloque de información sobre fondo blanco para máxima legibilidad */}
       <section className="model-intro">
-        {moto.status && <span className="model-status">{moto.status}</span>}
+        {moto.status && <span className="model-status">{tx(moto.status)}</span>}
         <h1>{moto.name}</h1>
-        <p className="summary">{moto.description}</p>
+        <p className="summary">{tx(moto.description)}</p>
       </section>
 
       <div className="main-content-container">
         <section className="specs-section" ref={addToRefs}>
-          <h2>ESPECIFICACIONES TÉCNICAS</h2>
+          <h2>{t("detail.specsTitle")}</h2>
           <div className="specs-grid">
-            <div className="spec-card"><Icon name="bolt" className="spec-icon" /> <small>Powertrain</small> <br/> {moto.specs.powertrain}</div>
-            <div className="spec-card"><Icon name="weight" className="spec-icon" /> <small>Peso Total</small> <br/> {moto.specs.weight}</div>
-            <div className="spec-card"><Icon name="tools" className="spec-icon" /> <small>Chasis</small> <br/> {moto.specs.chassis}</div>
-            <div className="spec-card"><Icon name="stopwatch" className="spec-icon" /> <small>0-100 km/h</small> <br/> {moto.specs.acceleration}</div>
+            <div className="spec-card"><Icon name="bolt" className="spec-icon" /> <small>{t("detail.specs.powertrain")}</small> <br/> {tx(moto.specs.powertrain)}</div>
+            <div className="spec-card"><Icon name="weight" className="spec-icon" /> <small>{t("detail.specs.weight")}</small> <br/> {tx(moto.specs.weight)}</div>
+            <div className="spec-card"><Icon name="tools" className="spec-icon" /> <small>{t("detail.specs.chassis")}</small> <br/> {tx(moto.specs.chassis)}</div>
+            <div className="spec-card"><Icon name="stopwatch" className="spec-icon" /> <small>{t("detail.specs.acceleration")}</small> <br/> {tx(moto.specs.acceleration)}</div>
           </div>
         </section>
 
         {moto.video && (
           <section className="model-video-section" ref={addToRefs}>
-            <h2>EL PROTOTIPO EN ACCIÓN</h2>
+            <h2>{t("detail.videoTitle")}</h2>
             <div className="model-video-wrapper">
               <video
                 src={moto.video}
@@ -83,19 +85,19 @@ export default function MotoDetail() {
         )}
 
         <section className="competitions-section" ref={addToRefs}>
-          <h2>HISTORIAL DE COMPETICIÓN</h2>
+          <h2>{t("detail.competitionsTitle")}</h2>
           {moto.competitions.length > 0 ? (
             <div className="comp-grid">
               {moto.competitions.map((comp, index) => (
                 <div key={index} className="comp-card">
                   <h4>{comp.name}</h4>
-                  <p><Icon name="pin" /> {comp.venue}</p>
-                  <p className="result"><Icon name="trophy" /> {comp.result}</p>
+                  <p><Icon name="pin" /> {tx(comp.venue)}</p>
+                  <p className="result"><Icon name="trophy" /> {tx(comp.result)}</p>
                 </div>
               ))}
             </div>
           ) : (
-            <p className="no-data">No hay datos de competición registrados para este modelo.</p>
+            <p className="no-data">{t("detail.noCompetitions")}</p>
           )}
         </section>
       </div>

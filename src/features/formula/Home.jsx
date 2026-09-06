@@ -1,4 +1,5 @@
 import HomeSection from "@/components/data-display/HomeSection";
+import { useI18n } from "@/i18n";
 
 // Assets locales
 import heroBg from "@/assets/fotos-y-videos/HomeCoche/HomeCoche.JPG";
@@ -17,15 +18,17 @@ import slide7 from "@/assets/fotos-y-videos/HomeCoche/imagenes-deslizantes-home/
 const galleryImages = [slide1, slide2, slide3, slide4, slide5, slide6, slide7];
 
 export default function Home() {
+  const { t } = useI18n();
+
   return (
     <HomeSection
       heroTitle="ISC FS RACING TEAM"
       heroImage={heroBg}
       heroOverlayColor="rgba(0, 0, 0, 0.4)"
-      heroSubtitle="INNOVACIÓN. VELOCIDAD. FUTURO."
+      heroSubtitle={t("home.formula.heroSubtitle")}
       heroButtons={[
-        { to: "/team", label: "CONOCE AL EQUIPO" },
-        { to: "/sponsor-us", label: "PATROCÍNANOS" },
+        { to: "/team", label: t("home.formula.btnTeam") },
+        { to: "/sponsor-us", label: t("home.formula.btnSponsor") },
       ]}
       presentation={{
         src: presentationVideo,
@@ -33,44 +36,23 @@ export default function Home() {
         loop: true,
         controls: true,
       }}
-      whoParagraphs={
-        <>
-          <p className="intro-text">
-            Somos más de <strong>80 estudiantes</strong> de la Universidad Pontificia Comillas (ICAI).
-            Un equipo multidisciplinar de ingenieros mecánicos, electrónicos y perfiles de gestión (ADE) unidos por una pasión: ganar en la pista y liderar la innovación tecnológica.
-          </p>
-          <p>
-            Diseñamos y fabricamos desde cero nuestro monoplaza para la Formula Student. Apostamos por el futuro desarrollando un sistema de propulsión <strong>100% Eléctrico</strong> de alto rendimiento, un chasis ultraligero y un paquete aerodinámico de vanguardia.
-          </p>
-        </>
-      }
+      whoParagraphs={t("home.formula.whoParagraphs")}
       whoHighlights={[
-        { icon: "bolt", text: "Vehículo 100% Eléctrico" },
-        { icon: "tools", text: "Fabricación propia en ICAI" },
-        { icon: "flag", text: "Competición Internacional" },
+        { icon: "bolt", text: t("home.formula.highlight1") },
+        { icon: "tools", text: t("home.formula.highlight2") },
+        { icon: "flag", text: t("home.formula.highlight3") },
       ]}
       cadImg={carCad}
-      cadAlt="Monoplaza ISC"
+      cadAlt={t("home.formula.cadAlt")}
       cadOverlay="IFS-07 // EV POWERTRAIN"
-      mission={
-        <p>
-          Formar a los ingenieros del futuro enfrentándolos a desafíos reales.
-          Fomentamos el talento, el trabajo en equipo y la excelencia técnica
-          a través de la competición automovilística más exigente a nivel universitario.
-        </p>
-      }
-      vision={
-        <p>
-          Consolidarnos como un equipo referente en <strong>Formula Student Europe</strong>.
-          Diseñar vehículos cada vez más eficientes y competir al más alto nivel en los circuitos más emblemáticos: Montmeló, Hockenheim y Varano.
-        </p>
-      }
+      mission={t("home.formula.mission")}
+      vision={t("home.formula.vision")}
       gallery={[...galleryImages, ...galleryImages, ...galleryImages]}
-      ctaTitle="¿QUIERES FORMAR PARTE DE LA HISTORIA?"
-      ctaText="Tanto si eres estudiante buscando un reto, como si eres una empresa buscando innovación."
+      ctaTitle={t("home.formula.ctaTitle")}
+      ctaText={t("home.formula.ctaText")}
       ctaButtons={[
-        { to: "/recruitment", label: "ÚNETE COMO ALUMNO", className: "btn-primary" },
-        { to: "/sponsor-us", label: "COLABORA COMO EMPRESA", className: "btn-white" },
+        { to: "/recruitment", label: t("home.formula.ctaStudent"), className: "btn-primary" },
+        { to: "/sponsor-us", label: t("home.formula.ctaCompany"), className: "btn-white" },
       ]}
     />
   );
