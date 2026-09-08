@@ -11,8 +11,6 @@ export default function History() {
       timeline={formulaTimeline}
       vehicleAlt={t("history.formula.vehicleAlt")}
       vehicleLabel={t("history.formula.vehicleLabel")}
-      futureTitle={t("history.formula.futureTitle")}
-      futureBody={t("history.formula.futureBody")}
     />
   );
 }

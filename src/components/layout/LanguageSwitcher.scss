@@ -1,43 +1,39 @@
 @use "../../styles/variables" as *;
 
 /* ───────────────────────────────────────────────────────────────────────────
-   SELECTOR DE IDIOMA (ES / EN)
-   Dos pastillas juntas; la del idioma activo se pinta en amarillo ISC.
+   SELECTOR DE IDIOMA (ES / EN) — MENÚ DESPLEGABLE
+   Un único botón con el idioma activo; al pulsar se despliega la lista.
    ─────────────────────────────────────────────────────────────────────────── */
 .lang-switcher {
+  position: relative;
   display: inline-flex;
   align-items: center;
-  gap: 2px;
-  padding: 3px;
-  border: 1.5px solid rgba(255, 255, 255, 0.35);
-  border-radius: 999px;
-  background-color: rgba(0, 0, 0, 0.18);
   font-family: $font-main;
   flex-shrink: 0;
 
-  &__btn {
+  /* --- Botón visible (idioma activo) --- */
+  &__toggle {
     appearance: none;
-    border: none;
-    background: transparent;
-    color: rgba(255, 255, 255, 0.85);
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 7px 12px;
+    border: 1.5px solid rgba(255, 255, 255, 0.35);
+    border-radius: 999px;
+    background-color: rgba(0, 0, 0, 0.18);
+    color: rgba(255, 255, 255, 0.9);
     font-family: inherit;
     font-weight: 700;
     font-size: 0.78rem;
     letter-spacing: 0.6px;
     line-height: 1;
-    padding: 7px 12px;
-    border-radius: 999px;
     cursor: pointer;
-    transition: background-color 0.25s ease, color 0.25s ease;
+    transition: background-color 0.25s ease, color 0.25s ease,
+      border-color 0.25s ease;
 
     &:hover {
       color: $isc-yellow;
-    }
-
-    &.is-active {
-      background-color: $isc-yellow;
-      color: $ib-main-green;
-      cursor: default;
+      border-color: $isc-yellow;
     }
 
     &:focus-visible {
@@ -46,26 +42,130 @@
     }
   }
 
+  &__flag {
+    font-size: 0.95rem;
+    line-height: 1;
+  }
+
+  &__caret {
+    font-size: 0.65rem;
+    line-height: 1;
+    transition: transform 0.25s ease;
+  }
+
+  &.is-open &__toggle {
+    color: $isc-yellow;
+    border-color: $isc-yellow;
+  }
+
+  &.is-open &__caret {
+    transform: rotate(180deg);
+  }
+
+  /* --- Lista desplegada --- */
+  &__menu {
+    position: absolute;
+    top: calc(100% + 8px);
+    right: 0;
+    z-index: 1300;
+    min-width: 165px;
+    margin: 0;
+    padding: 6px;
+    list-style: none;
+    border: 1.5px solid rgba(255, 255, 255, 0.22);
+    border-radius: 12px;
+    background-color: $ib-main-green;
+    box-shadow: 0 10px 28px rgba(0, 0, 0, 0.35);
+    animation: lang-switcher-in 0.18s ease-out;
+  }
+
+  &__option {
+    appearance: none;
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    width: 100%;
+    padding: 9px 11px;
+    border: none;
+    border-radius: 8px;
+    background: transparent;
+    color: rgba(255, 255, 255, 0.9);
+    font-family: inherit;
+    font-weight: 600;
+    font-size: 0.82rem;
+    line-height: 1;
+    text-align: left;
+    cursor: pointer;
+    transition: background-color 0.2s ease, color 0.2s ease;
+
+    &:hover {
+      background-color: rgba(255, 255, 255, 0.1);
+      color: $isc-yellow;
+    }
+
+    &:focus-visible {
+      outline: 2px solid $isc-yellow;
+      outline-offset: -2px;
+    }
+
+    &.is-active {
+      background-color: $isc-yellow;
+      color: $ib-main-green;
+    }
+  }
+
+  &__name {
+    flex: 1;
+  }
+
+  &__option &__code {
+    font-weight: 700;
+    font-size: 0.72rem;
+    letter-spacing: 0.6px;
+    opacity: 0.75;
+  }
+
   /* --- Variante flotante: página de entrada (sin navbar) --- */
   &--floating {
     position: fixed;
     top: 1.4rem;
     right: 1.6rem;
     z-index: 1200;
-    border-color: rgba(255, 255, 255, 0.55);
-    background-color: rgba(0, 0, 0, 0.45);
-    backdrop-filter: blur(6px);
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+
+    .lang-switcher__toggle {
+      border-color: rgba(255, 255, 255, 0.55);
+      background-color: rgba(0, 0, 0, 0.45);
+      backdrop-filter: blur(6px);
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+    }
+  }
+}
+
+@keyframes lang-switcher-in {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
 @media (max-width: 900px) {
   .lang-switcher {
-    padding: 2px;
-
-    &__btn {
+    &__toggle {
       font-size: 0.72rem;
-      padding: 6px 9px;
+      padding: 6px 10px;
+    }
+
+    &__menu {
+      min-width: 150px;
+    }
+
+    &__option {
+      font-size: 0.78rem;
+      padding: 8px 10px;
     }
 
     &--floating {

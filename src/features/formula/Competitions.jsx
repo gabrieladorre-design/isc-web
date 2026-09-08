@@ -16,6 +16,7 @@ export default function Competitions() {
       mapCenter={[47.0, 8.0]}
       highlightLabel={t("competitions.formula.highlightLabel")}
       futureGoalLabel={t("competitions.formula.futureGoalLabel")}
+      bestSeason={t("competitions.formula.bestSeason")}
     />
   );
 }

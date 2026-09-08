@@ -76,7 +76,7 @@ export const en = {
       highlight1: "100% Electric Vehicle",
       highlight2: "Built in-house at ICAI",
       highlight3: "International Competition",
-      cadAlt: "ISC single-seater",
+      cadAlt: "IFS-08, the current ISC Racing Team car",
       mission: (
         <p>
           To train the engineers of the future by confronting them with real challenges.
@@ -261,6 +261,17 @@ export const en = {
       legendOther: "Official FS Events",
       highlightLabel: "ISC milestone:",
       futureGoalLabel: "Next goal",
+      /* Highlighted block above the track record (car section only). */
+      bestSeason: {
+        tag: "2025 / 2026 SEASON",
+        title: "The best season in our history",
+        text: "The IFS-08 has taken the ISC Racing Team further than ever. The eighth generation of the car consolidates the aerodynamic package introduced with the IFS-07 and delivers our best figures to date, closing the most complete season since the team started competing in 2017.",
+        stats: [
+          { value: "IFS-08", label: "Our fastest and lightest car" },
+          { value: "222 kg", label: "Car weight" },
+          { value: "3.2 s", label: "0-100 km/h" },
+        ],
+      },
     },
     moto: {
       subtitle: "The arena where electric engineering is put to the test on two wheels.",

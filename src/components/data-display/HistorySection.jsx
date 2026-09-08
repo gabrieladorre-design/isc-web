@@ -12,8 +12,12 @@ import "./HistorySection.scss";
  * Props:
  *  - subtitle:      subtítulo de la cabecera
  *  - timeline:      array de hitos { year, model, subtitle, text, stats, imgCar, imgTeam }
- *  - futureTitle:   título de la tarjeta "TEMPORADA 2026"
- *  - futureBody:    contenido JSX de la tarjeta de futuro
+ *  - futureTitle:   título de la tarjeta "TEMPORADA 2026" (opcional)
+ *  - futureBody:    contenido JSX de la tarjeta de futuro (opcional)
+ *
+ * Si no se pasa ni futureTitle ni futureBody, la tarjeta de futuro no se pinta
+ * y la línea del tiempo empieza directamente por el hito más reciente. Así lo
+ * hace la sección de coche, donde el IFS-08 ya ocupa ese sitio.
  *  - vehicleAlt:    palabra para el alt del vehículo ("Coche" / "Moto")
  *  - vehicleLabel:  etiqueta visible sobre la foto del vehículo ("Monoplaza" / "Prototipo")
  */
@@ -71,6 +75,11 @@ export default function HistorySection({
   // Estado para controlar qué imagen está ampliada
   const [zoomedImage, setZoomedImage] = useState(null);
 
+  /* La tarjeta "TEMPORADA 2026 / EN DESARROLLO" solo se pinta si se le pasa
+     contenido. En la sección de coche ya no se pasa: ese hueco lo ocupa el
+     IFS-08 como primer hito real de la línea del tiempo. */
+  const hasFutureCard = Boolean(futureTitle || futureBody);
+
   return (
     <div className="history-page">
       <header className="history-header">
@@ -82,21 +91,23 @@ export default function HistorySection({
         {/* LÍNEA CENTRAL */}
         <div className="timeline-line"></div>
 
-        {/* --- SECCIÓN FUTURO (2026) --- */}
-        <div className="future-section">
-          <div className="arrow-container">
-            <div className="arrow-up"></div>
-          </div>
-
-          <div className="future-card">
-            <div className="future-header">
-              <span className="future-year">{t("history.futureSeason")}</span>
-              <span className="future-tag">{t("history.futureTag")}</span>
+        {/* --- SECCIÓN FUTURO (opcional) --- */}
+        {hasFutureCard && (
+          <div className="future-section">
+            <div className="arrow-container">
+              <div className="arrow-up"></div>
             </div>
-            <h2>{futureTitle}</h2>
-            {futureBody}
+
+            <div className="future-card">
+              <div className="future-header">
+                <span className="future-year">{t("history.futureSeason")}</span>
+                <span className="future-tag">{t("history.futureTag")}</span>
+              </div>
+              <h2>{futureTitle}</h2>
+              {futureBody}
+            </div>
           </div>
-        </div>
+        )}
 
         {/* RESTO DE LA HISTORIA */}
         {timeline.map((item, index) => (

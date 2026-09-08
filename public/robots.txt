@@ -1,0 +1,7 @@
+# Web oficial del ISC Racing Team — Universidad Pontificia Comillas (ICAI)
+# Toda la web es pública e indexable.
+
+User-agent: *
+Allow: /
+
+Sitemap: https://www.iscracingteam.com/sitemap.xml

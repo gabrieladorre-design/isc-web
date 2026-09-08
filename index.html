@@ -5,8 +5,126 @@
     <link rel="icon" type="image/png" sizes="256x256" href="/favicon.png?v=3" />
     <link rel="apple-touch-icon" href="/favicon.png?v=3" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Web oficial del ISC Racing Team — Formula Student y MotoStudent · Universidad Pontificia Comillas (ICAI)." />
-    <title>ISC Racing Team</title>
+
+    <!-- ─────────────────────────────────────────────────────────────────────
+         IDENTIDAD DE LA WEB EN LOS BUSCADORES
+         El título y la descripción son lo que Google enseña en el resultado.
+         ───────────────────────────────────────────────────────────────────── -->
+    <title>ISC Racing Team | Formula Student y MotoStudent — ICAI Comillas</title>
+    <meta
+      name="description"
+      content="Equipo de competición universitario de la Universidad Pontificia Comillas (ICAI). Diseñamos y fabricamos monoplazas eléctricos para Formula Student y motos eléctricas para MotoStudent. Descubre nuestro garaje, nuestra historia, el equipo y cómo unirte o patrocinarnos."
+    />
+    <meta name="author" content="ISC Racing Team" />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <link rel="canonical" href="https://www.iscracingteam.com/" />
+
+    <!-- Redes sociales (Open Graph / Twitter) -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="ISC Racing Team" />
+    <meta property="og:locale" content="es_ES" />
+    <meta property="og:locale:alternate" content="en_GB" />
+    <meta property="og:url" content="https://www.iscracingteam.com/" />
+    <meta
+      property="og:title"
+      content="ISC Racing Team | Formula Student y MotoStudent — ICAI Comillas"
+    />
+    <meta
+      property="og:description"
+      content="Equipo de competición universitario de ICAI Comillas: monoplazas eléctricos de Formula Student y motos eléctricas de MotoStudent."
+    />
+    <meta property="og:image" content="https://www.iscracingteam.com/favicon.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="ISC Racing Team | Formula Student y MotoStudent — ICAI Comillas"
+    />
+    <meta
+      name="twitter:description"
+      content="Equipo de competición universitario de ICAI Comillas: monoplazas eléctricos de Formula Student y motos eléctricas de MotoStudent."
+    />
+    <meta name="twitter:image" content="https://www.iscracingteam.com/favicon.png" />
+
+    <!-- ─────────────────────────────────────────────────────────────────────
+         DATOS ESTRUCTURADOS (JSON-LD)
+         Le decimos a Google QUÉ somos (un equipo de competición universitario,
+         no un fabricante de coches) y CUÁLES son las secciones reales de la
+         web, para que los enlaces que muestra debajo del resultado se
+         correspondan con el menú de verdad.
+         ───────────────────────────────────────────────────────────────────── -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": ["SportsOrganization", "CollegeOrUniversity"],
+            "@id": "https://www.iscracingteam.com/#organization",
+            "name": "ISC Racing Team",
+            "alternateName": [
+              "ICAI Speed Club",
+              "ISC FS Racing Team",
+              "ISC MS Racing Team"
+            ],
+            "url": "https://www.iscracingteam.com/",
+            "logo": "https://www.iscracingteam.com/favicon.png",
+            "description": "Equipo de competición universitario de la Universidad Pontificia Comillas (ICAI). Diseña y fabrica monoplazas eléctricos para Formula Student y motos eléctricas para MotoStudent.",
+            "sport": ["Formula Student", "MotoStudent", "Motorsport"],
+            "parentOrganization": {
+              "@type": "CollegeOrUniversity",
+              "name": "Universidad Pontificia Comillas (ICAI)",
+              "url": "https://www.comillas.edu/"
+            },
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Calle Labradores, 7",
+              "postalCode": "28660",
+              "addressLocality": "Boadilla del Monte",
+              "addressRegion": "Madrid",
+              "addressCountry": "ES"
+            },
+            "email": "info@iscracingteam.com",
+            "sameAs": [
+              "https://www.instagram.com/iscracingteam/",
+              "https://www.instagram.com/iscmsracingteam/"
+            ]
+          },
+          {
+            "@type": "WebSite",
+            "@id": "https://www.iscracingteam.com/#website",
+            "url": "https://www.iscracingteam.com/",
+            "name": "ISC Racing Team",
+            "inLanguage": ["es-ES", "en-GB"],
+            "publisher": { "@id": "https://www.iscracingteam.com/#organization" }
+          },
+          {
+            "@type": "SiteNavigationElement",
+            "@id": "https://www.iscracingteam.com/#nav",
+            "name": [
+              "Formula Student",
+              "MotoStudent",
+              "Historia",
+              "Garaje",
+              "Equipo",
+              "Resultados",
+              "Patrocinadores",
+              "Únete",
+              "Contacto"
+            ],
+            "url": [
+              "https://www.iscracingteam.com/formula",
+              "https://www.iscracingteam.com/moto",
+              "https://www.iscracingteam.com/history",
+              "https://www.iscracingteam.com/garaje",
+              "https://www.iscracingteam.com/team",
+              "https://www.iscracingteam.com/resultados",
+              "https://www.iscracingteam.com/sponsors",
+              "https://www.iscracingteam.com/recruitment",
+              "https://www.iscracingteam.com/contact"
+            ]
+          }
+        ]
+      }
+    </script>
   </head>
   <body>
     <div id="root"></div>

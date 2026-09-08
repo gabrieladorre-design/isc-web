@@ -1,0 +1,40 @@
+
+import { createRequire } from "module";
+import fs from "fs";
+const require = createRequire(import.meta.url);
+const { parse } = require("@babel/parser");
+
+function keys(file) {
+  const ast = parse(fs.readFileSync(file, "utf8"), {
+    sourceType: "module",
+    plugins: ["jsx"],
+  });
+  const out = [];
+  function walkObj(node, prefix) {
+    for (const prop of node.properties) {
+      if (prop.type !== "ObjectProperty") continue;
+      const name = prop.key.name ?? prop.key.value;
+      const path = prefix ? prefix + "." + name : name;
+      if (prop.value.type === "ObjectExpression") walkObj(prop.value, path);
+      else out.push(path);
+    }
+  }
+  for (const stmt of ast.program.body) {
+    let decl = stmt;
+    if (stmt.type === "ExportNamedDeclaration") decl = stmt.declaration;
+    if (decl && decl.type === "VariableDeclaration") {
+      for (const d of decl.declarations) {
+        if (d.init && d.init.type === "ObjectExpression") walkObj(d.init, "");
+      }
+    }
+  }
+  return out.sort();
+}
+
+const es = keys("src/i18n/dictionaries/es.jsx");
+const en = keys("src/i18n/dictionaries/en.jsx");
+const soloEs = es.filter((k) => !en.includes(k));
+const soloEn = en.filter((k) => !es.includes(k));
+console.log("claves ES:", es.length, "| claves EN:", en.length);
+console.log("solo en ES:", JSON.stringify(soloEs));
+console.log("solo en EN:", JSON.stringify(soloEn));

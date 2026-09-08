@@ -4,7 +4,10 @@ import { useI18n } from "@/i18n";
 // Assets locales
 import heroBg from "@/assets/fotos-y-videos/HomeCoche/HomeCoche.JPG";
 import presentationVideo from "@/assets/fotos-y-videos/HomeCoche/HomeVideoCoche.mp4";
-import carCad from "@/assets/fotos-y-videos/HomeCoche/ModeloCoche.JPG";
+// Monoplaza destacado en "Quiénes Somos": foto real del IFS-08, el prototipo
+// actual del equipo. (El render CAD que había antes sigue disponible en
+// assets/fotos-y-videos/HomeCoche/ModeloCoche.JPG por si se quiere recuperar.)
+import carPhoto from "@/assets/fotos-y-videos/ModelosCoche/ifs08.jpg";
 
 // Imágenes de la galería deslizante (fotos reales — Jarama 2024)
 import slide1 from "@/assets/fotos-y-videos/HomeCoche/imagenes-deslizantes-home/Coche-01.jpg";
@@ -42,9 +45,9 @@ export default function Home() {
         { icon: "tools", text: t("home.formula.highlight2") },
         { icon: "flag", text: t("home.formula.highlight3") },
       ]}
-      cadImg={carCad}
+      cadImg={carPhoto}
       cadAlt={t("home.formula.cadAlt")}
-      cadOverlay="IFS-07 // EV POWERTRAIN"
+      cadOverlay="IFS-08 // EV POWERTRAIN"
       mission={t("home.formula.mission")}
       vision={t("home.formula.vision")}
       gallery={[...galleryImages, ...galleryImages, ...galleryImages]}

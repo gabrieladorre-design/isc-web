@@ -81,7 +81,7 @@ export const es = {
       highlight1: "Vehículo 100% Eléctrico",
       highlight2: "Fabricación propia en ICAI",
       highlight3: "Competición Internacional",
-      cadAlt: "Monoplaza ISC",
+      cadAlt: "IFS-08, el monoplaza actual del ISC Racing Team",
       mission: (
         <p>
           Formar a los ingenieros del futuro enfrentándolos a desafíos reales.
@@ -266,6 +266,17 @@ export const es = {
       legendOther: "Eventos Oficiales FS",
       highlightLabel: "Hito ISC:",
       futureGoalLabel: "Próximo objetivo",
+      /* Bloque destacado sobre el palmarés (solo en la sección de coche). */
+      bestSeason: {
+        tag: "TEMPORADA 2025 / 2026",
+        title: "La mejor temporada de nuestra historia",
+        text: "El IFS-08 ha llevado al ISC Racing Team más lejos que nunca. La octava generación del monoplaza consolida el paquete aerodinámico estrenado con el IFS-07 y firma nuestros mejores registros hasta la fecha, cerrando la temporada más completa desde que el equipo empezó a competir en 2017.",
+        stats: [
+          { value: "IFS-08", label: "El monoplaza más rápido y ligero" },
+          { value: "222 kg", label: "Peso del monoplaza" },
+          { value: "3,2 s", label: "0-100 km/h" },
+        ],
+      },
     },
     moto: {
       subtitle: "El terreno donde la ingeniería eléctrica se pone a prueba sobre dos ruedas.",

@@ -11,6 +11,7 @@ import Navbar from './components/layout/Navbar';
 import Footer from './components/layout/Footer';
 import ScrollToTop from './components/layout/ScrollToTop';
 import ScrollToTopButton from "./components/layout/ScrollToTopButton";
+import PageMeta from './components/layout/PageMeta';
 
 // Menús de navegación (datos)
 import { formulaNav, motoNav } from './data/navigation';
@@ -53,6 +54,8 @@ function AppContent() {
 
   return (
     <div className="app">
+      {/* Pone el título y la descripción correctos en cada página (Google) */}
+      <PageMeta />
       <ScrollToTop />
       
       {!isLandingPage &&

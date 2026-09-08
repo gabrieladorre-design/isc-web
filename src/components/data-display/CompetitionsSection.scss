@@ -66,7 +66,33 @@
     box-shadow: 0 20px 40px rgba(0,0,0,0.15);
     background: #111; 
 
-    .leaflet-map { width: 100%; height: 100%; z-index: 1; }
+    .leaflet-map {
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+
+      /* Aspecto oscuro del mapa.
+         Las teselas llegan de OpenStreetMap (libres y sin clave de API) en su
+         versión clara; este filtro las invierte y las desatura para conservar
+         el mapa oscuro de siempre. Solo afecta a la capa de teselas: los
+         marcadores, los popups y los controles viven en otras capas y no se
+         ven alterados. */
+      .leaflet-tile-pane {
+        filter: invert(1) hue-rotate(180deg) brightness(0.92) contrast(0.92)
+          saturate(0.6);
+      }
+
+      /* Atribución de OpenStreetMap, legible sobre el mapa oscuro */
+      .leaflet-control-attribution {
+        background: rgba(0, 0, 0, 0.55);
+        color: rgba(255, 255, 255, 0.7);
+        font-size: 0.7rem;
+
+        a {
+          color: rgba(255, 255, 255, 0.9);
+        }
+      }
+    }
   }
 }
 
@@ -197,6 +223,99 @@
     font-weight: 600;
     text-align: center;
     border: 1px dashed #cfd3d8;
+  }
+}
+
+/* --- BLOQUE DESTACADO: LA MEJOR TEMPORADA --- */
+.best-season {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+
+  &__inner {
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(135deg, $ib-main-green 0%, #002a1c 100%);
+    color: #fff;
+    border-radius: 16px;
+    padding: 3.5rem 3rem;
+    text-align: center;
+    box-shadow: 0 20px 45px rgba($ib-main-green, 0.25);
+
+    /* Franja amarilla superior, como en las tarjetas del palmarés */
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 6px;
+      background: $isc-yellow;
+    }
+  }
+
+  &__tag {
+    display: inline-block;
+    background: $isc-yellow;
+    color: $ib-main-green;
+    font-size: 0.8rem;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 0.45rem 1.1rem;
+    border-radius: 999px;
+    margin-bottom: 1.5rem;
+  }
+
+  &__title {
+    font-size: 2.6rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    line-height: 1.15;
+    margin: 0 0 1.2rem;
+    color: #fff;
+  }
+
+  &__text {
+    max-width: 780px;
+    margin: 0 auto;
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.88);
+  }
+
+  &__stats {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-top: 2.8rem;
+  }
+
+  &__stat {
+    flex: 1 1 190px;
+    max-width: 260px;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 1.4rem 1.2rem;
+    background: rgba(255, 255, 255, 0.07);
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    border-radius: 12px;
+  }
+
+  &__value {
+    font-size: 2rem;
+    font-weight: 900;
+    color: $isc-yellow;
+    line-height: 1.1;
+  }
+
+  &__label {
+    font-size: 0.9rem;
+    font-weight: 600;
+    line-height: 1.4;
+    color: rgba(255, 255, 255, 0.8);
   }
 }
 
@@ -331,6 +450,15 @@
   .leaflet-popup-content { width: auto !important; }
   .custom-popup .popup-header { padding: 1.2rem 1.3rem 1rem; h3 { font-size: 1.2rem; } }
   .custom-popup .popup-body { padding: 1.2rem 1.3rem 1.3rem; }
+
+  .best-season {
+    padding: 0 1rem;
+
+    &__inner { padding: 2.5rem 1.5rem; }
+    &__title { font-size: 1.8rem; }
+    &__text { font-size: 1rem; }
+    &__stat { flex: 1 1 100%; max-width: 100%; }
+  }
 
   /* En táctil no hay hover: los detalles se muestran siempre y ocultamos la pista */
   .results-section .timeline-grid .result-card {

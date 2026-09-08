@@ -32,9 +32,9 @@ export const carsData = [
     },
     specs: {
       powertrain: { es: "100% Eléctrico", en: "100% Electric" },
-      weight: { es: "En desarrollo", en: "In development" },
+      weight: { es: "222 kg", en: "222 kg" },
       chassis: { es: "Tubular de Acero", en: "Steel Tubular Frame" },
-      acceleration: { es: "Por determinar", en: "TBD" },
+      acceleration: { es: "3.2s (0-100 km/h)", en: "3.2s (0-100 km/h)" },
     },
     competitions: [],
   },

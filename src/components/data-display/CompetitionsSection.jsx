@@ -23,6 +23,9 @@ import "./CompetitionsSection.scss";
  *  - mapCenter:       centro del mapa [lat, lng]
  *  - highlightLabel:  texto en negrita del hito ISC en el popup
  *  - futureGoalLabel: texto del marcador no asistido
+ *  - bestSeason:      bloque destacado sobre el palmarés (opcional)
+ *                     { tag, title, text, stats: [{ value, label }] }
+ *                     Si no se pasa, no se pinta nada.
  */
 
 /* --- ICONOS PERSONALIZADOS PARA EL MAPA --- */
@@ -48,6 +51,7 @@ export default function CompetitionsSection({
   mapCenter = [47.0, 8.0],
   highlightLabel = "",
   futureGoalLabel = "",
+  bestSeason = null,
 }) {
   const { t, tx } = useI18n();
 
@@ -81,9 +85,16 @@ export default function CompetitionsSection({
             style={{ height: "600px", width: "100%", zIndex: 1 }}
             className="leaflet-map"
           >
+            {/* Teselas de OpenStreetMap: libres y SIN clave de API.
+                Las de CartoDB que había antes ahora exigen una clave de pago y
+                por eso el mapa salía cubierto con la marca de agua
+                "API key required". El aspecto oscuro del mapa se consigue
+                ahora con un filtro CSS sobre las teselas
+                (ver .leaflet-map en CompetitionsSection.scss). */}
             <TileLayer
-              attribution='&copy; <a href="https://carto.com/">CartoDB</a>'
-              url="https://{s}.basemaps.cartocdn.com/rastertiles/dark_all/{z}/{x}/{y}.png"
+              attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+              url="https://tile.openstreetmap.org/{z}/{x}/{y}.png"
+              maxZoom={19}
             />
 
             {events.map((event) => (
@@ -116,6 +127,30 @@ export default function CompetitionsSection({
           </MapContainer>
         </div>
       </section>
+
+      {/* BLOQUE DESTACADO: LA MEJOR TEMPORADA (solo si se le pasa contenido) */}
+      {bestSeason && (
+        <section className="best-season">
+          <div className="best-season__inner">
+            {bestSeason.tag && (
+              <span className="best-season__tag">{tx(bestSeason.tag)}</span>
+            )}
+            <h2 className="best-season__title">{tx(bestSeason.title)}</h2>
+            <p className="best-season__text">{tx(bestSeason.text)}</p>
+
+            {bestSeason.stats && bestSeason.stats.length > 0 && (
+              <div className="best-season__stats">
+                {bestSeason.stats.map((stat, index) => (
+                  <div className="best-season__stat" key={index}>
+                    <span className="best-season__value">{tx(stat.value)}</span>
+                    <span className="best-season__label">{tx(stat.label)}</span>
+                  </div>
+                ))}
+              </div>
+            )}
+          </div>
+        </section>
+      )}
 
       {/* HISTORIAL DE RESULTADOS */}
       <section className="results-section">

@@ -30,6 +30,7 @@ import car04 from "@/assets/fotos-y-videos/ModelosCoche/ifs04.jpg";
 import car05 from "@/assets/fotos-y-videos/ModelosCoche/ifs05.jpg";
 import car06 from "@/assets/fotos-y-videos/ModelosCoche/ifs06.jpg";
 import car07 from "@/assets/fotos-y-videos/ModelosCoche/ifs07.jpg";
+import car08 from "@/assets/fotos-y-videos/ModelosCoche/ifs08.jpg";
 
 // Fotos de equipo/competición de coche (imgTeam) — CocheStudentMedia
 import carTeam01 from "@/assets/fotos-y-videos/CocheMedia/cm-01.jpg";
@@ -42,8 +43,26 @@ import carTeam07 from "@/assets/fotos-y-videos/CocheMedia/cm-07.jpg";
 import carTeam08 from "@/assets/fotos-y-videos/CocheMedia/cm-08.jpg";
 import carTeam09 from "@/assets/fotos-y-videos/CocheMedia/cm-09.jpg";
 
-/* ===== FORMULA STUDENT (COCHE) — 2025 → 2017 ===== */
+/* ===== FORMULA STUDENT (COCHE) — 2026 → 2017 ===== */
 export const formulaTimeline = [
+  {
+    year: "2026",
+    model: "IFS-08",
+    subtitle: {
+      es: "El Monoplaza Actual",
+      en: "The Current Car",
+    },
+    text: {
+      es: "Octava generación y prototipo actual del equipo. Consolida el salto aerodinámico iniciado con el IFS-07 y lo lleva más lejos: 222 kg de peso y 0-100 km/h en 3,2 segundos. La temporada 2025/2026 ha sido la mejor de nuestra historia.",
+      en: "The eighth generation and the team's current prototype. It consolidates the aerodynamic leap started with the IFS-07 and takes it further: 222 kg and 0-100 km/h in 3.2 seconds. The 2025/2026 season has been the best in our history.",
+    },
+    stats: {
+      es: "222 kg · 0-100 en 3,2 s",
+      en: "222 kg · 0-100 in 3.2 s",
+    },
+    imgCar: car08,
+    imgTeam: carTeam01
+  },
   {
     year: "2025",
     model: "IFS-07",
