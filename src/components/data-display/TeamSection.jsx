@@ -74,11 +74,14 @@ export default function TeamSection({
     <div className="member-card">
       <div className="card-image">
         <img src={member.photo} alt={member.name} />
-        <div className="social-overlay">
-          <a href={member.linkedin} target="_blank" rel="noreferrer" title="LinkedIn">
-            <img src={linkedinIcon} alt="LinkedIn" />
-          </a>
-        </div>
+        {/* El icono solo se pinta si esa persona tiene LinkedIn (ver team.js) */}
+        {member.linkedin && (
+          <div className="social-overlay">
+            <a href={member.linkedin} target="_blank" rel="noreferrer" title="LinkedIn">
+              <img src={linkedinIcon} alt="LinkedIn" />
+            </a>
+          </div>
+        )}
       </div>
       <div className="card-info">
         <h3>{member.name}</h3>

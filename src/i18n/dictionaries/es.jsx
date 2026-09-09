@@ -180,6 +180,7 @@ export const es = {
      ═══════════════════════════════════════════════════════════════════════ */
   history: {
     title: "Nuestra Evolución",
+    continues: "La historia continúa",
     futureSeason: "TEMPORADA 2026",
     futureTag: "EN DESARROLLO",
     teamAlt: "Equipo",
@@ -220,8 +221,8 @@ export const es = {
       subtitle: "Impulsados por el diseño, unidos por la velocidad.",
       stats: [
         { target: 1, label: "Team Leader" },
-        { target: 5, label: "Directores Técnicos" },
-        { target: 12, label: "Jefes de Departamento" },
+        { target: 4, label: "Directores Técnicos" },
+        { target: 15, label: "Jefes y Co-Leads" },
         { target: 83, label: "Ingenieros" },
       ],
       description: (
@@ -270,11 +271,11 @@ export const es = {
       bestSeason: {
         tag: "TEMPORADA 2025 / 2026",
         title: "La mejor temporada de nuestra historia",
-        text: "El IFS-08 ha llevado al ISC Racing Team más lejos que nunca. La octava generación del monoplaza consolida el paquete aerodinámico estrenado con el IFS-07 y firma nuestros mejores registros hasta la fecha, cerrando la temporada más completa desde que el equipo empezó a competir en 2017.",
+        text: "El IFS-08 ha llevado al ISC Racing Team más lejos que nunca. Debutamos en Formula Student Austria, en el Red Bull Ring, y completamos por primera vez en nuestra historia todas las pruebas dinámicas —skidpad, aceleración, autocross y resistencia— en dos competiciones internacionales distintas. Además implementamos por primera vez el proyecto Driverless en testing.",
         stats: [
-          { value: "IFS-08", label: "El monoplaza más rápido y ligero" },
+          { value: "2", label: "Competiciones internacionales completadas" },
           { value: "222 kg", label: "Peso del monoplaza" },
-          { value: "3,2 s", label: "0-100 km/h" },
+          { value: "Driverless", label: "Primera implementación en testing" },
         ],
       },
     },

@@ -43,58 +43,65 @@ import carTeam07 from "@/assets/fotos-y-videos/CocheMedia/cm-07.jpg";
 import carTeam08 from "@/assets/fotos-y-videos/CocheMedia/cm-08.jpg";
 import carTeam09 from "@/assets/fotos-y-videos/CocheMedia/cm-09.jpg";
 
-/* ===== FORMULA STUDENT (COCHE) — 2026 → 2017 ===== */
+/* ===== FORMULA STUDENT (COCHE) — 2026 → 2017 =====
+   Textos revisados en septiembre de 2026 con las correcciones del equipo y
+   contrastados con el histórico oficial en la FS World Ranking List
+   (https://www.fs-world.org/university/1169/ev/ev).
+
+   ⚠️ FOTOS PENDIENTES: varias `imgTeam` de esta lista son en realidad de la
+   temporada del IFS-06. Están señaladas con el comentario "FOTO A CAMBIAR".
+   ===================================================================== */
 export const formulaTimeline = [
   {
     year: "2026",
     model: "IFS-08",
     subtitle: {
-      es: "El Monoplaza Actual",
-      en: "The Current Car",
+      es: "El Coche Más Fiable",
+      en: "Our Most Reliable Car",
     },
     text: {
-      es: "Octava generación y prototipo actual del equipo. Consolida el salto aerodinámico iniciado con el IFS-07 y lo lleva más lejos: 222 kg de peso y 0-100 km/h en 3,2 segundos. La temporada 2025/2026 ha sido la mejor de nuestra historia.",
-      en: "The eighth generation and the team's current prototype. It consolidates the aerodynamic leap started with the IFS-07 and takes it further: 222 kg and 0-100 km/h in 3.2 seconds. The 2025/2026 season has been the best in our history.",
+      es: "Octava generación y prototipo actual del equipo. Debutamos en Formula Student Austria, en el Red Bull Ring, y completamos por primera vez en nuestra historia todas las pruebas dinámicas en dos competiciones internacionales distintas, sumando además en Barcelona el mayor tiempo de testing de cualquier temporada. Implementamos también por primera vez el proyecto Driverless en testing.",
+      en: "The eighth generation and the team's current prototype. We made our debut at Formula Student Austria, at the Red Bull Ring, and for the first time in our history completed every dynamic event at two different international competitions, while logging more testing time in Barcelona than in any previous season. We also ran the Driverless project in testing for the first time.",
     },
     stats: {
-      es: "222 kg · 0-100 en 3,2 s",
-      en: "222 kg · 0-100 in 3.2 s",
+      es: "Debut en Austria",
+      en: "Austria Debut",
     },
     imgCar: car08,
-    imgTeam: carTeam01
+    imgTeam: carTeam01 // FOTO A CAMBIAR: la que no es del coche es del IFS-06
   },
   {
     year: "2025",
     model: "IFS-07",
     subtitle: {
-      es: "Aerodinámica y Velocidad",
-      en: "Aerodynamics and Speed",
+      es: "Aerodinámica y Ligereza",
+      en: "Aerodynamics and Lightness",
     },
     text: {
-      es: "El coche más rápido y ligero hasta la fecha. Incorpora por primera vez un paquete aerodinámico completo. Superamos todas las inspecciones técnicas por cuarta vez consecutiva.",
-      en: "The fastest and lightest car to date. It features a full aerodynamic package for the first time. We passed all technical inspections for the fourth consecutive year.",
+      es: "El coche más rápido y ligero hasta la fecha. Incorpora por primera vez un paquete aerodinámico completo junto a una optimización general de todos los componentes. Superamos todas las inspecciones técnicas por cuarta vez consecutiva en Formula Student Spain, la única competición a la que acudimos esa temporada.",
+      en: "The fastest and lightest car to date. It features a full aerodynamic package for the first time, together with an overall optimisation of every component. We passed all technical inspections for the fourth consecutive year at Formula Student Spain, the only competition we attended that season.",
     },
     stats: {
-      es: "Revolución Aerodinámica",
-      en: "Aerodynamic Revolution",
+      es: "El Más Ligero",
+      en: "The Lightest",
     },
     imgCar: car07,
-    imgTeam: carTeam02
+    imgTeam: carTeam02 // FOTO A CAMBIAR: la del Business Plan y la de empujar el coche son del IFS-06
   },
   {
     year: "2024",
     model: "IFS-06",
     subtitle: {
-      es: "Alemania y Lluvia",
-      en: "Germany and Rain",
+      es: "Primeras Victorias",
+      en: "First Wins",
     },
     text: {
-      es: "Debut en Formula Student Germany, la cita de referencia. Logramos nuestro primer podio en Business Plan (Italia) y completamos una carrera de Endurance bajo la lluvia.",
-      en: "Debut at Formula Student Germany, the benchmark event. We took our first Business Plan podium (Italy) and completed an Endurance race in the rain.",
+      es: "Debut en Formula Student Germany (Hockenheimring), la cita de referencia. Ganamos la prueba de Business Plan tanto en Formula Student Spain como en Formula ATA Italy —las primeras victorias y los primeros trofeos del equipo— y completamos en Italia nuestra primera prueba de Endurance, disputada bajo la lluvia.",
+      en: "Debut at Formula Student Germany (Hockenheimring), the benchmark event. We won the Business Plan event at both Formula Student Spain and Formula ATA Italy — the team's first wins and first trophies — and completed our first ever Endurance race in Italy, in the rain.",
     },
     stats: {
-      es: "Podio Business Plan",
-      en: "Business Plan Podium",
+      es: "1.º Business Plan × 2",
+      en: "1st Business Plan × 2",
     },
     imgCar: car06,
     imgTeam: carTeam06
@@ -107,48 +114,48 @@ export const formulaTimeline = [
       en: "Maturity and Reliability",
     },
     text: {
-      es: "Quinta generación del monoplaza, desarrollada bajo una filosofía de diseño orientada a la fiabilidad. La consolidación de los procesos de validación y la madurez alcanzada por la ingeniería del equipo se tradujeron en un vehículo notablemente más robusto y consistente, capaz de mantener un rendimiento estable a lo largo de toda la competición.",
-      en: "The fifth generation of the car, developed under a reliability-focused design philosophy. The consolidation of our validation processes and the engineering maturity reached by the team resulted in a noticeably more robust and consistent vehicle, able to sustain stable performance throughout the whole competition.",
+      es: "Quinta generación, desarrollada bajo una filosofía de diseño orientada a la fiabilidad y marcada por el mayor relevo generacional del equipo. En Formula Student Spain participamos por primera vez en todas las pruebas dinámicas y firmamos una histórica 7.ª posición en la general; en Formula ATA Italy duplicamos la puntuación en estáticas, con un 2.º puesto en Business Plan y un 3.º en Efficiency.",
+      en: "The fifth generation, developed under a reliability-focused design philosophy and marked by the biggest generational handover in the team's history. At Formula Student Spain we took part in every dynamic event for the first time and secured a historic 7th place overall; at Formula ATA Italy we doubled our static scores, with 2nd in Business Plan and 3rd in Efficiency.",
     },
     stats: {
       es: "P7 General FS Spain",
       en: "P7 Overall FS Spain",
     },
     imgCar: car05,
-    imgTeam: carTeam03
+    imgTeam: carTeam03 // FOTO A CAMBIAR: la de Italia es del IFS-06
   },
   {
     year: "2022",
     model: "IFS-04",
     subtitle: {
-      es: "Fiabilidad en Pista",
-      en: "Reliability on Track",
+      es: "El Primero en Pista",
+      en: "The First on Track",
     },
     text: {
-      es: "Por primera vez, el equipo superó con éxito las inspecciones técnicas tanto en Formula ATA Italy como en FS Spain, participando en las pruebas dinámicas de ambas competiciones.",
-      en: "For the first time, the team successfully passed technical inspections at both Formula ATA Italy and FS Spain, taking part in the dynamic events of both competitions.",
+      es: "El primer monoplaza del ISC que llegó a correr en pista. Superamos por primera vez las inspecciones técnicas tanto en Formula ATA Italy como en Formula Student Spain, participando en las pruebas dinámicas de ambas competiciones. Fue también el año en que pasamos a llamarnos ISC FS Racing Team y competimos por primera vez fuera de España.",
+      en: "The first ISC car to actually race on track. For the first time we passed technical inspections at both Formula ATA Italy and Formula Student Spain, taking part in the dynamic events of both competitions. It was also the year we became the ISC FS Racing Team and raced outside Spain for the first time.",
     },
     stats: {
-      es: "Inspecciones Superadas",
-      en: "Inspections Passed",
+      es: "Primeras Dinámicas",
+      en: "First Dynamic Events",
     },
     imgCar: car04,
-    imgTeam: carTeam04
+    imgTeam: carTeam04 // FOTO A CAMBIAR: la del podio es del IFS-06
   },
   {
     year: "2020-2021",
     model: "IFS-03",
     subtitle: {
-      es: "Hito Operativo",
-      en: "Operational Milestone",
+      es: "El Primero que Arrancó",
+      en: "The First One to Run",
     },
     text: {
-      es: "A pesar de la pandemia, logramos finalizar el primer coche plenamente operativo. Conseguimos un 2º puesto en Business Plan y un excelente feedback en diseño mecánico y eléctrico.",
-      en: "Despite the pandemic, we managed to finish our first fully operational car. We achieved 2nd place in Business Plan and excellent feedback on mechanical and electrical design.",
+      es: "El proyecto que superó la pandemia: dos temporadas de desarrollo por culpa del covid y un equipo que creció hasta más de 60 miembros. En agosto de 2021 se convirtió en el primer coche de nuestra historia en arrancar y funcionar plenamente, aunque nunca llegó a rodar en competición. Con él firmamos el primer podio del equipo: un 2.º puesto en Business Plan.",
+      en: "The project that got us through the pandemic: two seasons of development because of covid, and a team that grew to more than 60 members. In August 2021 it became the first car in our history to start up and run fully, although it never raced. With it we took the team's first podium: 2nd place in Business Plan.",
     },
     stats: {
-      es: "2º Business Plan",
-      en: "2nd Business Plan",
+      es: "Primer Podio",
+      en: "First Podium",
     },
     imgCar: car03,
     imgTeam: carTeam05
@@ -157,19 +164,19 @@ export const formulaTimeline = [
     year: "2019",
     model: "IFS-02",
     subtitle: {
-      es: "Crecimiento Técnico",
-      en: "Technical Growth",
+      es: "La Primera Estructura",
+      en: "The First Structure",
     },
     text: {
-      es: "Con un equipo más grande, se desarrolló el IFS-02. Se introdujo una nueva arquitectura de batería basada en celdas cilíndricas, mejorando notablemente la tecnología anterior.",
-      en: "With a larger team, the IFS-02 was developed. A new battery architecture based on cylindrical cells was introduced, significantly improving on the previous technology.",
+      es: "Con la llegada de nuevos miembros se planteó la primera estructura organizada de nuestra historia, con departamentos de gestión propios. En lo técnico introdujo una nueva arquitectura de batería basada en celdas cilíndricas que sigue siendo la base del acumulador que montamos hoy, y sentó las bases que permitieron llegar al IFS-03.",
+      en: "With new members joining, we set up the first organised structure in our history, with its own management departments. Technically it introduced a new battery architecture based on cylindrical cells that is still the basis of the accumulator we run today, and it laid the groundwork that made the IFS-03 possible.",
     },
     stats: {
-      es: "Nueva Batería",
-      en: "New Battery",
+      es: "Base del Acumulador Actual",
+      en: "Basis of Today's Accumulator",
     },
     imgCar: car02,
-    imgTeam: carTeam09
+    imgTeam: carTeam09 // FOTO A CAMBIAR: es del IFS-06
   },
   {
     year: "2017-2018",
@@ -179,15 +186,15 @@ export const formulaTimeline = [
       en: "The Origin",
     },
     text: {
-      es: "En tan solo un año, desarrollamos el primer prototipo de nuestra historia. Con él, participamos en nuestra primera competición, Formula Student Spain (Montmeló), sentando las bases del proyecto.",
-      en: "In just one year we developed the first prototype in our history. With it we took part in our first competition, Formula Student Spain (Montmeló), laying the foundations of the project.",
+      es: "En tan solo un año, los miembros fundadores desarrollaron el primer prototipo de nuestra historia. Con él participamos en nuestra primera competición, Formula Student Spain (Montmeló), sentando las bases del proyecto. Varios de aquellos fundadores trabajan hoy en la Fórmula 1.",
+      en: "In just one year the founding members developed the first prototype in our history. With it we took part in our first competition, Formula Student Spain (Montmeló), laying the foundations of the project. Several of those founders work in Formula 1 today.",
     },
     stats: {
       es: "Primer Prototipo",
       en: "First Prototype",
     },
     imgCar: car01,
-    imgTeam: carTeam07
+    imgTeam: carTeam07 // FOTO A CAMBIAR: una de las dos es del IFS-06
   }
 ];
 

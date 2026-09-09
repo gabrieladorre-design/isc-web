@@ -69,7 +69,11 @@ export default function CarDetail() {
             <div className="spec-card"><Icon name="bolt" className="spec-icon" /> <small>{t("detail.specs.powertrain")}</small> <br/> {tx(car.specs.powertrain)}</div>
             <div className="spec-card"><Icon name="weight" className="spec-icon" /> <small>{t("detail.specs.weight")}</small> <br/> {tx(car.specs.weight)}</div>
             <div className="spec-card"><Icon name="tools" className="spec-icon" /> <small>{t("detail.specs.chassis")}</small> <br/> {tx(car.specs.chassis)}</div>
-            <div className="spec-card"><Icon name="stopwatch" className="spec-icon" /> <small>{t("detail.specs.acceleration")}</small> <br/> {tx(car.specs.acceleration)}</div>
+            {/* La aceleración solo se pinta si el coche tiene el dato medido
+                (ver la nota de src/data/formula/coches.js) */}
+            {car.specs.acceleration && (
+              <div className="spec-card"><Icon name="stopwatch" className="spec-icon" /> <small>{t("detail.specs.acceleration")}</small> <br/> {tx(car.specs.acceleration)}</div>
+            )}
           </div>
         </section>
 

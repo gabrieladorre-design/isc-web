@@ -175,6 +175,7 @@ export const en = {
      ═══════════════════════════════════════════════════════════════════════ */
   history: {
     title: "Our Evolution",
+    continues: "The story continues",
     futureSeason: "2026 SEASON",
     futureTag: "IN DEVELOPMENT",
     teamAlt: "Team",
@@ -215,8 +216,8 @@ export const en = {
       subtitle: "Driven by design, united by speed.",
       stats: [
         { target: 1, label: "Team Leader" },
-        { target: 5, label: "Technical Directors" },
-        { target: 12, label: "Department Heads" },
+        { target: 4, label: "Technical Directors" },
+        { target: 15, label: "Heads & Co-Leads" },
         { target: 83, label: "Engineers" },
       ],
       description: (
@@ -265,11 +266,11 @@ export const en = {
       bestSeason: {
         tag: "2025 / 2026 SEASON",
         title: "The best season in our history",
-        text: "The IFS-08 has taken the ISC Racing Team further than ever. The eighth generation of the car consolidates the aerodynamic package introduced with the IFS-07 and delivers our best figures to date, closing the most complete season since the team started competing in 2017.",
+        text: "The IFS-08 has taken the ISC Racing Team further than ever. We made our debut at Formula Student Austria, at the Red Bull Ring, and for the first time in our history completed every dynamic event — skidpad, acceleration, autocross and endurance — at two different international competitions. We also ran the Driverless project in testing for the first time.",
         stats: [
-          { value: "IFS-08", label: "Our fastest and lightest car" },
+          { value: "2", label: "International competitions completed" },
           { value: "222 kg", label: "Car weight" },
-          { value: "3.2 s", label: "0-100 km/h" },
+          { value: "Driverless", label: "First implementation in testing" },
         ],
       },
     },

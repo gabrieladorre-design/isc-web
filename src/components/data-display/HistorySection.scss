@@ -45,6 +45,51 @@
   z-index: 0;
 }
 
+/* --- FLECHA "LA HISTORIA CONTINÚA" (arriba del todo) ---
+   Sustituye a la tarjeta de futuro en la sección de coche: la línea del tiempo
+   arranca justo debajo de ella (ver .has-continues .timeline-line). */
+.timeline-continues {
+  position: relative;
+  z-index: 1;
+  height: 150px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.timeline-continues .continues-arrow {
+  width: 0;
+  height: 0;
+  border-left: 17px solid transparent;
+  border-right: 17px solid transparent;
+  border-bottom: 27px solid $isc-yellow;
+  animation: continues-float 2.6s ease-in-out infinite;
+}
+
+.timeline-continues .continues-label {
+  font-weight: 800;
+  font-size: 0.82rem;
+  letter-spacing: 1.6px;
+  text-transform: uppercase;
+  color: $ib-main-green;
+  text-align: center;
+}
+
+.timeline-container.has-continues .timeline-line {
+  top: 150px;
+}
+
+@keyframes continues-float {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-8px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .timeline-continues .continues-arrow { animation: none; }
+}
+
 /* --- SECCIÓN FUTURO (ESTÁTICA) --- */
 .future-section {
   display: flex;
@@ -324,6 +369,23 @@
     top: 0;
     bottom: 0;
     transform: none;
+  }
+
+  /* La flecha se coloca encima de la línea, que en móvil va a la izquierda */
+  .timeline-continues {
+    height: 120px;
+    align-items: flex-start;
+    padding-left: 10px;
+    gap: 0.8rem;
+
+    .continues-label {
+      text-align: left;
+      font-size: 0.75rem;
+    }
+  }
+
+  .timeline-container.has-continues .timeline-line {
+    top: 120px;
   }
 
   .timeline-row {

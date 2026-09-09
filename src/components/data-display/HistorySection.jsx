@@ -87,9 +87,19 @@ export default function HistorySection({
         <p>{subtitle}</p>
       </header>
 
-      <div className="timeline-container">
+      <div className={`timeline-container ${hasFutureCard ? "" : "has-continues"}`}>
         {/* LÍNEA CENTRAL */}
         <div className="timeline-line"></div>
+
+        {/* --- FLECHA "LA HISTORIA CONTINÚA" ---
+             Se pinta cuando no hay tarjeta de futuro: indica que la línea del
+             tiempo sigue hacia arriba con las próximas temporadas. */}
+        {!hasFutureCard && (
+          <div className="timeline-continues">
+            <div className="continues-arrow" aria-hidden="true"></div>
+            <span className="continues-label">{t("history.continues")}</span>
+          </div>
+        )}
 
         {/* --- SECCIÓN FUTURO (opcional) --- */}
         {hasFutureCard && (

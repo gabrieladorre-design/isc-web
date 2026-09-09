@@ -23,8 +23,8 @@ export const formulaEvents = [
     coords: [41.57, 2.26],
     attended: true,
     highlight: {
-      es: "P7 Overall (IFS-05) / 1st Design (IFS-07)",
-      en: "P7 Overall (IFS-05) / 1st Design (IFS-07)",
+      es: "1.º Business Plan (IFS-06) · P7 general (IFS-05)",
+      en: "1st Business Plan (IFS-06) · P7 overall (IFS-05)",
     },
   },
   {
@@ -34,8 +34,8 @@ export const formulaEvents = [
     coords: [49.327, 8.565],
     attended: true,
     highlight: {
-      es: "Top 10 Overall (IFS-07)",
-      en: "Top 10 Overall (IFS-07)",
+      es: "Debut del equipo (IFS-06)",
+      en: "Team debut (IFS-06)",
     },
   },
   {
@@ -45,8 +45,8 @@ export const formulaEvents = [
     coords: [44.683, 10.023],
     attended: true,
     highlight: {
-      es: "Podio Business Plan (IFS-05, IFS-06)",
-      en: "Business Plan Podium (IFS-05, IFS-06)",
+      es: "1.º Business Plan (IFS-06) · 2.º BP y 3.º Efficiency (IFS-05) · Primera Endurance",
+      en: "1st Business Plan (IFS-06) · 2nd BP and 3rd Efficiency (IFS-05) · First Endurance",
     },
   },
   {
@@ -56,8 +56,8 @@ export const formulaEvents = [
     coords: [47.219, 14.764],
     attended: true,
     highlight: {
-      es: "Finisher (IFS-03)",
-      en: "Finisher (IFS-03)",
+      es: "Debut y todas las pruebas dinámicas (IFS-08)",
+      en: "Debut and every dynamic event (IFS-08)",
     },
   },
 
@@ -94,51 +94,75 @@ export const formulaEvents = [
 
 export const formulaResults = [
   {
-    year: "2024 / 2025",
-    title: "FS Spain",
+    year: "2025 / 2026",
+    title: "FS Austria",
     highlight: {
-      es: "1st Position in Design Event",
-      en: "1st Position in Design Event",
+      es: "Debut y todas las pruebas dinámicas",
+      en: "Debut and every dynamic event",
     },
     details: {
-      es: "Un hito histórico. La mejor justificación de diseño de toda la parrilla nacional con el monoplaza IFS-07.",
-      en: "A historic milestone. The best design justification of the entire national grid with the IFS-07 car.",
+      es: "Primera vez del equipo en el Red Bull Ring de Spielberg. El IFS-08 completó skidpad, aceleración, autocross y resistencia.",
+      en: "The team's first time at the Red Bull Ring in Spielberg. The IFS-08 completed skidpad, acceleration, autocross and endurance.",
     },
   },
   {
-    year: "2024 / 2025",
-    title: "FS Germany",
+    year: "2025 / 2026",
+    title: "FS Spain",
     highlight: {
-      es: "TOP 10 Overall",
-      en: "TOP 10 Overall",
+      es: "Todas las pruebas dinámicas completadas",
+      en: "Every dynamic event completed",
     },
     details: {
-      es: "Excelente actuación global en Hockenheimring, demostrando la fiabilidad del paquete aerodinámico.",
-      en: "An excellent overall performance at Hockenheimring, proving the reliability of the aerodynamic package.",
+      es: "Segunda competición seguida completando el programa dinámico entero, con el mayor tiempo de testing de cualquier temporada y la primera implementación del proyecto Driverless.",
+      en: "A second consecutive competition completing the full dynamic programme, with more testing time than any previous season and the first implementation of the Driverless project.",
     },
   },
   {
     year: "2023 / 2024",
-    title: "FS Italy",
+    title: "FS Spain · FS Italy",
     highlight: {
-      es: "Podio en Business Plan",
-      en: "Business Plan Podium",
+      es: "1.º en Business Plan en las dos",
+      en: "1st in Business Plan at both",
     },
     details: {
-      es: "Consolidación del departamento de Statics con una presentación de negocio brillante (IFS-06).",
-      en: "Consolidation of the Statics department with a brilliant business presentation (IFS-06).",
+      es: "Las primeras victorias y los primeros trofeos del equipo, con el IFS-06. En Italia completamos además nuestra primera prueba de Endurance, bajo la lluvia.",
+      en: "The team's first wins and first trophies, with the IFS-06. In Italy we also completed our first ever Endurance race, in the rain.",
     },
   },
   {
     year: "2022 / 2023",
     title: "FS Spain",
     highlight: {
-      es: "7ª Posición General",
-      en: "7th Overall",
+      es: "7.ª posición general",
+      en: "7th overall",
     },
     details: {
-      es: "El IFS-05 completa todas las pruebas dinámicas, marcando un antes y un después en Montmeló.",
-      en: "The IFS-05 completed every dynamic event, marking a turning point at Montmeló.",
+      es: "El IFS-05 disputó por primera vez todas las pruebas dinámicas en Montmeló, marcando un antes y un después para el equipo.",
+      en: "The IFS-05 took part in every dynamic event at Montmeló for the first time, marking a turning point for the team.",
+    },
+  },
+  {
+    year: "2022 / 2023",
+    title: "FS Italy",
+    highlight: {
+      es: "2.º en Business Plan · 3.º en Efficiency",
+      en: "2nd in Business Plan · 3rd in Efficiency",
+    },
+    details: {
+      es: "Duplicamos la puntuación en las pruebas estáticas respecto al año anterior y mejoramos tres posiciones en la general.",
+      en: "We doubled our static event score compared with the previous year and improved three places overall.",
+    },
+  },
+  {
+    year: "2020 / 2021",
+    title: "FS Spain",
+    highlight: {
+      es: "2.º en Business Plan",
+      en: "2nd in Business Plan",
+    },
+    details: {
+      es: "El primer podio de la historia del equipo, logrado con el IFS-03 en plena pandemia.",
+      en: "The first podium in the team's history, achieved with the IFS-03 in the middle of the pandemic.",
     },
   },
 ];
