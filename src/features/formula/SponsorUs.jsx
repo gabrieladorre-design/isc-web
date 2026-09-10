@@ -24,7 +24,7 @@ export default function SponsorUs() {
       tiers={t("sponsorUs.formula.tiers")}
       ctaTitle={t("sponsorUs.formula.ctaTitle")}
       ctaText={t("sponsorUs.formula.ctaText")}
-      ctaEmailHref="mailto:formulastudent@iscracingteam.com?subject=Interés%20en%20Patrocinio%20ISC"
+      ctaEmailHref="mailto:direccion.isc@clubisc.com?subject=Interés%20en%20Patrocinio%20ISC"
     />
   );
 }

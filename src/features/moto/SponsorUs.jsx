@@ -24,7 +24,7 @@ export default function MotoSponsorUs() {
       tiers={t("sponsorUs.moto.tiers")}
       ctaTitle={t("sponsorUs.moto.ctaTitle")}
       ctaText={t("sponsorUs.moto.ctaText")}
-      ctaEmailHref="mailto:motostudent@iscracingteam.com?subject=Interés%20en%20Patrocinio%20MotoStudent"
+      ctaEmailHref="mailto:direccion.isc@clubisc.com?subject=Interés%20en%20Patrocinio%20MotoStudent"
     />
   );
 }

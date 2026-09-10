@@ -108,7 +108,7 @@ function AppContent() {
           <Footer
             variant="moto"
             instagramUrl="https://www.instagram.com/iscmsracingteam/"
-            email="motostudent@iscracingteam.com"
+            email="direccion.isc@clubisc.com"
           />
         ) : (
           <Footer variant="formula" />

@@ -55,7 +55,12 @@ function TimelineItem({ data, index, onImageClick, vehicleAlt, vehicleLabel }) {
           <img src={data.imgCar} alt={`${vehicleAlt} ${data.model}`} />
         </div>
         <div className="img-wrapper team" onClick={() => onImageClick(data.imgTeam)}>
-          <img src={data.imgTeam} alt={`${t("history.teamAlt")} ${data.year}`} />
+          {/* Si el hito trae su propio `imgTeamAlt` se usa ese texto; si no,
+              se asume que la segunda foto es la del equipo de esa temporada. */}
+          <img
+            src={data.imgTeam}
+            alt={data.imgTeamAlt ? tx(data.imgTeamAlt) : `${t("history.teamAlt")} ${data.year}`}
+          />
         </div>
       </div>
       <div className="timeline-dot"></div>

@@ -4,6 +4,7 @@ import "./Footer.scss";
 // Redes
 import instagramIcon from "@/assets/redes/instagram.png";
 import linkedinIcon from "@/assets/redes/linkedin.png";
+import { ISC_LINKEDIN_FS } from "@/data/redes";
 import youtubeIcon from "@/assets/redes/youtube.png";
 
 // Logos Generales
@@ -24,7 +25,7 @@ import iberdrolaLogo from "@/assets/logospatros/iberdrola-logo.png";
 export default function Footer({
   variant = "formula",
   instagramUrl = "https://www.instagram.com/iscfsracingteam/",
-  email = "formulastudent@iscracingteam.com",
+  email = "direccion.isc@clubisc.com",
 }) {
   const { t } = useI18n();
   const tagline =
@@ -43,7 +44,7 @@ export default function Footer({
             <a href={instagramUrl} target="_blank" rel="noreferrer">
               <img src={instagramIcon} alt="Instagram" />
             </a>
-            <a href="https://www.linkedin.com/company/iscracingteam/?originalSubdomain=es" target="_blank" rel="noreferrer">
+            <a href={ISC_LINKEDIN_FS} target="_blank" rel="noreferrer">
               <img src={linkedinIcon} alt="LinkedIn" />
             </a>
             <a href="https://www.youtube.com/@iscfsracingteam" target="_blank" rel="noreferrer">

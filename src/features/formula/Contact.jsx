@@ -11,7 +11,7 @@ export default function Contact() {
   return (
     <ContactSection
       headerSubtitle={t("contact.formula.headerSubtitle")}
-      email="formulastudent@iscracingteam.com"
+      email="direccion.isc@clubisc.com"
       dossierText={t("contact.formula.dossierText")}
       dossierEsHref={dossierPdfES}
       dossierEnHref={dossierPdfEN}

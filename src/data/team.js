@@ -21,11 +21,14 @@
 // assets/ORLA_JEFES_WEB/, impórtala arriba y cambia el campo `photo`.
 //
 // ⚠️ LINKEDIN
-// El icono de LinkedIn solo se pinta si la persona tiene `linkedin`. Quien no
-// lo tenga, simplemente no muestra el icono.
+// Quien todavía no tiene perfil personal publicado apunta a `ISC_LINKEDIN_FS`,
+// la página del equipo en LinkedIn (src/data/redes.js). Cuando alguien pase su
+// perfil, se sustituye ahí su valor por la URL personal.
 //
 // Actualizado en septiembre de 2026 con el listado oficial del equipo.
 // ───────────────────────────────────────────────────────────────────────────
+
+import { ISC_LINKEDIN_FS } from "@/data/redes";
 
 /* --- MARCADOR PARA QUIEN NO TIENE FOTO TODAVÍA --- */
 import sinFoto from "@/assets/ORLA_JEFES_WEB/persona-sin-foto.svg";
@@ -91,7 +94,7 @@ export const teamMembers = [
     name: "Marta Olmedo Delgado",
     role: "Manufacturing Co-Lead",
     photo: sinFoto,
-    linkedin: null,
+    linkedin: ISC_LINKEDIN_FS,
     tier: "head",
     category: "mechanical",
   },
@@ -107,7 +110,7 @@ export const teamMembers = [
     name: "Pablo de las Cuevas Gómez",
     role: "Composites Co-Lead",
     photo: sinFoto,
-    linkedin: null,
+    linkedin: "https://www.linkedin.com/in/pablo-de-las-cuevas-gomez-045255298",
     tier: "head",
     category: "mechanical",
   },
@@ -125,7 +128,7 @@ export const teamMembers = [
     name: "Paloma Mazuecos Reillo",
     role: "Head of Chassis",
     photo: sinFoto,
-    linkedin: null,
+    linkedin: "https://www.linkedin.com/in/paloma-mazuecos-reillo-a9a721286",
     tier: "head",
     category: "mechanical",
   },
@@ -133,7 +136,7 @@ export const teamMembers = [
     name: "Luis Gonzaga López-Cózar Escobar",
     role: "Head of Suspension & Dynamics",
     photo: sinFoto,
-    linkedin: null,
+    linkedin: ISC_LINKEDIN_FS,
     tier: "head",
     category: "mechanical",
   },
@@ -141,7 +144,7 @@ export const teamMembers = [
     name: "Ricardo Tur González",
     role: "Head of Aerodynamics & Cooling",
     photo: sinFoto,
-    linkedin: null,
+    linkedin: "https://www.linkedin.com/in/ricardo-tur-gonzalez2/",
     tier: "head",
     category: "mechanical",
   },
@@ -149,7 +152,7 @@ export const teamMembers = [
     name: "Imhotep Criado-Pou Castellanos",
     role: "Head of Tractive System",
     photo: sinFoto,
-    linkedin: null,
+    linkedin: ISC_LINKEDIN_FS,
     tier: "head",
     category: "mechanical",
   },
@@ -159,7 +162,7 @@ export const teamMembers = [
     name: "Inés Pacheco Pérez",
     role: "Head of Control Electronics",
     photo: sinFoto,
-    linkedin: null,
+    linkedin: "https://www.linkedin.com/in/ines-pacheco-perez",
     tier: "head",
     category: "electronics",
   },
@@ -167,7 +170,7 @@ export const teamMembers = [
     name: "Carlota María Treviño Mora",
     role: "Head of Electronic Subsystems",
     photo: sinFoto,
-    linkedin: null,
+    linkedin: ISC_LINKEDIN_FS,
     tier: "head",
     category: "electronics",
   },
@@ -177,7 +180,7 @@ export const teamMembers = [
     name: "Sergio Jiménez Romero",
     role: "Head of DV Software",
     photo: sergioImg,
-    linkedin: null,
+    linkedin: ISC_LINKEDIN_FS,
     tier: "head",
     category: "driverless",
   },
@@ -185,7 +188,7 @@ export const teamMembers = [
     name: "Alberto Velasco Rodríguez",
     role: "Head of DV Software",
     photo: sinFoto,
-    linkedin: null,
+    linkedin: ISC_LINKEDIN_FS,
     tier: "head",
     category: "driverless",
   },
@@ -193,7 +196,7 @@ export const teamMembers = [
     name: "Carlos Gárate Martín-Ondarza",
     role: "Head of DV Integration",
     photo: sinFoto,
-    linkedin: null,
+    linkedin: ISC_LINKEDIN_FS,
     tier: "head",
     category: "driverless",
   },
@@ -203,7 +206,7 @@ export const teamMembers = [
     name: "Laura Valero González",
     role: "Head of Statics",
     photo: lauraImg,
-    linkedin: null,
+    linkedin: ISC_LINKEDIN_FS,
     tier: "head",
     category: "statics",
   },
@@ -213,7 +216,7 @@ export const teamMembers = [
     name: "Thomas Arno Callière",
     role: "Head of Media & Marketing",
     photo: sinFoto,
-    linkedin: null,
+    linkedin: ISC_LINKEDIN_FS,
     tier: "head",
     category: "management",
   },

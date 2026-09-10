@@ -6,6 +6,7 @@ import "./ContactSection.scss";
 import instagramIcon from "@/assets/redes/instagram.png";
 import linkedinIcon from "@/assets/redes/linkedin.png";
 import youtubeIcon from "@/assets/redes/youtube.png";
+import { ISC_LINKEDIN_FS } from "@/data/redes";
 
 /**
  * Página de "Contacto" reutilizable para Coche y Moto.
@@ -105,7 +106,7 @@ export default function ContactSection({
                <a href="https://www.instagram.com/iscfsracingteam/" target="_blank" rel="noreferrer">
                  <img src={instagramIcon} alt="Instagram" />
                </a>
-               <a href="https://www.linkedin.com/company/iscracingteam/" target="_blank" rel="noreferrer">
+               <a href={ISC_LINKEDIN_FS} target="_blank" rel="noreferrer">
                  <img src={linkedinIcon} alt="LinkedIn" />
                </a>
                <a href="https://www.youtube.com/@iscfsracingteam" target="_blank" rel="noreferrer">

@@ -11,7 +11,7 @@ export default function MotoContact() {
   return (
     <ContactSection
       headerSubtitle={t("contact.moto.headerSubtitle")}
-      email="motostudent@iscracingteam.com"
+      email="direccion.isc@clubisc.com"
       dossierText={t("contact.moto.dossierText")}
       dossierEsHref={dossierPdfES}
       dossierEnHref={dossierPdfEN}

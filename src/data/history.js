@@ -30,7 +30,10 @@ import car04 from "@/assets/fotos-y-videos/ModelosCoche/ifs04.jpg";
 import car05 from "@/assets/fotos-y-videos/ModelosCoche/ifs05.jpg";
 import car06 from "@/assets/fotos-y-videos/ModelosCoche/ifs06.jpg";
 import car07 from "@/assets/fotos-y-videos/ModelosCoche/ifs07.jpg";
-import car08 from "@/assets/fotos-y-videos/ModelosCoche/ifs08.jpg";
+import car08 from "@/assets/fotos-y-videos/ModelosCoche/ifs08-historia-01.jpg";
+// Segunda foto del IFS-08 en la línea del tiempo (no es foto de equipo:
+// es el coche en el autocross de Barcelona).
+import car08b from "@/assets/fotos-y-videos/ModelosCoche/ifs08-historia-02.jpg";
 
 // Fotos de equipo/competición de coche (imgTeam) — CocheStudentMedia
 import carTeam01 from "@/assets/fotos-y-videos/CocheMedia/cm-01.jpg";
@@ -68,7 +71,11 @@ export const formulaTimeline = [
       en: "Austria Debut",
     },
     imgCar: car08,
-    imgTeam: carTeam01 // FOTO A CAMBIAR: la que no es del coche es del IFS-06
+    imgTeam: car08b,
+    imgTeamAlt: {
+      es: "IFS-08 en el Circuit de Barcelona-Catalunya",
+      en: "IFS-08 at the Circuit de Barcelona-Catalunya",
+    }
   },
   {
     year: "2025",

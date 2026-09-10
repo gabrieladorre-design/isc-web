@@ -9,7 +9,14 @@
 //
 // Los cargos (role) están en inglés, que es como los usa el equipo en las dos
 // versiones de la web. Las etiquetas de los filtros sí van en los dos idiomas.
+//
+// ⚠️ LINKEDIN
+// Quien todavía no tiene perfil personal publicado apunta a `ISC_LINKEDIN_MS`,
+// la página del equipo en LinkedIn (src/data/redes.js). Cuando alguien pase su
+// perfil, se sustituye ahí su valor por la URL personal.
 // ───────────────────────────────────────────────────────────────────────────
+
+import { ISC_LINKEDIN_MS } from "@/data/redes";
 
 /* --- IMPORTACIÓN DE FOTOS --- */
 import miguelLuqueImg from "@/assets/MIEMBROS_MOTO/Miguel-Luque.jpg";
@@ -20,15 +27,15 @@ import javierToimilImg from "@/assets/MIEMBROS_MOTO/Javier-Toimil.jpg";
 
 export const motoTeamMembers = [
   // --- TEAM LEADER ---
-  { name: "Miguel Luque Camello", role: "Team Leader 2025-2027", photo: miguelLuqueImg, linkedin: "https://linkedin.com/", tier: "tl", category: "management" },
+  { name: "Miguel Luque Camello", role: "Team Leader 2025-2027", photo: miguelLuqueImg, linkedin: ISC_LINKEDIN_MS, tier: "tl", category: "management" },
 
   // --- DIRECTORES ---
-  { name: "Ángel Santesmases Montero", role: "Technical Director", photo: angelSantesmasesImg, linkedin: "https://linkedin.com/", tier: "dt", category: "management" },
-  { name: "Javier Martín López", role: "Media Team Director", photo: javierMartinImg, linkedin: "https://linkedin.com/", tier: "dt", category: "media" },
+  { name: "Ángel Santesmases Montero", role: "Technical Director", photo: angelSantesmasesImg, linkedin: ISC_LINKEDIN_MS, tier: "dt", category: "management" },
+  { name: "Javier Martín López", role: "Media Team Director", photo: javierMartinImg, linkedin: ISC_LINKEDIN_MS, tier: "dt", category: "media" },
 
   // --- JEFES DE DEPARTAMENTO ---
-  { name: "Pau Juan-Aracil Ruiz", role: "Head of Design & Aerodynamics", photo: pauJuanAracilImg, linkedin: "https://linkedin.com/", tier: "head", category: "design" },
-  { name: "Javier Toimil Suárez", role: "Head of Powertrain", photo: javierToimilImg, linkedin: "https://linkedin.com/", tier: "head", category: "powertrain" }
+  { name: "Pau Juan-Aracil Ruiz", role: "Head of Design & Aerodynamics", photo: pauJuanAracilImg, linkedin: ISC_LINKEDIN_MS, tier: "head", category: "design" },
+  { name: "Javier Toimil Suárez", role: "Head of Powertrain", photo: javierToimilImg, linkedin: ISC_LINKEDIN_MS, tier: "head", category: "powertrain" }
 ];
 
 export const motoCategories = [
